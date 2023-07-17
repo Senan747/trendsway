@@ -40,6 +40,9 @@ export default {
           }
         }
       },
+      animation: {
+        'pulse': 'pulse 0.5s linear' 
+      },
       fontFamily: {
         Roboto: ['Roboto', 'sans-serif']
       },
@@ -65,7 +68,11 @@ export default {
         'gega-light': '#999999',
         'gega-green': '#28E98C',
         'gega-dark': '#191919',
-        'gega-soft': '#EFD1CE'
+        'gega-soft': '#EFD1CE',
+        'gega-pink': '#D9A6A0',
+        'gega-rose': '#B45965',
+        'gega-cameo': '#DBA8B7',
+        'gega-earth-red': '#95414E'
       },
     },
   },
