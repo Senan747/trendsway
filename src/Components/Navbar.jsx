@@ -13,7 +13,11 @@ function Navbar() {
         </div>
         <div className="flex flex-row items-center justify-between">
           <div className="mr-10">
-            <input type="search" className="border-1 w-[300px] rounded-[10px] py-1 px-3" placeholder="search"  />
+            <input
+              type="search"
+              className="border-1 w-[300px] rounded-[10px] py-1 px-3"
+              placeholder="search"
+            />
           </div>
           <div className="flex flex-row items-center mr-6 text-white">
             <button className="border-none px-3 py-1 mr-4 bg-gega-earth-red rounded-[10px]">
@@ -24,7 +28,7 @@ function Navbar() {
         </div>
       </div>
       <div className="pt-5">
-        <ul className="flex flex-row justify-around">
+        <ul className="flex flex-row justify-around border-b-2 border-gega-rose">
           <li
             className={`flex flex-col relative items-center cursor-pointer`}
             onMouseEnter={() => dropDown("blush")}
@@ -128,7 +132,11 @@ function Navbar() {
           </li>
         </ul>
         {activeMenu === "blush" && (
-          <div className="flex items-start justify-start  animate-pulse ml-10">
+          <div
+            className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-10"
+            onMouseEnter={() => dropDown("blush")}
+            onMouseLeave={() => dropDown("")}
+          >
             <div className=" flex flex-row">
               <ul className="flex flex-col mr-10">
                 <li>Powder</li>
@@ -152,9 +160,13 @@ function Navbar() {
           </div>
         )}
         {activeMenu === "nail-polish" && (
-          <div className="flex items-start justify-start ml-[150px] animate-pulse">
+          <div
+            className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red ml-[150px] animate-pulse"
+            onMouseEnter={() => dropDown("nail-polish")}
+            onMouseLeave={() => dropDown("")}
+          >
             <div className=" flex flex-row">
-              <ul>
+              <ul className="flex flex-col mr-10">
                 <li>Vegan</li>
                 <li>Canadian</li>
                 <li>Natural</li>
@@ -168,9 +180,13 @@ function Navbar() {
           </div>
         )}
         {activeMenu === "mascara" && (
-          <div className="flex items-start justify-start  animate-pulse ml-[330px]">
+          <div
+            className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[330px]"
+            onMouseEnter={() => dropDown("mascara")}
+            onMouseLeave={() => dropDown("")}
+          >
             <div className=" flex flex-row">
-              <ul>
+              <ul className="flex flex-col mr-10">
                 <li>Natural</li>
                 <li>Gluten free</li>
                 <li>Vegan</li>
@@ -188,17 +204,19 @@ function Navbar() {
           </div>
         )}
         {activeMenu === "lipstick" && (
-          <div className="flex items-start justify-start  animate-pulse ml-[450px]">
+          <div
+            className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[450px]"
+            onMouseEnter={() => dropDown("lipstick")}
+            onMouseLeave={() => dropDown("")}
+          >
             <div className=" flex flex-row">
-              <h2>By Category:</h2>
-              <ul>
+              <ul className="flex flex-col mr-10">
                 <li>Lipstick</li>
                 <li>Lip gloss</li>
                 <li>Liquid</li>
                 <li>Lip stain</li>
               </ul>
 
-              <h2>By Tag:</h2>
               <ul>
                 <li>Canadian</li>
                 <li>Natural</li>
@@ -219,14 +237,15 @@ function Navbar() {
           </div>
         )}
         {activeMenu === "lip-liner" && (
-          <div className="flex items-start justify-start  animate-pulse ml-[550px]">
+          <div
+            className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[550px]"
+            onMouseEnter={() => dropDown("lip-liner")}
+            onMouseLeave={() => dropDown("")}
+          >
             <div className=" flex flex-row">
-              <h2>By Category:</h2>
-              <ul>
+              <ul className="flex flex-col mr-10">
                 <li>Pencil</li>
               </ul>
-
-              <h2>By Tag:</h2>
               <ul>
                 <li>Natural</li>
                 <li>Vegan</li>
@@ -242,10 +261,13 @@ function Navbar() {
           </div>
         )}
         {activeMenu === "foundation" && (
-          <div className="flex items-start justify-start  animate-pulse ml-[670px]">
+          <div
+            className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[670px]"
+            onMouseEnter={() => dropDown("foundation")}
+            onMouseLeave={() => dropDown("")}
+          >
             <div className=" flex flex-row">
-              <h2>By Category:</h2>
-              <ul>
+              <ul className="flex flex-col mr-10">
                 <li>Concealer</li>
                 <li>Liquid</li>
                 <li>Contour</li>
@@ -255,9 +277,7 @@ function Navbar() {
                 <li>Powder</li>
                 <li>Highlighter</li>
               </ul>
-
-              <h2>By Tag:</h2>
-              <ul>
+              <ul className="flex flex-col mr-10">
                 <li>Vegan</li>
                 <li>Canadian</li>
                 <li>Natural</li>
@@ -277,17 +297,19 @@ function Navbar() {
           </div>
         )}
         {activeMenu === "eyeshadow" && (
-          <div className="flex items-start justify-start  animate-pulse ml-[850px]">
-            <div className=" flex flex-row">
-              <h2>By Category:</h2>
-              <ul>
+          <div
+            className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[850px]"
+            onMouseEnter={() => dropDown("eyeshadow")}
+            onMouseLeave={() => dropDown("")}
+          >
+            <div className="flex flex-row">
+              <ul className="flex flex-col mr-10">
                 <li>Palette</li>
                 <li>Pencil</li>
                 <li>-</li>
                 <li>Cream</li>
               </ul>
-              <h2>By Tag:</h2>
-              <ul>
+              <ul className="flex flex-col mr-10">
                 <li>Vegan</li>
                 <li>Canadian</li>
                 <li>Natural</li>
@@ -306,18 +328,19 @@ function Navbar() {
           </div>
         )}
         {activeMenu === "eyeliner" && (
-          <div className="flex items-start justify-start  animate-pulse ml-[1000px]">
+          <div
+            className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[1000px]"
+            onMouseEnter={() => dropDown("eyeliner")}
+            onMouseLeave={() => dropDown("")}
+          >
             <div className=" flex flex-row">
-              <h2>By Category:</h2>
-              <ul>
+              <ul className="flex flex-col mr-10">
                 <li>Liquid</li>
                 <li>Pencil</li>
                 <li>Gel</li>
                 <li>Cream</li>
               </ul>
-
-              <h2>By Tag:</h2>
-              <ul>
+              <ul className="flex flex-col mr-10">
                 <li>Vegan</li>
                 <li>Natural</li>
                 <li>Canadian</li>
@@ -334,14 +357,16 @@ function Navbar() {
           </div>
         )}
         {activeMenu === "eyebrow" && (
-          <div className="flex items-start justify-start  animate-pulse ml-[1150px]">
+          <div
+            className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[1150px]"
+            onMouseEnter={() => dropDown("eyebrow")}
+            onMouseLeave={() => dropDown("")}
+          >
             <div className=" flex flex-row">
-              <h2>By Category:</h2>
-              <ul>
+              <ul className="flex flex-col pr-3">
                 <li>Pencil</li>
               </ul>
-              <h2>By Tag:</h2>
-              <ul>
+              <ul className="">
                 <li>EWG verified</li>
                 <li>Purpicks</li>
               </ul>
@@ -349,13 +374,15 @@ function Navbar() {
           </div>
         )}
         {activeMenu === "bronzer" && (
-          <div className="flex items-start justify-start  animate-pulse ml-[1250px]">
-            <div className=" flex flex-row">
-              <h2>By Category:</h2>
-              <ul>
+          <div
+            className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[1350px]"
+            onMouseEnter={() => dropDown("bronzer")}
+            onMouseLeave={() => dropDown("")}
+          >
+            <div className="flex flex-row">
+              <ul className="mr-4">
                 <li>Pencil</li>
               </ul>
-              <h2>By Tag:</h2>
               <ul>
                 <li>EWG verified</li>
                 <li>Purpicks</li>
