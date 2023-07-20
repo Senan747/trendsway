@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [activeMenu, setActiveMenu] = useState("");
@@ -20,9 +21,12 @@ function Navbar() {
             />
           </div>
           <div className="flex flex-row items-center mr-6 text-white">
-            <button className="border-none px-3 py-1 mr-4 bg-gega-earth-red rounded-[10px]">
-              Log in
-            </button>
+            <Link to={'/login'}>
+              <button className="border-none px-3 py-1 mr-4 bg-gega-earth-red rounded-[10px]">
+               Log in
+              </button>
+            </Link>
+            
             <p className="text-gega-earth-red underline">Sing up</p>
           </div>
         </div>
