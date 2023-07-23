@@ -22,13 +22,13 @@ function Navbar() {
               />
             </div>
             <div className="flex flex-row items-center mr-6 text-white">
-              <BrowserRouter>
+              {/* <BrowserRouter> */}
                 <Link to={'/login'}>
                   <button className="border-none px-3 py-1 mr-4 bg-gega-earth-red rounded-[10px]">
                   Log in
                   </button>
                 </Link>
-              </BrowserRouter>
+              {/* </BrowserRouter> */}
               
               
               <p className="text-gega-earth-red underline">Sing up</p>

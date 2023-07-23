@@ -9,13 +9,7 @@ const App = () => {
 
   return (
     <div>
-      <BrowserRouter>
-        <Navbar />
-        <HomeDesignPart />
-        <Products />
-        <Star />
-        <Pages />
-      </BrowserRouter>
+      <Pages />
     </div>
   );
 };
