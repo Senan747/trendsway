@@ -72,7 +72,8 @@ export default {
         'gega-pink': '#D9A6A0',
         'gega-rose': '#B45965',
         'gega-cameo': '#DBA8B7',
-        'gega-earth-red': '#95414E'
+        'gega-earth-red': '#95414E',
+        'gega-star': '#FFC000'
       },
     },
   },
