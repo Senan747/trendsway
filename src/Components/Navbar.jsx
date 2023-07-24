@@ -8,7 +8,7 @@ function Navbar() {
   };
   return (
     <div>
-      {/* <BrowserRouter> */}
+
         <div className="max-h-[200px] bg-gega-pink flex flex-row items-center justify-between ">
           <div className="max-h-[150px] max-w-[150px] ">
             <img src="../logo.png" alt="" className="w-full h-full" />
@@ -22,16 +22,14 @@ function Navbar() {
               />
             </div>
             <div className="flex flex-row items-center mr-6 text-white">
-              {/* <BrowserRouter> */}
                 <Link to={'/login'}>
                   <button className="border-none px-3 py-1 mr-4 bg-gega-earth-red rounded-[10px]">
                   Log in
                   </button>
                 </Link>
-              {/* </BrowserRouter> */}
-              
-              
-              <p className="text-gega-earth-red underline">Sing up</p>
+                <Link to={'/register'}>
+                  <p className="text-gega-earth-red underline">Sing up</p>
+                </Link>  
             </div>
           </div>
         </div>
