@@ -73,6 +73,7 @@ export default {
         "gega-earth-red": "#95414E",
         "gega-star": "#FFC000",
         "gega-bg": "#B59677",
+        "gega-light-grey": "#DBDBDB",
       },
     },
   },

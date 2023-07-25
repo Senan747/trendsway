@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { SlBasket } from "react-icons/sl";
 
 function Products() {
   const [products, setProducts] = useState([]);
-
   useEffect(() => {
     const url =
       "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
@@ -48,30 +49,43 @@ function Products() {
                   ? product.description.slice(0, 70) + "..."
                   : product.description}
               </p>
-              <ul className="flex space-x-1">{renderStars(product.rating)}</ul>
-              <p className="text-lg font-semibold flex flex-row">
-                <p className="mr-1">{product.price}</p>
-                <p>{product.price_sign === null ? "$" : product.price_sign}</p>
+              <div className="flex-end">
+                <ul className="flex space-x-1">
+                  {renderStars(product.rating)}
+                </ul>
+                <p className="text-lg font-semibold flex flex-row">
+                  <p className="mr-1">{product.price}</p>
+                  <p>
+                    {product.price_sign === null ? "$" : product.price_sign}
+                  </p>
 
-                {product.currency}
-              </p>
-              <ul className="flex flex-wrap space-x-2">
-                {product.product_colors.map((color, index) => (
-                  <li
-                    key={index}
-                    className="w-6 h-6 rounded-full"
-                    style={{ backgroundColor: color.hex_value }}
-                    title={color.colour_name}
-                  />
-                ))}
-              </ul>
+                  {product.currency}
+                </p>
+                <div className="flex flex-row items-end justify-between">
+                  <ul className="flex flex-wrap space-x-2">
+                    {product.product_colors.map((color, index) => (
+                      <li
+                        key={index}
+                        className="w-6 h-6 rounded-full"
+                        style={{ backgroundColor: color.hex_value }}
+                        title={color.colour_name}
+                      />
+                    ))}
+                  </ul>
+                  <div className="rounded-[100%] hover:bg-gega-light-grey duration-300">
+                    <SlBasket className="mr-[10px] text-5xl py-2" />
+                  </div>
+                </div>
+              </div>
             </li>
           ) : null
         )}
       </ul>
       <div className="flex w-[100px] items-center cursor-pointer mr-[50px] font-semibold">
-        <p>For more</p>
-        <AiOutlineArrowRight />
+        <Link to="/rating">
+          <p>For more</p>
+          <AiOutlineArrowRight />
+        </Link>
       </div>
     </div>
   );

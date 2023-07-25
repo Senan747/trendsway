@@ -3,10 +3,10 @@ import React from "react";
 function Footer() {
   return (
     <div>
-      <footer className="flex flex-row flex-wrap gap-10 bg-gega-pink p-4 mt-10 justify-between">
+      <footer className="flex flex-row flex-wrap gap-10 bg-gega-pink p-10 pt-20 mt-10 justify-between">
         <div class="contact-info">
-          <p>Email: info@example.com</p>
-          <p>Phone: +1 (123) 456-7890</p>
+          <p>Email: 1senanmemmedov@gmail.com</p>
+          <p>Phone: +994 (50) 783-2995</p>
           <p>Address: 123 Beauty Ave, City, State, Country</p>
         </div>
         <div class="customer-service">
