@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState } from "react";
 import { useUserData } from "../UserDataContext";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -10,12 +10,12 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setTimeout(() => {
-      const userData = { username, password };
-      setUserData(userData);
-    }, 1000);
+
+    const userData = { username, password };
+    setUserData(userData);
+
     navigate("/");
-  };;
+  };
 
   return (
     <div className="flex flex-row h-screen">
@@ -32,14 +32,18 @@ function Login() {
           </h1>
         </div>
         <div>
-          <form action="" className="flex flex-col gap-3 items-start ml-[70px]" onSubmit={handleSubmit}>
-            <label htmlFor="Email">Email</label>
+          <form
+            action=""
+            className="flex flex-col gap-3 items-start ml-[70px]"
+            onSubmit={handleSubmit}
+          >
+            <label htmlFor="Username">Username</label>
             <input
-              type="email"
+              type="Username"
               name=""
               id=""
               className="border-b-2 outline-none"
-              placeholder="example@domain.com"
+              placeholder="user"
               onChange={(e) => setUsername(e.target.value)}
               required
             />

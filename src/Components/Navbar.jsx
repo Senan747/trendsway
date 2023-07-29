@@ -4,8 +4,7 @@ import { useUserData } from "../UserDataContext";
 
 function Navbar() {
   const { userData } = useUserData();
-
-  // const user = useContext(UserContext);
+   
   const [activeMenu, setActiveMenu] = useState("");
   const dropDown = (menu) => {
     setActiveMenu(menu);

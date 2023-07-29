@@ -1,7 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useUserData } from "../UserDataContext";
 
 function Register() {
+  const { setUserData } = useUserData();
+  let navigate = useNavigate();
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const userData = { username, password };
+    setUserData(userData);
+
+    navigate("/");
+  };
+
   return (
     <div className="flex flex-row h-screen">
       <div className="w-[700px] bg-cover">
@@ -17,15 +34,20 @@ function Register() {
           </h1>
         </div>
         <div>
-          <form action="" className="flex flex-col gap-3 items-start ml-[70px]">
-            <label htmlFor="Email">Email</label>
+          <form
+            action=""
+            className="flex flex-col gap-3 items-start ml-[70px]"
+            onSubmit={handleSubmit}
+          >
+            <label htmlFor="Username">Username</label>
             <input
-              type="email"
+              type="Username"
               name=""
               id=""
               className="border-b-2 outline-none"
-              placeholder="example@domain.com"
+              placeholder="user"
               required
+              onChange={(e) => setUsername(e.target.value)}
             />
             <label htmlFor="password">Password</label>
             <input
@@ -33,8 +55,9 @@ function Register() {
               name=""
               id=""
               className="border-b-2 w-[230px] outline-none"
-              placeholder="Enter 8 or more characters"
+              placeholder="Enter characters"
               required
+              onChange={(e) => setPassword(e.target.value)}
             />
             <label htmlFor="password">Repeat password</label>
             <input
@@ -42,14 +65,20 @@ function Register() {
               name=""
               id=""
               className="border-b-2 w-[230px] outline-none"
-              placeholder="Enter 8 or more characters"
+              placeholder="Enter characters"
               required
+              onChange={(e) => setRepeatPassword(e.target.value)}
             />
-            <button className=" py-2 px-5 mt-4 rounded-md text-gega-white bg-gega-rose">
+            <button
+              className=" py-2 px-5 mt-4 rounded-md text-gega-white bg-gega-rose"
+              type="submit"
+            >
               Sign-up
             </button>
             <Link to="/login">
-              <p className="underline text-gega-rose">Do you have an account?</p>
+              <p className="underline text-gega-rose">
+                Do you have an account?
+              </p>
             </Link>
           </form>
         </div>
