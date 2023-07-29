@@ -1,15 +1,22 @@
 import React, { useState, useContext, createContext } from "react";
-import { useUserData } from '../UserDataContext';
-
-import Navbar from "../Components/Navbar";
+import { useUserData } from "../UserDataContext";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
-  // const UserContext = createContext();
-  const [user, setUser] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const { setUserData } = useUserData();
- 
-  const value = "senan"; 
-  setUserData(value)
+  let navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setTimeout(() => {
+      const userData = { username, password };
+      setUserData(userData);
+    }, 1000);
+    navigate("/");
+  };;
+
   return (
     <div className="flex flex-row h-screen">
       <div className="w-[700px] bg-cover">
@@ -24,15 +31,8 @@ function Login() {
             Login
           </h1>
         </div>
-        {/* {
-          user &&
-          <Context.Provider value={value}>
-          <Navbar />
-        </Context.Provider>
-        } */}
-
         <div>
-          <form action="" className="flex flex-col gap-3 items-start ml-[70px]">
+          <form action="" className="flex flex-col gap-3 items-start ml-[70px]" onSubmit={handleSubmit}>
             <label htmlFor="Email">Email</label>
             <input
               type="email"
@@ -40,6 +40,7 @@ function Login() {
               id=""
               className="border-b-2 outline-none"
               placeholder="example@domain.com"
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
             <label htmlFor="password">Password</label>
@@ -49,11 +50,18 @@ function Login() {
               id=""
               className="border-b-2 w-[230px] outline-none"
               placeholder="Enter 8 or more characters"
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button className=" py-2 px-5 mt-4 rounded-md text-gega-white bg-gega-rose">
+            <button
+              type="submit"
+              className=" py-2 px-5 mt-4 rounded-md text-gega-white bg-gega-rose"
+            >
               Login
             </button>
+            <Link to="/register">
+              <p className="underline text-gega-rose">Don't have an account?</p>
+            </Link>
           </form>
         </div>
       </div>

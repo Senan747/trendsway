@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Register() {
   return (
@@ -47,6 +48,9 @@ function Register() {
             <button className=" py-2 px-5 mt-4 rounded-md text-gega-white bg-gega-rose">
               Sign-up
             </button>
+            <Link to="/login">
+              <p className="underline text-gega-rose">Do you have an account?</p>
+            </Link>
           </form>
         </div>
       </div>
