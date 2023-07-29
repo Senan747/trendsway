@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
@@ -7,13 +8,20 @@ import { SlBasket } from "react-icons/sl";
 
 function Products() {
   const [products, setProducts] = useState([]);
+  let location = useLocation();
   useEffect(() => {
     const url =
       "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
     fetch(url)
       .then((response) => response.json())
-      .then((data) => setProducts(data.slice(0, 8)));
-  }, []);
+      .then((data) => {
+        const fetchedProducts = location.pathname.includes("rating")
+          ? data
+          : data.slice(0, 8);
+
+        setProducts(fetchedProducts);
+      });
+  }, [location.pathname]);
 
   const renderStars = (rating) => {
     const stars = [];
@@ -30,7 +38,7 @@ function Products() {
   };
 
   return (
-    <div className="mx-auto p-4 flex flex-col items-end">
+    <div className="mx-auto p-4 flex flex-col items-end mt-[100px]">
       <ul className="flex flex-wrap flex-row justify-around">
         {products.map((product) =>
           product.image_link !== null ? (
@@ -81,8 +89,8 @@ function Products() {
           ) : null
         )}
       </ul>
-      <div className="flex w-[100px] items-center cursor-pointer mr-[50px] font-semibold">
-        <Link to="/rating">
+      <div className="w-[100px] cursor-pointer mr-[50px] font-semibold">
+        <Link to="/rating" className="flex items-center justify-around">
           <p>For more</p>
           <AiOutlineArrowRight />
         </Link>

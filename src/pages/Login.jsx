@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState, useContext, createContext } from "react";
+import { useUserData } from '../UserDataContext';
+
+import Navbar from "../Components/Navbar";
 
 function Login() {
+  // const UserContext = createContext();
+  const [user, setUser] = useState(false);
+  const { setUserData } = useUserData();
+ 
+  const value = "senan"; 
+  setUserData(value)
   return (
     <div className="flex flex-row h-screen">
       <div className="w-[700px] bg-cover">
@@ -15,6 +24,13 @@ function Login() {
             Login
           </h1>
         </div>
+        {/* {
+          user &&
+          <Context.Provider value={value}>
+          <Navbar />
+        </Context.Provider>
+        } */}
+
         <div>
           <form action="" className="flex flex-col gap-3 items-start ml-[70px]">
             <label htmlFor="Email">Email</label>
