@@ -5,10 +5,13 @@ import { AiFillStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { SlBasket } from "react-icons/sl";
+import Please from "./Please";
+
 
 function Products() {
   const [products, setProducts] = useState([]);
   let location = useLocation();
+  const [show, setShow] = useState(false)
   useEffect(() => {
     const url =
       "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
@@ -40,10 +43,10 @@ function Products() {
   return (
     <div className="mx-auto p-4 flex flex-col items-end mt-[100px]">
       <ul className="flex flex-wrap flex-row justify-around">
-        {products.map((product) =>
+        {products.map((product, index) =>
           product.image_link !== null ? (
             <li
-              key={product.id}
+              key={index}
               className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] cursor-pointer"
             >
               <img
@@ -80,9 +83,13 @@ function Products() {
                       />
                     ))}
                   </ul>
-                  <div className="rounded-[100%] hover:bg-gega-light-grey duration-300">
+                  <div className="rounded-[100%] hover:bg-gega-light-grey duration-300" onClick={() => setShow(!show)}>
                     <SlBasket className="mr-[10px] text-5xl py-2" />
                   </div>
+                  {
+                    show &&
+                    <Please />
+                  }
                 </div>
               </div>
             </li>

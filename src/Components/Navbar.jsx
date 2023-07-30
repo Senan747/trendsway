@@ -4,7 +4,7 @@ import { useUserData } from "../UserDataContext";
 
 function Navbar() {
   const { userData } = useUserData();
-   
+
   const [activeMenu, setActiveMenu] = useState("");
   const dropDown = (menu) => {
     setActiveMenu(menu);
@@ -24,20 +24,20 @@ function Navbar() {
             />
           </div>
 
-
-            {userData ? (
-        <span>Hello, {userData.username}!</span>
-      ) : (          <div className="flex flex-row items-center mr-6 text-white">
-                    <Link to={"/login"}>
-              <button className="border-none px-3 py-1 mr-4 bg-gega-earth-red rounded-[10px]">
-                Log in
-              </button>
-            </Link>
-            <Link to={"/register"}>
-              <p className="text-gega-earth-red underline">Sing up</p>
-            </Link> </div>
-      )}
-         
+          {userData ? (
+            <span>Hello, {userData.username}!</span>
+          ) : (
+            <div className="flex flex-row items-center mr-6 text-white">
+              <Link to={"/login"}>
+                <button className="border-none px-3 py-1 mr-4 bg-gega-earth-red rounded-[10px]">
+                  Log in
+                </button>
+              </Link>
+              <Link to={"/register"}>
+                <p className="text-gega-earth-red underline">Sing up</p>
+              </Link>{" "}
+            </div>
+          )}
         </div>
       </div>
       <div className="pt-5">

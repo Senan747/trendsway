@@ -10,10 +10,8 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const userData = { username, password };
     setUserData(userData);
-
     navigate("/");
   };
 
