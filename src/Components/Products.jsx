@@ -11,6 +11,7 @@ function Products() {
   const [products, setProducts] = useState([]);
   let location = useLocation();
   const [show, setShow] = useState(false);
+
   useEffect(() => {
     const url =
       "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
@@ -28,19 +29,28 @@ function Products() {
   const renderStars = (rating) => {
     const stars = [];
     let rate = Math.round(rating);
-  
+
     for (let i = 0; i < rate; i++) {
-      stars.push(<AiFillStar key={`filled_${i}`} className="text-gega-star text-xl" />);
+      stars.push(
+        <AiFillStar key={`filled_${i}`} className="text-gega-star text-xl" />
+      );
     }
-  
+
     for (let i = 0; i < 5 - rate; i++) {
-      stars.push(<AiOutlineStar key={`outlined_${i}`} className="text-gega-star text-xl" />);
+      stars.push(
+        <AiOutlineStar
+          key={`outlined_${i}`}
+          className="text-gega-star text-xl"
+        />
+      );
     }
     return stars;
   };
-  
 
   const pleaseRef = useRef();
+
+
+  console.log(show);
 
   useEffect(() => {
     // Event listener to handle click outside of "Please" component
@@ -59,7 +69,7 @@ function Products() {
   }, []);
 
   return (
-    <div className="mx-auto p-4 flex flex-col items-end mt-[100px]">
+    <div className="mx-auto p-4 flex flex-col items-end mt-[100px] relative">
       <ul className="flex flex-wrap flex-row justify-around">
         {products.map((product) =>
           product.image_link !== null ? (
@@ -102,7 +112,10 @@ function Products() {
                   </ul>
                   <div
                     className="rounded-[100%] hover:bg-gega-light-grey duration-300"
-                    onClick={() => setShow(!show)}
+                    onClick={(event) => {
+                      setShow(true);
+                      event.stopPropagation();
+                    }}
                   >
                     <SlBasket className="mr-[10px] text-5xl py-2" />
                   </div>
@@ -114,7 +127,15 @@ function Products() {
       </ul>
       <div ref={pleaseRef}>
         {show && (
-          <Please className="w-[300px] h-[300px] bg-gega-light" />
+          <>
+            <div
+              className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-10"
+              onClick={() => setShow(false)}
+            />
+            <div className="fixed top-[22%] left-[38%] z-20">
+              <Please className="bg-gega-light" />
+            </div>
+          </>
         )}
       </div>
       <div className="w-[100px] cursor-pointer mr-[50px] font-semibold">
