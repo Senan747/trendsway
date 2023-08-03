@@ -6,9 +6,11 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { SlBasket } from "react-icons/sl";
 import Please from "./Please";
+import { useUserData } from "../UserDataContext";
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const { userData } = useUserData();
   let location = useLocation();
   const [show, setShow] = useState(false);
 
@@ -49,20 +51,13 @@ function Products() {
 
   const pleaseRef = useRef();
 
-
-  console.log(show);
-
   useEffect(() => {
-    // Event listener to handle click outside of "Please" component
     function handleClickOutside(event) {
       if (pleaseRef.current && !pleaseRef.current.contains(event.target)) {
         setShow(false);
       }
     }
-
     document.addEventListener("click", handleClickOutside);
-
-    // Cleanup the event listener on component unmount
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
@@ -110,15 +105,23 @@ function Products() {
                       />
                     ))}
                   </ul>
-                  <div
-                    className="rounded-[100%] hover:bg-gega-light-grey duration-300"
-                    onClick={(event) => {
-                      setShow(true);
-                      event.stopPropagation();
-                    }}
-                  >
-                    <SlBasket className="mr-[10px] text-5xl py-2" />
-                  </div>
+                  {userData !== null ? (
+                    <Link to="/basket">
+                      <div className="rounded-[100%] hover:bg-gega-light-grey duration-30">
+                        <SlBasket className="mr-[10px] text-5xl py-2" />
+                      </div>
+                    </Link>
+                  ) : (
+                    <div
+                      className="rounded-[100%] hover:bg-gega-light-grey duration-300"
+                      onClick={(event) => {
+                        setShow(true);
+                        event.stopPropagation();
+                      }}
+                    >
+                      <SlBasket className="mr-[10px] text-5xl py-2" />
+                    </div>
+                  )}
                 </div>
               </div>
             </li>

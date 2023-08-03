@@ -4,6 +4,7 @@ import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import Rating from "./Rating";
+import Basket from "./Basket";
 
 function Pages() {
   return (
@@ -12,6 +13,7 @@ function Pages() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/rating" element={<Rating />} />
+      <Route path="/basket" element={<Basket />} />
     </Routes>
   );
 }
