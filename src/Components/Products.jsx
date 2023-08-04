@@ -7,10 +7,12 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { SlBasket } from "react-icons/sl";
 import Please from "./Please";
 import { useUserData } from "../UserDataContext";
+import { useProductData } from "../ProductDataContext";
 
 function Products() {
   const [products, setProducts] = useState([]);
   const { userData } = useUserData();
+  const { setProductData } = useProductData();
   let location = useLocation();
   const [show, setShow] = useState(false);
 
@@ -71,6 +73,7 @@ function Products() {
             <li
               key={product.id}
               className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] cursor-pointer"
+              onClick={() => setProductData(product)}
             >
               <img
                 src={product.image_link}
@@ -92,7 +95,6 @@ function Products() {
                   <p>
                     {product.price_sign === null ? "$" : product.price_sign}
                   </p>
-                  {product.currency}
                 </div>
 
                 <div className="flex flex-row items-end justify-between">
@@ -106,11 +108,11 @@ function Products() {
                     ))}
                   </ul>
                   {userData !== null ? (
-                    <Link to="/basket">
+                
                       <div className="rounded-[100%] hover:bg-gega-light-grey duration-30">
                         <SlBasket className="mr-[10px] text-5xl py-2" />
                       </div>
-                    </Link>
+             
                   ) : (
                     <div
                       className="rounded-[100%] hover:bg-gega-light-grey duration-300"

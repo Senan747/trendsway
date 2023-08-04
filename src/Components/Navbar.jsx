@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, BrowserRouter } from "react-router-dom";
 import { useUserData } from "../UserDataContext";
+import { SlBasket } from "react-icons/sl";
 
 function Navbar() {
   const { userData } = useUserData();
@@ -25,7 +26,15 @@ function Navbar() {
           </div>
 
           {userData ? (
-            <span>Hello, {userData.username}!</span>
+            <div className="min-w-[300px] flex flex-row justify-around items-center">
+              <p className="text-gega-white text-xl">Hello, {userData.username}!</p>
+              <Link to="/basket">
+                <SlBasket className="text-xl"/>
+              </Link>
+              
+            </div>
+
+            
           ) : (
             <div className="flex flex-row items-center mr-6 text-white">
               <Link to={"/login"}>

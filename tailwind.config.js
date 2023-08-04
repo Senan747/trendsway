@@ -45,8 +45,7 @@ export default {
         Fira: ["Fira Sans", "sans-serif"],
       },
       backgroundImage: {
-        "quiz-project": "url('../src/assets/quiz-project.jpeg')",
-        "makeup-smearing": "url('../src/assets/makeup-smearing.png')"
+        "makeup-smearing": "url('../src/assets/makeup-smearing.png')",
       },
       borderRadius: {
         75: "75%",
