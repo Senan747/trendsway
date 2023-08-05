@@ -50,9 +50,11 @@ function Products() {
     }
     return stars;
   };
+  const handleProductClick = (product) => {
+    setProductData((prevData) => [...prevData, product]);
+  };
 
   const pleaseRef = useRef();
-
   useEffect(() => {
     function handleClickOutside(event) {
       if (pleaseRef.current && !pleaseRef.current.contains(event.target)) {
@@ -73,7 +75,7 @@ function Products() {
             <li
               key={product.id}
               className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] cursor-pointer"
-              onClick={() => setProductData(product)}
+            
             >
               <img
                 src={product.image_link}
@@ -108,11 +110,9 @@ function Products() {
                     ))}
                   </ul>
                   {userData !== null ? (
-                
-                      <div className="rounded-[100%] hover:bg-gega-light-grey duration-30">
-                        <SlBasket className="mr-[10px] text-5xl py-2" />
-                      </div>
-             
+                    <div className="rounded-[100%] hover:bg-gega-light-grey duration-30"  onClick={() => handleProductClick(product)}>
+                      <SlBasket className="mr-[10px] text-5xl py-2" />
+                    </div>
                   ) : (
                     <div
                       className="rounded-[100%] hover:bg-gega-light-grey duration-300"
