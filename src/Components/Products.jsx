@@ -15,6 +15,7 @@ function Products() {
   const { setProductData } = useProductData();
   let location = useLocation();
   const [show, setShow] = useState(false);
+  const [showNotficition, setShowNotficiton] = useState(false);
 
   useEffect(() => {
     const url =
@@ -67,6 +68,12 @@ function Products() {
     };
   }, []);
 
+  const handleNotficition = () => {
+    setShowNotficiton(true)
+    setTimeout(() => {
+      setShowNotficiton(false)
+    }, 2500)
+  };
   return (
     <div className="mx-auto p-4 flex flex-col items-end mt-[100px] relative">
       <ul className="flex flex-wrap flex-row justify-around">
@@ -75,7 +82,6 @@ function Products() {
             <li
               key={product.id}
               className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] cursor-pointer"
-            
             >
               <img
                 src={product.image_link}
@@ -110,7 +116,13 @@ function Products() {
                     ))}
                   </ul>
                   {userData !== null ? (
-                    <div className="rounded-[100%] hover:bg-gega-light-grey duration-30"  onClick={() => handleProductClick(product)}>
+                    <div
+                      className="rounded-[100%] hover:bg-gega-light-grey duration-30"
+                      onClick={() => {
+                        handleProductClick(product);
+                        handleNotficition();
+                      }}
+                    >
                       <SlBasket className="mr-[10px] text-5xl py-2" />
                     </div>
                   ) : (
@@ -141,6 +153,15 @@ function Products() {
               <Please className="bg-gega-light" />
             </div>
           </>
+        )}
+      </div>
+      <div>
+        {showNotficition && (
+          <div className="w-screen h-screen fixed">
+            <div className="fixed w-[300px] bg-gega-rose text-gega-white text-xl text-center top-[89%] left-[38%] z-20 py-3 rounded-lg animate-pulse">
+              Product was added to basket
+            </div>
+          </div>
         )}
       </div>
       <div className="w-[100px] cursor-pointer mr-[50px] font-semibold">
