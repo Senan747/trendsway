@@ -17,11 +17,12 @@ function Products() {
   const [showNotficition, setShowNotficiton] = useState(false);
   let location = useLocation();
   const { category } = useParams();
+  const { type } = useParams();
 
   useEffect(() => {
     let url;
     if (location.pathname.includes("result")) {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=&product_category=${category}`;
+      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_category=`;
     } else {
       url =
         "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
@@ -36,7 +37,7 @@ function Products() {
 
         setProducts(fetchedProducts);
       });
-  }, [location.pathname, category]);
+  }, [location.pathname, type]);
 
   const renderStars = (rating) => {
     const stars = [];

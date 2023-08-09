@@ -15,7 +15,8 @@ function Pages() {
       <Route path="/register" element={<Register />} />
       <Route path="/rating" element={<Rating />} />
       <Route path="/basket" element={<Basket />} />
-      <Route path="/result/:category" element={<Result />} />
+      <Route path="/result/:type" element={<Result />} />
+      <Route path="/result/:type/:category" element={<Result />} />
     </Routes>
   );
 }
