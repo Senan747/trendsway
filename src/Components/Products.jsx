@@ -13,9 +13,9 @@ function Products() {
   const [products, setProducts] = useState([]);
   const { userData } = useUserData();
   const { setProductData } = useProductData();
-  let location = useLocation();
   const [show, setShow] = useState(false);
   const [showNotficition, setShowNotficiton] = useState(false);
+  let location = useLocation();
 
   useEffect(() => {
     const url =
@@ -51,6 +51,7 @@ function Products() {
     }
     return stars;
   };
+
   const handleProductClick = (product) => {
     setProductData((prevData) => [...prevData, product]);
   };
@@ -69,11 +70,12 @@ function Products() {
   }, []);
 
   const handleNotficition = () => {
-    setShowNotficiton(true)
+    setShowNotficiton(true);
     setTimeout(() => {
-      setShowNotficiton(false)
-    }, 2500)
+      setShowNotficiton(false);
+    }, 2500);
   };
+
   return (
     <div className="mx-auto p-4 flex flex-col items-end mt-[100px] relative">
       <ul className="flex flex-wrap flex-row justify-around">
