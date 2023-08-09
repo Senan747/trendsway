@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
@@ -16,10 +16,17 @@ function Products() {
   const [show, setShow] = useState(false);
   const [showNotficition, setShowNotficiton] = useState(false);
   let location = useLocation();
+  const { category } = useParams();
 
   useEffect(() => {
-    const url =
-      "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
+    let url;
+    if (location.pathname.includes("result")) {
+      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=&product_category=${category}`;
+    } else {
+      url =
+        "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
+    }
+
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -29,7 +36,7 @@ function Products() {
 
         setProducts(fetchedProducts);
       });
-  }, [location.pathname]);
+  }, [location.pathname, category]);
 
   const renderStars = (rating) => {
     const stars = [];
@@ -77,7 +84,7 @@ function Products() {
   };
 
   return (
-    <div className="mx-auto p-4 flex flex-col items-end mt-[100px] relative">
+    <div className="mx-auto p-4 flex flex-col items-end mt-[100px]">
       <ul className="flex flex-wrap flex-row justify-around">
         {products.map((product) =>
           product.image_link !== null ? (

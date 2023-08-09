@@ -8,7 +8,7 @@ function Menu() {
   };
   
   return (
-    <div>
+  
       <div className="pt-5">
         <ul className="flex flex-row justify-around border-b-2 border-gega-rose">
           <li
@@ -375,7 +375,6 @@ function Menu() {
           </div>
         )}
       </div>
-    </div>
   );
 }
 
