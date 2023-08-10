@@ -6,6 +6,7 @@ import Register from "./Register";
 import Rating from "./Rating";
 import Basket from "./Basket";
 import Result from "./Result";
+import Product from './Product';
 
 function Pages() {
   return (
@@ -18,6 +19,7 @@ function Pages() {
       <Route path="/result/:type" element={<Result />} />
       <Route path="/result/:type/:category" element={<Result />} />
       <Route path="/result/:type/:tag-bytag" element={<Result />} />
+      <Route path="/product" element={<Product />} />
     </Routes>
   );
 }

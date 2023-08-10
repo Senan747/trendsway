@@ -13,6 +13,7 @@ function Products() {
   const [products, setProducts] = useState([]);
   const { userData } = useUserData();
   const { setProductData } = useProductData();
+  const { setProduct } = useUserData();
   const [show, setShow] = useState(false);
   const [showNotficition, setShowNotficiton] = useState(false);
   let location = useLocation();
@@ -93,9 +94,11 @@ function Products() {
       <ul className="flex flex-wrap flex-row justify-around items-start">
         {products.map((product) =>
           product.image_link ? (
+            <Link to="/product">
             <li
               key={product.id}
               className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] cursor-pointer"
+              onClick={() => setProduct(product)}
             >
               <img
                 src={product.image_link}
@@ -153,6 +156,7 @@ function Products() {
                 </div>
               </div>
             </li>
+            </Link>
           ) : null
         )}
       </ul>
