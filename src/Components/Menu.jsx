@@ -142,21 +142,47 @@ function Menu() {
               <li>
                 <Link to="/result/blush/powder">Powder</Link>
               </li>
-              <li>Cream</li>
+              <li>
+                <Link to="/result/blush/cream">Cream</Link>
+              </li>
             </ul>
             <ul className="flex flex-col">
-              <li>Vegan</li>
-              <li>Gluten free</li>
-              <li>Canadian</li>
-              <li>Natural</li>
-              <li>Non-GMO</li>
-              <li>Purpicks</li>
-              <li>USDA organic</li>
-              <li>Organic</li>
-              <li>Certclean</li>
-              <li>EWG verified</li>
-              <li>Hypoallergenic</li>
-              <li>No talc</li>
+              <li>
+                <Link to="/result/blush/vegan">Vegan</Link>
+              </li>
+              <li>
+                <Link to="/result/blush/gluten-free">Gluten free</Link>
+              </li>
+              <li>
+                <Link to="/result/blush/canadian">Canadian</Link>
+              </li>
+              <li>
+                <Link to="/result/blush/natural">Natural</Link>
+              </li>
+              <li>
+                <Link to="/result/blush/non-gmo">Non-GMO</Link>
+              </li>
+              <li>
+                <Link to="/result/blush/purpicks">Purpicks</Link>
+              </li>
+              <li>
+                <Link to="/result/blush/usda-organic">USDA organic</Link>
+              </li>
+              <li>
+                <Link to="/result/blush/organic">Organic</Link>
+              </li>
+              <li>
+                <Link to="/result/blush/certclean">Certclean</Link>
+              </li>
+              <li>
+                <Link to="/result/blush/ewg-verified">EWG verified</Link>
+              </li>
+              <li>
+                <Link to="/result/blush/hypoallergenic">Hypoallergenic</Link>
+              </li>
+              <li>
+                <Link to="/result/blush/no-talc">No talc</Link>
+              </li>
             </ul>
           </div>
         </div>

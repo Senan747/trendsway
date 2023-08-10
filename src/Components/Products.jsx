@@ -22,7 +22,7 @@ function Products() {
   useEffect(() => {
     let url;
     if (location.pathname.includes("result")) {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_category=`;
+      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_category=${category}`;
     } else {
       url =
         "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
@@ -37,7 +37,7 @@ function Products() {
 
         setProducts(fetchedProducts);
       });
-  }, [location.pathname, type]);
+  }, [location.pathname, type, category ]);
 
   const renderStars = (rating) => {
     const stars = [];

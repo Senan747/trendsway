@@ -10,7 +10,7 @@ function Navbar() {
     <div>
       <div className="max-h-[200px] bg-gega-pink flex flex-row items-center justify-between ">
         <div className="max-h-[150px] max-w-[150px] ">
-          <img src="../logo.png" alt="" className="w-full h-full" />
+          <img src="logo.png" alt="" className="w-full h-full" />
         </div>
         <div className="flex flex-row items-center justify-between">
           <div className="mr-10">
@@ -46,7 +46,7 @@ function Navbar() {
         </div>
       </div>
       
-      {/* </BrowserRouter> */}
+
     </div>
   );
 }
