@@ -1,5 +1,6 @@
 import React from "react";
 import { useUserData } from "../UserDataContext";
+import Stars from "../Components/Stars";
 
 function Product() {
   const { product } = useUserData();
@@ -17,7 +18,12 @@ function Product() {
         <div className="text-lg font-semibold">
           <p className="flex items-center">
             <span className="mr-1">{product.price}</span>
-            <span>{product.price_sign === null ? "$" : product.price_sign}</span>
+            <span>
+              {product.price_sign === null ? "$" : product.price_sign}
+            </span>
+            <ul>
+              <Stars />
+            </ul>
           </p>
         </div>
         <div className="flex items-center space-x-2">

@@ -1,25 +1,26 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { AiFillStar } from "react-icons/ai";
-import { AiOutlineStar } from "react-icons/ai";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { SlBasket } from "react-icons/sl";
 import Please from "./Please";
 import { useUserData } from "../UserDataContext";
 import { useProductData } from "../ProductDataContext";
+import Stars from "./Stars";
 
 function Products() {
   const [products, setProducts] = useState([]);
   const { userData } = useUserData();
   const { setProductData } = useProductData();
   const { setProduct } = useUserData();
+  const { setRating } = useUserData();
   const [show, setShow] = useState(false);
   const [showNotficition, setShowNotficiton] = useState(false);
   let location = useLocation();
   const { category } = useParams();
   const { type } = useParams();
   const { tag } = useParams();
+
 
   useEffect(() => {
     let url;
@@ -44,26 +45,10 @@ function Products() {
       });
   }, [location.pathname, type, category]);
 
-  const renderStars = (rating) => {
-    const stars = [];
-    let rate = Math.round(rating);
 
-    for (let i = 0; i < rate; i++) {
-      stars.push(
-        <AiFillStar key={`filled_${i}`} className="text-gega-star text-xl" />
-      );
-    }
-
-    for (let i = 0; i < 5 - rate; i++) {
-      stars.push(
-        <AiOutlineStar
-          key={`outlined_${i}`}
-          className="text-gega-star text-xl"
-        />
-      );
-    }
-    return stars;
-  };
+  const handleRating = (rating) => {
+    setRating(rating)
+  }
 
   const handleProductClick = (product) => {
     setProductData((prevData) => [...prevData, product]);
@@ -113,7 +98,8 @@ function Products() {
               </p>
               <div className="flex-end">
                 <ul className="flex space-x-1">
-                  {renderStars(product.rating)}
+                  {handleRating(product.rating)}
+                  <Stars />
                 </ul>
                 <div className="text-lg font-semibold flex flex-row">
                   <p className="mr-1">{product.price}</p>
