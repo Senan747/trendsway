@@ -22,7 +22,7 @@ function Menu() {
             <p className="text-center">Blush</p>
           </li>
         </Link>
-        <Link to="/result/nail-polish">
+        <Link to="/result/nail+polish">
           <li
             className="flex flex-col items-center"
             onMouseEnter={() => dropDown("nail-polish")}
@@ -58,7 +58,7 @@ function Menu() {
             <p className="text-center">Lipstick</p>
           </li>
         </Link>
-        <Link to="/result/lip-liner">
+        <Link to="/result/lip+liner">
           <li
             className="flex flex-col items-center"
             onMouseEnter={() => dropDown("lip-liner")}
@@ -148,40 +148,42 @@ function Menu() {
             </ul>
             <ul className="flex flex-col">
               <li>
-                <Link to="/result/blush/vegan">Vegan</Link>
+                <Link to="/result/blush/vegan-bytag">Vegan</Link>
               </li>
               <li>
-                <Link to="/result/blush/gluten-free">Gluten free</Link>
+                <Link to="/result/blush/gluten+free-bytag">Gluten free</Link>
               </li>
               <li>
-                <Link to="/result/blush/canadian">Canadian</Link>
+                <Link to="/result/blush/canadian-bytag">Canadian</Link>
               </li>
               <li>
-                <Link to="/result/blush/natural">Natural</Link>
+                <Link to="/result/blush/natural-bytag">Natural</Link>
               </li>
               <li>
-                <Link to="/result/blush/non-gmo">Non-GMO</Link>
+                <Link to="/result/blush/non+gmo-bytag">Non-GMO</Link>
               </li>
               <li>
-                <Link to="/result/blush/purpicks">Purpicks</Link>
+                <Link to="/result/blush/purpicks-bytag">Purpicks</Link>
               </li>
               <li>
-                <Link to="/result/blush/usda-organic">USDA organic</Link>
+                <Link to="/result/blush/usda+organic-bytag">USDA organic</Link>
               </li>
               <li>
-                <Link to="/result/blush/organic">Organic</Link>
+                <Link to="/result/blush/organic-bytag">Organic</Link>
               </li>
               <li>
-                <Link to="/result/blush/certclean">Certclean</Link>
+                <Link to="/result/blush/certclean-bytag">Certclean</Link>
               </li>
               <li>
-                <Link to="/result/blush/ewg-verified">EWG verified</Link>
+                <Link to="/result/blush/ewg+verified-bytag">EWG verified</Link>
               </li>
               <li>
-                <Link to="/result/blush/hypoallergenic">Hypoallergenic</Link>
+                <Link to="/result/blush/hypoallergenic-bytag">
+                  Hypoallergenic
+                </Link>
               </li>
               <li>
-                <Link to="/result/blush/no-talc">No talc</Link>
+                <Link to="/result/blush/no+talc-bytag">No talc</Link>
               </li>
             </ul>
           </div>
@@ -196,28 +198,36 @@ function Menu() {
           <div className="flex flex-row">
             <ul className="flex flex-col mr-10">
               <li>
-                <Link to="/result/nail-polish/vegan">Vegan</Link>
+                <Link to="/result/nail+polish/vegan-bytag">Vegan</Link>
               </li>
               <li>
-                <Link to="/result/nail-polish/canadian">Canadian</Link>
+                <Link to="/result/nail+polish/canadian-bytag">Canadian</Link>
               </li>
               <li>
-                <Link to="/result/nail-polish/natural">Natural</Link>
+                <Link to="/result/nail+polish/natural-bytag">Natural</Link>
               </li>
               <li>
-                <Link to="/result/nail-polish/gluten-free">Gluten free</Link>
+                <Link to="/result/nail+polish/gluten+free-bytag">
+                  Gluten free
+                </Link>
               </li>
               <li>
-                <Link to="/result/nail-polish/fair-trade">Fair trade</Link>
+                <Link to="/result/nail+polish/fair+trade-bytag">
+                  Fair trade
+                </Link>
               </li>
               <li>
-                <Link to="/result/nail-polish/sugar-free">Sugar free</Link>
+                <Link to="/result/nail+polish/sugar+free-bytag">
+                  Sugar free
+                </Link>
               </li>
               <li>
-                <Link to="/result/nail-polish/non-gmo">Non-GMO</Link>
+                <Link to="/result/nail+polish/non+gmo-bytag">Non-GMO</Link>
               </li>
               <li>
-                <Link to="/result/nail-polish/dairy-free">Dairy free</Link>
+                <Link to="/result/nail+polish/dairy+free-bytag">
+                  Dairy free
+                </Link>
               </li>
             </ul>
           </div>
@@ -233,40 +243,46 @@ function Menu() {
           <div className="flex flex-row">
             <ul className="flex flex-col mr-10">
               <li>
-                <Link to="/result/mascara/natural">Natural</Link>
+                <Link to="/result/mascara/natural-bytag">Natural</Link>
               </li>
               <li>
-                <Link to="/result/mascara/gluten-free">Gluten free</Link>
+                <Link to="/result/mascara/gluten+free-bytag">Gluten free</Link>
               </li>
               <li>
-                <Link to="/result/mascara/vegan">Vegan</Link>
+                <Link to="/result/mascara/vegan-bytag">Vegan</Link>
               </li>
               <li>
-                <Link to="/result/mascara/canadian">Canadian</Link>
+                <Link to="/result/mascara/canadian-bytag">Canadian</Link>
               </li>
               <li>
-                <Link to="/result/mascara/organic">Organic</Link>
+                <Link to="/result/mascara/organic-bytag">Organic</Link>
               </li>
               <li>
-                <Link to="/result/mascara/purpicks">Purpicks</Link>
+                <Link to="/result/mascara/purpicks-bytag">Purpicks</Link>
               </li>
               <li>
-                <Link to="/result/mascara/ewg-verified">EWG verified</Link>
+                <Link to="/result/mascara/ewg+verified-bytag">
+                  EWG verified
+                </Link>
               </li>
               <li>
-                <Link to="/result/mascara/hypoallergenic">Hypoallergenic</Link>
+                <Link to="/result/mascara/hypoallergenic-bytag">
+                  Hypoallergenic
+                </Link>
               </li>
               <li>
-                <Link to="/result/mascara/no-talc">No talc</Link>
+                <Link to="/result/mascara/no+talc-bytag">No talc</Link>
               </li>
               <li>
-                <Link to="/result/mascara/ecocert">Ecocert</Link>
+                <Link to="/result/mascara/ecocert-bytag">Ecocert</Link>
               </li>
               <li>
-                <Link to="/result/mascara/usda-organic">USDA organic</Link>
+                <Link to="/result/mascara/usda+organic-bytag">
+                  USDA organic
+                </Link>
               </li>
               <li>
-                <Link to="/result/mascara/certclean">Certclean</Link>
+                <Link to="/result/mascara/certclean-bytag">Certclean</Link>
               </li>
             </ul>
           </div>
@@ -284,59 +300,67 @@ function Menu() {
                 <Link to="/result/lipstick/lipstick">Lipstick</Link>
               </li>
               <li>
-                <Link to="/result/lipstick/lip-gloss">Lip gloss</Link>
+                <Link to="/result/lipstick/lip+gloss">Lip gloss</Link>
               </li>
               <li>
                 <Link to="/result/lipstick/liquid">Liquid</Link>
               </li>
               <li>
-                <Link to="/result/lipstick/lip-stain">Lip stain</Link>
+                <Link to="/result/lipstick/lip+stain">Lip stain</Link>
               </li>
             </ul>
             <ul>
               <li>
-                <Link to="/result/lipstick/canadian">Canadian</Link>
+                <Link to="/result/lipstick/canadian-bytag">Canadian</Link>
               </li>
               <li>
-                <Link to="/result/lipstick/natural">Natural</Link>
+                <Link to="/result/lipstick/natural-bytag">Natural</Link>
               </li>
               <li>
-                <Link to="/result/lipstick/gluten-free">Gluten free</Link>
+                <Link to="/result/lipstick/gluten+free-bytag">Gluten free</Link>
               </li>
               <li>
-                <Link to="/result/lipstick/non-gmo">Non-GMO</Link>
+                <Link to="/result/lipstick/non+gmo-bytag">Non-GMO</Link>
               </li>
               <li>
-                <Link to="/result/lipstick/peanut-free">
+                <Link to="/result/lipstick/peanut-free-bytag">
                   Peanut free product
                 </Link>
               </li>
               <li>
-                <Link to="/result/lipstick/vegan">Vegan</Link>
+                <Link to="/result/lipstick/vegan-bytag">Vegan</Link>
               </li>
               <li>
-                <Link to="/result/lipstick/cruelty-free">Cruelty free</Link>
+                <Link to="/result/lipstick/cruelty+free-bytag">
+                  Cruelty free
+                </Link>
               </li>
               <li>
-                <Link to="/result/lipstick/organic">Organic</Link>
+                <Link to="/result/lipstick/organic-bytag">Organic</Link>
               </li>
               <li>
-                <Link to="/result/lipstick/purpicks">Purpicks</Link>
+                <Link to="/result/lipstick/purpicks-bytag">Purpicks</Link>
               </li>
               <li>
-                <Link to="/result/lipstick/certclean">Certclean</Link>
+                <Link to="/result/lipstick/certclean-bytag">Certclean</Link>
               </li>
               <li>
-                <Link to="/result/lipstick/chemical-free">Chemical free</Link>
+                <Link to="/result/lipstick/chemical+free-bytag">
+                  Chemical free
+                </Link>
               </li>
               <li>
-                <Link to="/result/lipstick/ewg-verified">EWG verified</Link>
+                <Link to="/result/lipstick/ewg+verified-bytag">
+                  EWG verified
+                </Link>
               </li>
               <li>
-                <Link to="/result/lipstick/hypoallergenic">Hypoallergenic</Link>
+                <Link to="/result/lipstick/hypoallergenic-bytag">
+                  Hypoallergenic
+                </Link>
               </li>
               <li>
-                <Link to="/result/lipstick/no-talc">No talc</Link>
+                <Link to="/result/lipstick/no+talc-bytag">No talc</Link>
               </li>
             </ul>
           </div>
@@ -352,38 +376,44 @@ function Menu() {
           <div className="flex flex-row">
             <ul className="flex flex-col mr-10">
               <li>
-                <Link to="/result/lip-liner/pencil">Pencil</Link>
+                <Link to="/result/lip+liner/pencil">Pencil</Link>
               </li>
             </ul>
             <ul>
               <li>
-                <Link to="/result/lip-liner/natural">Natural</Link>
+                <Link to="/result/lip+liner/natural-bytag">Natural</Link>
               </li>
               <li>
-                <Link to="/result/lip-liner/vegan">Vegan</Link>
+                <Link to="/result/lip+liner/vegan-bytag">Vegan</Link>
               </li>
               <li>
-                <Link to="/result/lip-liner/gluten-free">Gluten free</Link>
+                <Link to="/result/lip+liner/gluten+free-bytag">
+                  Gluten free
+                </Link>
               </li>
               <li>
-                <Link to="/result/lip-liner/canadian">Canadian</Link>
+                <Link to="/result/lip+liner/canadian-bytag">Canadian</Link>
               </li>
               <li>
-                <Link to="/result/lip-liner/purpicks">Purpicks</Link>
+                <Link to="/result/lip+liner/purpicks-bytag">Purpicks</Link>
               </li>
               <li>
-                <Link to="/result/lip-liner/ewg-verified">EWG verified</Link>
+                <Link to="/result/lip+liner/ewg+verified-bytag">
+                  EWG verified
+                </Link>
               </li>
               <li>
-                <Link to="/result/lip-liner/hypoallergenic">
+                <Link to="/result/lip+liner/hypoallergenic-bytag">
                   Hypoallergenic
                 </Link>
               </li>
               <li>
-                <Link to="/result/lip-liner/no-talc">No talc</Link>
+                <Link to="/result/lip+liner/no+talc-bytag">No talc</Link>
               </li>
               <li>
-                <Link to="/result/lip-liner/cruelty-free">Cruelty free</Link>
+                <Link to="/result/lip+liner/cruelty+free-bytag">
+                  Cruelty free
+                </Link>
               </li>
             </ul>
           </div>
@@ -408,7 +438,7 @@ function Menu() {
                 <Link to="/result/foundation/contour">Contour</Link>
               </li>
               <li>
-                <Link to="/result/foundation/bb-cc">BB CC</Link>
+                <Link to="/result/foundation/bb+cc">BB CC</Link>
               </li>
               <li>
                 <Link to="/result/foundation/cream">Cream</Link>
@@ -425,48 +455,58 @@ function Menu() {
             </ul>
             <ul className="flex flex-col mr-10">
               <li>
-                <Link to="/result/foundation/vegan">Vegan</Link>
+                <Link to="/result/foundation/vegan-bytag">Vegan</Link>
               </li>
               <li>
-                <Link to="/result/foundation/canadian">Canadian</Link>
+                <Link to="/result/foundation/canadian-bytag">Canadian</Link>
               </li>
               <li>
-                <Link to="/result/foundation/natural">Natural</Link>
+                <Link to="/result/foundation/natural-bytag">Natural</Link>
               </li>
               <li>
-                <Link to="/result/foundation/gluten-free">Gluten free</Link>
+                <Link to="/result/foundation/gluten+free-bytag">
+                  Gluten free
+                </Link>
               </li>
               <li>
-                <Link to="/result/foundation/purpicks">Purpicks</Link>
+                <Link to="/result/foundation/purpicks-bytag">Purpicks</Link>
               </li>
               <li>
-                <Link to="/result/foundation/certclean">Certclean</Link>
+                <Link to="/result/foundation/certclean-bytag">Certclean</Link>
               </li>
               <li>
-                <Link to="/result/foundation/ewg-verified">EWG verified</Link>
+                <Link to="/result/foundation/ewg+verified-bytag">
+                  EWG verified
+                </Link>
               </li>
               <li>
-                <Link to="/result/foundation/hypoallergenic">
+                <Link to="/result/foundation/hypoallergenic-bytag">
                   Hypoallergenic
                 </Link>
               </li>
               <li>
-                <Link to="/result/foundation/no-talc">No talc</Link>
+                <Link to="/result/foundation/no+talc-bytag">No talc</Link>
               </li>
               <li>
-                <Link to="/result/foundation/water-free">Water free</Link>
+                <Link to="/result/foundation/water+free-bytag">Water free</Link>
               </li>
               <li>
-                <Link to="/result/foundation/cruelty-free">Cruelty free</Link>
+                <Link to="/result/foundation/cruelty+free-bytag">
+                  Cruelty free
+                </Link>
               </li>
               <li>
-                <Link to="/result/foundation/alcohol-free">Alcohol free</Link>
+                <Link to="/result/foundation/alcohol+free-bytag">
+                  Alcohol free
+                </Link>
               </li>
               <li>
-                <Link to="/result/foundation/oil-free">Oil free</Link>
+                <Link to="/result/foundation/oil+free-bytag">Oil free</Link>
               </li>
               <li>
-                <Link to="/result/foundation/silicone-free">Silicone free</Link>
+                <Link to="/result/foundation/silicone-free-bytag">
+                  Silicone free
+                </Link>
               </li>
             </ul>
           </div>
@@ -494,45 +534,51 @@ function Menu() {
             </ul>
             <ul className="flex flex-col mr-10">
               <li>
-                <Link to="/result/eyeshadow/vegan">Vegan</Link>
+                <Link to="/result/eyeshadow/vegan-bytag">Vegan</Link>
               </li>
               <li>
-                <Link to="/result/eyeshadow/canadian">Canadian</Link>
+                <Link to="/result/eyeshadow/canadian-bytag">Canadian</Link>
               </li>
               <li>
-                <Link to="/result/eyeshadow/natural">Natural</Link>
+                <Link to="/result/eyeshadow/natural-bytag">Natural</Link>
               </li>
               <li>
-                <Link to="/result/eyeshadow/gluten-free">Gluten free</Link>
+                <Link to="/result/eyeshadow/gluten+free-bytag">
+                  Gluten free
+                </Link>
               </li>
               <li>
-                <Link to="/result/eyeshadow/non-gmo">Non-GMO</Link>
+                <Link to="/result/eyeshadow/non+gmo-bytag">Non-GMO</Link>
               </li>
               <li>
-                <Link to="/result/eyeshadow/purpicks">Purpicks</Link>
+                <Link to="/result/eyeshadow/purpicks-bytag">Purpicks</Link>
               </li>
               <li>
-                <Link to="/result/eyeshadow/certclean">Certclean</Link>
+                <Link to="/result/eyeshadow/certclean-bytag">Certclean</Link>
               </li>
               <li>
-                <Link to="/result/eyeshadow/ewg-verified">EWG verified</Link>
+                <Link to="/result/eyeshadow/ewg+verified-bytag">
+                  EWG verified
+                </Link>
               </li>
               <li>
-                <Link to="/result/eyeshadow/organic">Organic</Link>
+                <Link to="/result/eyeshadow/organic-bytag">Organic</Link>
               </li>
               <li>
-                <Link to="/result/eyeshadow/usda-organic">USDA organic</Link>
+                <Link to="/result/eyeshadow/usda+organic-bytag">
+                  USDA organic
+                </Link>
               </li>
               <li>
-                <Link to="/result/eyeshadow/hypoallergenic">
+                <Link to="/result/eyeshadow/hypoallergenic-bytag">
                   Hypoallergenic
                 </Link>
               </li>
               <li>
-                <Link to="/result/eyeshadow/no-talc">No talc</Link>
+                <Link to="/result/eyeshadow/no+talc-bytag">No talc</Link>
               </li>
               <li>
-                <Link to="/result/eyeshadow/ecocert">Ecocert</Link>
+                <Link to="/result/eyeshadow/ecocert-bytag">Ecocert</Link>
               </li>
             </ul>
           </div>
@@ -562,37 +608,41 @@ function Menu() {
             </ul>
             <ul className="flex flex-col mr-10">
               <li>
-                <Link to="/result/eyeliner/vegan">Vegan</Link>
+                <Link to="/result/eyeliner/vegan-bytag">Vegan</Link>
               </li>
               <li>
-                <Link to="/result/eyeliner/natural">Natural</Link>
+                <Link to="/result/eyeliner/natural-bytag">Natural</Link>
               </li>
               <li>
-                <Link to="/result/eyeliner/canadian">Canadian</Link>
+                <Link to="/result/eyeliner/canadian-bytag">Canadian</Link>
               </li>
               <li>
-                <Link to="/result/eyeliner/gluten-free">Gluten free</Link>
+                <Link to="/result/eyeliner/gluten+free-bytag">Gluten free</Link>
               </li>
               <li>
-                <Link to="/result/eyeliner/organic">Organic</Link>
+                <Link to="/result/eyeliner/organic-bytag">Organic</Link>
               </li>
               <li>
-                <Link to="/result/eyeliner/purpicks">Purpicks</Link>
+                <Link to="/result/eyeliner/purpicks-bytag">Purpicks</Link>
               </li>
               <li>
-                <Link to="/result/eyeliner/certclean">Certclean</Link>
+                <Link to="/result/eyeliner/certclean-bytag">Certclean</Link>
               </li>
               <li>
-                <Link to="/result/eyeliner/ewg-verified">EWG verified</Link>
+                <Link to="/result/eyeliner/ewg+verified-bytag">
+                  EWG verified
+                </Link>
               </li>
               <li>
-                <Link to="/result/eyeliner/hypoallergenic">Hypoallergenic</Link>
+                <Link to="/result/eyeliner/hypoallergenic-bytag">
+                  Hypoallergenic
+                </Link>
               </li>
               <li>
-                <Link to="/result/eyeliner/no-talc">No talc</Link>
+                <Link to="/result/eyeliner/no+talc-bytag">No talc</Link>
               </li>
               <li>
-                <Link to="/result/eyeliner/ecocert">Ecocert</Link>
+                <Link to="/result/eyeliner/ecocert-bytag">Ecocert</Link>
               </li>
             </ul>
           </div>
@@ -613,10 +663,52 @@ function Menu() {
             </ul>
             <ul className="">
               <li>
-                <Link to="/result/eyebrow/ewg-verified">EWG verified</Link>
+                <Link to="/result/eyebrow/ewg+verified-bytag">
+                  EWG verified
+                </Link>
               </li>
               <li>
-                <Link to="/result/eyebrow/purpicks">Purpicks</Link>
+                <Link to="/result/eyebrow/purpicks-bytag">Purpicks</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
+      {activeMenu === "bronzer" && (
+        <div
+          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse ml-[1300px]"
+          onMouseEnter={() => dropDown("bronzer")}
+          onMouseLeave={() => dropDown("")}
+        >
+          <div className="flex flex-row">
+            <ul className="flex flex-col pr-3">
+              <li>
+                <Link to="/result/bronzer/powder">Powder</Link>
+              </li>
+            </ul>
+            <ul className="">
+              <li>
+                <Link to="/result/bronzer/gluten+free-bytag">Gluten free</Link>
+              </li>
+              <li>
+                <Link to="/result/bronzer/canadian-bytag">Canadian</Link>
+              </li>
+              <li>
+                <Link to="/result/bronzer/natural-bytag">Natural</Link>
+              </li>
+              <li>
+                <Link to="/result/bronzer/organic-bytag">Organic</Link>
+              </li>
+              <li>
+                <Link to="/result/bronzer/vegan-bytag">Vegan</Link>
+              </li>
+              <li>
+                <Link to="/result/bronzer/purpicks-bytag">Purpicks</Link>
+              </li>
+              <li>
+                <Link to="/result/bronzer/ewg+verified-bytag">
+                  EWG verified
+                </Link>
               </li>
             </ul>
           </div>

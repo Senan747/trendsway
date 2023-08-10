@@ -18,26 +18,30 @@ function Products() {
   let location = useLocation();
   const { category } = useParams();
   const { type } = useParams();
+  const { tag } = useParams();
 
   useEffect(() => {
     let url;
     if (location.pathname.includes(category)) {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_category=${category}`;
+    }else if (location.pathname.includes(tag)) {
+      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_tags=${tag}`;
     } else if (location.pathname.includes(type)) {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}`;
-    } else {
-      url = "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
+    }  else {
+      url =
+        "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
     }
 
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        location.pathname.includes("rating") || location.pathname.includes("result")
+        location.pathname.includes("rating") ||
+        location.pathname.includes("result")
           ? setProducts(data)
           : setProducts(data.slice(0, 8));
-
       });
-  }, [location.pathname, type, category ]);
+  }, [location.pathname, type, category]);
 
   const renderStars = (rating) => {
     const stars = [];
@@ -85,10 +89,10 @@ function Products() {
   };
 
   return (
-    <div className="mx-auto p-4 flex flex-col items-end mt-[100px]">
-      <ul className="flex flex-wrap flex-row justify-around">
+    <div className="mx-auto p-4 flex flex-col mt-[100px]">
+      <ul className="flex flex-wrap flex-row justify-around items-start">
         {products.map((product) =>
-          product.image_link  ? (
+          product.image_link ? (
             <li
               key={product.id}
               className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] cursor-pointer"
@@ -100,7 +104,7 @@ function Products() {
               />
               <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
               <p className="text-gray-600 mb-2">
-                {  product.description
+                {product.description
                   ? product.description.slice(0, 70) + "..."
                   : product.description}
               </p>

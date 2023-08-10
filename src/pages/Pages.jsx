@@ -17,6 +17,7 @@ function Pages() {
       <Route path="/basket" element={<Basket />} />
       <Route path="/result/:type" element={<Result />} />
       <Route path="/result/:type/:category" element={<Result />} />
+      <Route path="/result/:type/:tag-bytag" element={<Result />} />
     </Routes>
   );
 }
