@@ -193,227 +193,431 @@ function Menu() {
           onMouseEnter={() => dropDown("nail-polish")}
           onMouseLeave={() => dropDown("")}
         >
-          <div className=" flex flex-row">
+          <div className="flex flex-row">
             <ul className="flex flex-col mr-10">
-              <li>Vegan</li>
-              <li>Canadian</li>
-              <li>Natural</li>
-              <li>Gluten free</li>
-              <li>Fair trade</li>
-              <li>Sugar free</li>
-              <li>Non-GMO</li>
-              <li>Dairy free</li>
+              <li>
+                <Link to="/result/nail-polish/vegan">Vegan</Link>
+              </li>
+              <li>
+                <Link to="/result/nail-polish/canadian">Canadian</Link>
+              </li>
+              <li>
+                <Link to="/result/nail-polish/natural">Natural</Link>
+              </li>
+              <li>
+                <Link to="/result/nail-polish/gluten-free">Gluten free</Link>
+              </li>
+              <li>
+                <Link to="/result/nail-polish/fair-trade">Fair trade</Link>
+              </li>
+              <li>
+                <Link to="/result/nail-polish/sugar-free">Sugar free</Link>
+              </li>
+              <li>
+                <Link to="/result/nail-polish/non-gmo">Non-GMO</Link>
+              </li>
+              <li>
+                <Link to="/result/nail-polish/dairy-free">Dairy free</Link>
+              </li>
             </ul>
           </div>
         </div>
       )}
+
       {activeMenu === "mascara" && (
         <div
-          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[330px]"
+          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse ml-[330px]"
           onMouseEnter={() => dropDown("mascara")}
           onMouseLeave={() => dropDown("")}
         >
-          <div className=" flex flex-row">
+          <div className="flex flex-row">
             <ul className="flex flex-col mr-10">
-              <li>Natural</li>
-              <li>Gluten free</li>
-              <li>Vegan</li>
-              <li>Canadian</li>
-              <li>Organic</li>
-              <li>Purpicks</li>
-              <li>EWG verified</li>
-              <li>Hypoallergenic</li>
-              <li>No talc</li>
-              <li>Ecocert</li>
-              <li>USDA organic</li>
-              <li>Certclean</li>
+              <li>
+                <Link to="/result/mascara/natural">Natural</Link>
+              </li>
+              <li>
+                <Link to="/result/mascara/gluten-free">Gluten free</Link>
+              </li>
+              <li>
+                <Link to="/result/mascara/vegan">Vegan</Link>
+              </li>
+              <li>
+                <Link to="/result/mascara/canadian">Canadian</Link>
+              </li>
+              <li>
+                <Link to="/result/mascara/organic">Organic</Link>
+              </li>
+              <li>
+                <Link to="/result/mascara/purpicks">Purpicks</Link>
+              </li>
+              <li>
+                <Link to="/result/mascara/ewg-verified">EWG verified</Link>
+              </li>
+              <li>
+                <Link to="/result/mascara/hypoallergenic">Hypoallergenic</Link>
+              </li>
+              <li>
+                <Link to="/result/mascara/no-talc">No talc</Link>
+              </li>
+              <li>
+                <Link to="/result/mascara/ecocert">Ecocert</Link>
+              </li>
+              <li>
+                <Link to="/result/mascara/usda-organic">USDA organic</Link>
+              </li>
+              <li>
+                <Link to="/result/mascara/certclean">Certclean</Link>
+              </li>
             </ul>
           </div>
         </div>
       )}
       {activeMenu === "lipstick" && (
         <div
-          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[450px]"
+          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse ml-[450px]"
           onMouseEnter={() => dropDown("lipstick")}
           onMouseLeave={() => dropDown("")}
         >
-          <div className=" flex flex-row">
+          <div className="flex flex-row">
             <ul className="flex flex-col mr-10">
-              <li>Lipstick</li>
-              <li>Lip gloss</li>
-              <li>Liquid</li>
-              <li>Lip stain</li>
+              <li>
+                <Link to="/result/lipstick/lipstick">Lipstick</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/lip-gloss">Lip gloss</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/liquid">Liquid</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/lip-stain">Lip stain</Link>
+              </li>
             </ul>
-
             <ul>
-              <li>Canadian</li>
-              <li>Natural</li>
-              <li>Gluten free</li>
-              <li>Non-GMO</li>
-              <li>Peanut free product</li>
-              <li>Vegan</li>
-              <li>Cruelty free</li>
-              <li>Organic</li>
-              <li>Purpicks</li>
-              <li>Certclean</li>
-              <li>Chemical free</li>
-              <li>EWG verified</li>
-              <li>Hypoallergenic</li>
-              <li>No talc</li>
+              <li>
+                <Link to="/result/lipstick/canadian">Canadian</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/natural">Natural</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/gluten-free">Gluten free</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/non-gmo">Non-GMO</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/peanut-free">
+                  Peanut free product
+                </Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/vegan">Vegan</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/cruelty-free">Cruelty free</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/organic">Organic</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/purpicks">Purpicks</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/certclean">Certclean</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/chemical-free">Chemical free</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/ewg-verified">EWG verified</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/hypoallergenic">Hypoallergenic</Link>
+              </li>
+              <li>
+                <Link to="/result/lipstick/no-talc">No talc</Link>
+              </li>
             </ul>
           </div>
         </div>
       )}
+
       {activeMenu === "lip-liner" && (
         <div
-          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[550px]"
+          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse ml-[550px]"
           onMouseEnter={() => dropDown("lip-liner")}
           onMouseLeave={() => dropDown("")}
         >
-          <div className=" flex flex-row">
+          <div className="flex flex-row">
             <ul className="flex flex-col mr-10">
-              <li>Pencil</li>
+              <li>
+                <Link to="/result/lip-liner/pencil">Pencil</Link>
+              </li>
             </ul>
             <ul>
-              <li>Natural</li>
-              <li>Vegan</li>
-              <li>Gluten free</li>
-              <li>Canadian</li>
-              <li>Purpicks</li>
-              <li>EWG verified</li>
-              <li>Hypoallergenic</li>
-              <li>No talc</li>
-              <li>Cruelty free</li>
+              <li>
+                <Link to="/result/lip-liner/natural">Natural</Link>
+              </li>
+              <li>
+                <Link to="/result/lip-liner/vegan">Vegan</Link>
+              </li>
+              <li>
+                <Link to="/result/lip-liner/gluten-free">Gluten free</Link>
+              </li>
+              <li>
+                <Link to="/result/lip-liner/canadian">Canadian</Link>
+              </li>
+              <li>
+                <Link to="/result/lip-liner/purpicks">Purpicks</Link>
+              </li>
+              <li>
+                <Link to="/result/lip-liner/ewg-verified">EWG verified</Link>
+              </li>
+              <li>
+                <Link to="/result/lip-liner/hypoallergenic">
+                  Hypoallergenic
+                </Link>
+              </li>
+              <li>
+                <Link to="/result/lip-liner/no-talc">No talc</Link>
+              </li>
+              <li>
+                <Link to="/result/lip-liner/cruelty-free">Cruelty free</Link>
+              </li>
             </ul>
           </div>
         </div>
       )}
+
       {activeMenu === "foundation" && (
         <div
-          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[670px]"
+          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse ml-[670px]"
           onMouseEnter={() => dropDown("foundation")}
           onMouseLeave={() => dropDown("")}
         >
-          <div className=" flex flex-row">
+          <div className="flex flex-row">
             <ul className="flex flex-col mr-10">
-              <li>Concealer</li>
-              <li>Liquid</li>
-              <li>Contour</li>
-              <li>BB CC</li>
-              <li>Cream</li>
-              <li>Mineral</li>
-              <li>Powder</li>
-              <li>Highlighter</li>
+              <li>
+                <Link to="/result/foundation/concealer">Concealer</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/liquid">Liquid</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/contour">Contour</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/bb-cc">BB CC</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/cream">Cream</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/mineral">Mineral</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/powder">Powder</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/highlighter">Highlighter</Link>
+              </li>
             </ul>
             <ul className="flex flex-col mr-10">
-              <li>Vegan</li>
-              <li>Canadian</li>
-              <li>Natural</li>
-              <li>Gluten free</li>
-              <li>Purpicks</li>
-              <li>Certclean</li>
-              <li>EWG verified</li>
-              <li>Hypoallergenic</li>
-              <li>No talc</li>
-              <li>Water free</li>
-              <li>Cruelty free</li>
-              <li>Alcohol free</li>
-              <li>Oil free</li>
-              <li>Silicone free</li>
+              <li>
+                <Link to="/result/foundation/vegan">Vegan</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/canadian">Canadian</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/natural">Natural</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/gluten-free">Gluten free</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/purpicks">Purpicks</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/certclean">Certclean</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/ewg-verified">EWG verified</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/hypoallergenic">
+                  Hypoallergenic
+                </Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/no-talc">No talc</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/water-free">Water free</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/cruelty-free">Cruelty free</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/alcohol-free">Alcohol free</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/oil-free">Oil free</Link>
+              </li>
+              <li>
+                <Link to="/result/foundation/silicone-free">Silicone free</Link>
+              </li>
             </ul>
           </div>
         </div>
       )}
+
       {activeMenu === "eyeshadow" && (
         <div
-          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[850px]"
+          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse ml-[850px]"
           onMouseEnter={() => dropDown("eyeshadow")}
           onMouseLeave={() => dropDown("")}
         >
           <div className="flex flex-row">
             <ul className="flex flex-col mr-10">
-              <li>Palette</li>
-              <li>Pencil</li>
+              <li>
+                <Link to="/result/eyeshadow/palette">Palette</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeshadow/pencil">Pencil</Link>
+              </li>
               <li>-</li>
-              <li>Cream</li>
+              <li>
+                <Link to="/result/eyeshadow/cream">Cream</Link>
+              </li>
             </ul>
             <ul className="flex flex-col mr-10">
-              <li>Vegan</li>
-              <li>Canadian</li>
-              <li>Natural</li>
-              <li>Gluten free</li>
-              <li>Non-GMO</li>
-              <li>Purpicks</li>
-              <li>Certclean</li>
-              <li>EWG verified</li>
-              <li>Organic</li>
-              <li>USDA organic</li>
-              <li>Hypoallergenic</li>
-              <li>No talc</li>
-              <li>Ecocert</li>
+              <li>
+                <Link to="/result/eyeshadow/vegan">Vegan</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeshadow/canadian">Canadian</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeshadow/natural">Natural</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeshadow/gluten-free">Gluten free</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeshadow/non-gmo">Non-GMO</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeshadow/purpicks">Purpicks</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeshadow/certclean">Certclean</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeshadow/ewg-verified">EWG verified</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeshadow/organic">Organic</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeshadow/usda-organic">USDA organic</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeshadow/hypoallergenic">
+                  Hypoallergenic
+                </Link>
+              </li>
+              <li>
+                <Link to="/result/eyeshadow/no-talc">No talc</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeshadow/ecocert">Ecocert</Link>
+              </li>
             </ul>
           </div>
         </div>
       )}
+
       {activeMenu === "eyeliner" && (
         <div
-          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[1000px]"
+          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse ml-[1000px]"
           onMouseEnter={() => dropDown("eyeliner")}
           onMouseLeave={() => dropDown("")}
         >
-          <div className=" flex flex-row">
+          <div className="flex flex-row">
             <ul className="flex flex-col mr-10">
-              <li>Liquid</li>
-              <li>Pencil</li>
-              <li>Gel</li>
-              <li>Cream</li>
+              <li>
+                <Link to="/result/eyeliner/liquid">Liquid</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeliner/pencil">Pencil</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeliner/gel">Gel</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeliner/cream">Cream</Link>
+              </li>
             </ul>
             <ul className="flex flex-col mr-10">
-              <li>Vegan</li>
-              <li>Natural</li>
-              <li>Canadian</li>
-              <li>Gluten free</li>
-              <li>Organic</li>
-              <li>Purpicks</li>
-              <li>Certclean</li>
-              <li>EWG verified</li>
-              <li>Hypoallergenic</li>
-              <li>No talc</li>
-              <li>Ecocert</li>
+              <li>
+                <Link to="/result/eyeliner/vegan">Vegan</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeliner/natural">Natural</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeliner/canadian">Canadian</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeliner/gluten-free">Gluten free</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeliner/organic">Organic</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeliner/purpicks">Purpicks</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeliner/certclean">Certclean</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeliner/ewg-verified">EWG verified</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeliner/hypoallergenic">Hypoallergenic</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeliner/no-talc">No talc</Link>
+              </li>
+              <li>
+                <Link to="/result/eyeliner/ecocert">Ecocert</Link>
+              </li>
             </ul>
           </div>
         </div>
       )}
+
       {activeMenu === "eyebrow" && (
         <div
-          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[1150px]"
+          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse ml-[1150px]"
           onMouseEnter={() => dropDown("eyebrow")}
           onMouseLeave={() => dropDown("")}
         >
-          <div className=" flex flex-row">
+          <div className="flex flex-row">
             <ul className="flex flex-col pr-3">
-              <li>Pencil</li>
+              <li>
+                <Link to="/result/eyebrow/pencil">Pencil</Link>
+              </li>
             </ul>
             <ul className="">
-              <li>EWG verified</li>
-              <li>Purpicks</li>
-            </ul>
-          </div>
-        </div>
-      )}
-      {activeMenu === "bronzer" && (
-        <div
-          className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse ml-[1350px]"
-          onMouseEnter={() => dropDown("bronzer")}
-          onMouseLeave={() => dropDown("")}
-        >
-          <div className="flex flex-row">
-            <ul className="mr-4">
-              <li>Pencil</li>
-            </ul>
-            <ul>
-              <li>EWG verified</li>
-              <li>Purpicks</li>
+              <li>
+                <Link to="/result/eyebrow/ewg-verified">EWG verified</Link>
+              </li>
+              <li>
+                <Link to="/result/eyebrow/purpicks">Purpicks</Link>
+              </li>
             </ul>
           </div>
         </div>

@@ -21,21 +21,21 @@ function Products() {
 
   useEffect(() => {
     let url;
-    if (location.pathname.includes("result")) {
+    if (location.pathname.includes(category)) {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_category=${category}`;
+    } else if (location.pathname.includes(type)) {
+      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}`;
     } else {
-      url =
-        "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
+      url = "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
     }
 
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        const fetchedProducts = location.pathname.includes("rating")
-          ? data
-          : data.slice(0, 8);
+        location.pathname.includes("rating") || location.pathname.includes("result")
+          ? setProducts(data)
+          : setProducts(data.slice(0, 8));
 
-        setProducts(fetchedProducts);
       });
   }, [location.pathname, type, category ]);
 
@@ -88,7 +88,7 @@ function Products() {
     <div className="mx-auto p-4 flex flex-col items-end mt-[100px]">
       <ul className="flex flex-wrap flex-row justify-around">
         {products.map((product) =>
-          product.image_link !== null ? (
+          product.image_link  ? (
             <li
               key={product.id}
               className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] cursor-pointer"
@@ -100,7 +100,7 @@ function Products() {
               />
               <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
               <p className="text-gray-600 mb-2">
-                {product.description.length > 70
+                {  product.description
                   ? product.description.slice(0, 70) + "..."
                   : product.description}
               </p>
