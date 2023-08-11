@@ -7,6 +7,7 @@ import Rating from "./Rating";
 import Basket from "./Basket";
 import Result from "./Result";
 import Product from './Product';
+import Brand from './Brand'
 
 function Pages() {
   return (
@@ -20,6 +21,7 @@ function Pages() {
       <Route path="/result/:type/:category" element={<Result />} />
       <Route path="/result/:type/:tag-bytag" element={<Result />} />
       <Route path="/product" element={<Product />} />
+      <Route path="/brand/:result" element={<Brand />} />
     </Routes>
   );
 }
