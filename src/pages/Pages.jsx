@@ -21,7 +21,7 @@ function Pages() {
       <Route path="/result/:type/:category" element={<Result />} />
       <Route path="/result/:type/:tag-bytag" element={<Result />} />
       <Route path="/product" element={<Product />} />
-      <Route path="/brand/:result" element={<Brand />} />
+      <Route path="/brands/:brandName" element={<Brand />} />
     </Routes>
   );
 }

@@ -17,7 +17,7 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <div className="max-w-[30px] max-h-[30px]">
-              <img src="blush.svg" alt="" className="w-full h-full" />
+              <img src="/blush.svg" alt="" className="w-full h-full" />
             </div>
             <p className="text-center">Blush</p>
           </li>
@@ -29,7 +29,7 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <div className="max-w-[30px] max-h-[30px]">
-              <img src="nailpolish.png" alt="" className="w-full h-full" />
+              <img src="/nailpolish.png" alt="" className="w-full h-full" />
             </div>
             <p className="text-center">Nail polish</p>
           </li>
@@ -41,7 +41,7 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <div className="max-w-[30px] max-h-[30px]">
-              <img src="mascara.png" alt="" className="w-full h-full" />
+              <img src="/mascara.png" alt="" className="w-full h-full" />
             </div>
             <p className="text-center">Mascara</p>
           </li>
@@ -53,7 +53,7 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <div className="max-w-[30px] max-h-[30px]">
-              <img src="lipstick.png" alt="" className="w-full h-full" />
+              <img src="/lipstick.png" alt="" className="w-full h-full" />
             </div>
             <p className="text-center">Lipstick</p>
           </li>
@@ -65,7 +65,7 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <div className="max-w-[30px] max-h-[30px]">
-              <img src="lipliner.png" alt="" className="w-full h-full" />
+              <img src="/lipliner.png" alt="" className="w-full h-full" />
             </div>
             <p className="text-center">Lip liner</p>
           </li>
@@ -77,7 +77,7 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <div className="max-w-[30px] max-h-[30px]">
-              <img src="foundation.png" alt="" className="w-full h-full" />
+              <img src="/foundation.png" alt="" className="w-full h-full" />
             </div>
             <p className="text-center">Foundation</p>
           </li>
@@ -89,7 +89,7 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <div className="max-w-[30px] max-h-[30px]">
-              <img src="eyeshadow.png" alt="" className="w-full h-full" />
+              <img src="/eyeshadow.png" alt="" className="w-full h-full" />
             </div>
             <p className="text-center">Eyeshadow</p>
           </li>
@@ -101,7 +101,7 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <div className="max-w-[30px] max-h-[30px]">
-              <img src="eyeliner.png" alt="" className="w-full h-full" />
+              <img src="/eyeliner.png" alt="" className="w-full h-full" />
             </div>
             <p className="text-center">Eyeliner</p>
           </li>
@@ -113,7 +113,7 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <div className="max-w-[30px] max-h-[30px]">
-              <img src="eyebrow.png" alt="" className="w-full h-full" />
+              <img src="/eyebrow.png" alt="" className="w-full h-full" />
             </div>
             <p className="text-center">Eyebrow</p>
           </li>
@@ -125,7 +125,7 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <div className="max-w-[30px] max-h-[30px]">
-              <img src="bronzer.png" alt="" className="w-full h-full" />
+              <img src="/bronzer.png" alt="" className="w-full h-full" />
             </div>
             <p className="text-center">Bronzer</p>
           </li>

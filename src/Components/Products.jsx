@@ -20,6 +20,7 @@ function Products() {
   const { category } = useParams();
   const { type } = useParams();
   const { tag } = useParams();
+  const { brandName } = useParams();
 
   useEffect(() => {
     let url;
@@ -29,6 +30,8 @@ function Products() {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_tags=${tag}`;
     } else if (location.pathname.includes(type)) {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}`;
+    } else if (location.pathname.includes(brandName)) {
+      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brandName}`;
     } else {
       url =
         "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
@@ -38,7 +41,8 @@ function Products() {
       .then((response) => response.json())
       .then((data) => {
         location.pathname.includes("rating") ||
-        location.pathname.includes("result")
+        location.pathname.includes("result") ||
+        location.pathname.includes("brand")
           ? setProducts(data)
           : setProducts(data.slice(0, 8));
       });
@@ -169,10 +173,9 @@ function Products() {
       <div className="w-[100px] cursor-pointer mr-[50px] font-semibold">
         {location.pathname.includes("rating") ||
         location.pathname.includes("product") ||
-        location.pathname.includes("result") ? (
-          <div>
-            
-          </div>
+        location.pathname.includes("result") || 
+        location.pathname.includes("brand") ? (
+          <div></div>
         ) : (
           <Link to="/rating" className="flex items-center justify-around ml">
             <p>For more</p>

@@ -15,13 +15,63 @@ function Navbar() {
     "annabelle",
     "benefit",
     "boosh",
-    // ... (other brand names)
+    "burt's bees",
+    "butter london",
+    "c'est moi",
+    "cargo cosmetics",
+    "china glaze",
+    "clinique",
+    "coastal classic creation",
+    "colourpop",
+    "covergirl",
+    "dalish",
+    "deciem",
+    "dior",
+    "dr. hauschka",
+    "e.l.f.",
+    "essie",
+    "fenty",
+    "glossier",
+    "green people",
+    "iman",
+    "l'oreal",
+    "lotus cosmetics usa",
+    "maia's mineral galaxy",
+    "marcelle",
+    "marienatie",
+    "maybelline",
+    "milani",
+    "mineral fusion",
+    "misa",
+    "mistura",
+    "moov",
+    "nudus",
+    "nyx",
+    "orly",
+    "pacifica",
+    "penny lane organics",
+    "physicians formula",
+    "piggy paint",
+    "pure anada",
+    "rejuva minerals",
+    "revlon",
+    "sally b's skin yummies",
+    "salon perfect",
+    "sante",
+    "sinful colours",
+    "smashbox",
+    "stila",
+    "suncoat",
+    "w3llpeople",
+    "wet n wild",
+    "zorah",
+    "zorah biocosmetiques",
   ];
 
   const handleClick = (result) => {
-    const brandUrl = `/brands/${brand.replace(/\s+/g, "+")}`;
-    navigate(`/brands/senan`)
-  }
+    const brandUrl = `/brands/${result.replace(/\s+/g, "+")}`;
+    navigate(brandUrl);
+  };
 
   const handleSearch = (query) => {
     const filteredBrands = brandList.filter((brand) =>
@@ -48,10 +98,9 @@ function Navbar() {
             {searchResults.length > 0 && (
               <ul className="bg-gega-white absolute">
                 {searchResults.map((result, index) => (
-                  
-                    <li key={index} onClick={() => handleClick(result)}>{result}</li>
-      
-                  
+                  <li key={index} onClick={() => handleClick(result)}>
+                    {result}
+                  </li>
                 ))}
               </ul>
             )}
