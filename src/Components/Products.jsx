@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { AiOutlineArrowRight } from "react-icons/ai";
 import { SlBasket } from "react-icons/sl";
 import Please from "./Please";
 import { useUserData } from "../UserDataContext";
@@ -77,7 +76,13 @@ function Products() {
   };
 
   return (
-    <div className="mx-auto p-4 flex flex-col items-end mt-[100px]">
+    <div className="mx-auto p-4 flex flex-col items-center mt-[100px]">
+      <div className="flex flex-row w-full justify-around">
+        <div className="px-4 py-2 bg-gega-soft"></div>
+        <div>lowest price</div>
+        <div></div>
+        <div>low rated</div>
+      </div>
       <ul className="flex flex-wrap flex-row justify-around items-start">
         {products.map((product) =>
           product.image_link ? (
@@ -168,19 +173,6 @@ function Products() {
               Product was added to basket
             </div>
           </div>
-        )}
-      </div>
-      <div className="w-[100px] cursor-pointer mr-[50px] font-semibold">
-        {location.pathname.includes("rating") ||
-        location.pathname.includes("product") ||
-        location.pathname.includes("result") || 
-        location.pathname.includes("brand") ? (
-          <div></div>
-        ) : (
-          <Link to="/rating" className="flex items-center justify-around ml">
-            <p>For more</p>
-            <AiOutlineArrowRight />
-          </Link>
         )}
       </div>
     </div>

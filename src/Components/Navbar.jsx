@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserData } from "../UserDataContext";
 import { SlBasket } from "react-icons/sl";
@@ -6,7 +6,7 @@ import { SlBasket } from "react-icons/sl";
 function Navbar() {
   const { userData } = useUserData();
   const [searchResults, setSearchResults] = useState([]);
-  let inputRef = useRef();
+  const [show, setShow] = useState(false);
   let navigate = useNavigate();
   const brandList = [
     "almay",
@@ -74,11 +74,31 @@ function Navbar() {
   };
 
   const handleSearch = (query) => {
-    const filteredBrands = brandList.filter((brand) =>
-      brand.toLowerCase().includes(query.toLowerCase())
-    );
-    setSearchResults(filteredBrands);
+    if (query === "") {
+      setSearchResults([]);
+    } else {
+      setShow(false)
+      const filteredBrands = brandList.filter((brand) =>
+        brand.toLowerCase().includes(query.toLowerCase())
+      );
+      setSearchResults(filteredBrands);
+    }
   };
+
+  const pleaseRef = useRef(null); // Initialize the ref with null
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (pleaseRef.current && !pleaseRef.current.contains(event.target)) {
+        setShow(true);
+      }
+    }
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
 
   return (
     <div>
@@ -87,18 +107,22 @@ function Navbar() {
           <img src="/logo.png" alt="" className="w-full h-full" />
         </div>
         <div className="flex flex-row items-center justify-between">
-          <div className="mr-10">
+          <div className="mr-10" ref={pleaseRef}>
             <input
               type="search"
               className="border-1 w-[300px] outline-none rounded-[10px] py-[6px] px-3"
               placeholder="search brand"
-              ref={inputRef}
               onChange={(e) => handleSearch(e.target.value)}
             />
-            {searchResults.length > 0 && (
-              <ul className="bg-gega-white absolute">
+            {/* {searchResults.length > 0 || show === true ? ( */}
+            { !show && (
+              <ul className="bg-gega-white absolute w-[300px] h-[300px] overflow-auto">
                 {searchResults.map((result, index) => (
-                  <li key={index} onClick={() => handleClick(result)}>
+                  <li
+                    key={index}
+                    onClick={() => handleClick(result)}
+                    className="py-1 px-2 cursor-pointer"
+                  >
                     {result}
                   </li>
                 ))}
