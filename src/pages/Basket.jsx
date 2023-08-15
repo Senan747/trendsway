@@ -8,7 +8,8 @@ function Basket() {
   const { userData } = useUserData();
   const { productData } = useProductData();
   const [count, setCount] = useState({});
-  const [showFirstPrice, setShowFirstPrice] = useState(false)
+  const [showFirstPrice, setShowFirstPrice] = useState(false);
+
 
   const handlePlus = (productId, price) => {
     setCount((prevCount) => ({
@@ -25,6 +26,7 @@ function Basket() {
       }));
     }
   };
+
 
   const getProductTotal = (productId, price) => {
     return ((count[productId] || 0) * price).toFixed(2);

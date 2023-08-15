@@ -35,20 +35,24 @@ function Products() {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}`;
     } else if (location.pathname.includes(brandName)) {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brandName}`;
-    } else if (PGT) {
-      url += `price_greater_than=${PGT}`;
-    } else if (PLT) {
-      url += `price_less_than=${PLT}`;
-    } else if (RGT) {
-      url += `rating_greater_than=${RGT}`;
-    } else if (RLT) {
-      url += `rating_less_than=${RLT}`;
-    } else {
-      url =
-        "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
+    } else if (location.pathname.includes("rating")) {
+      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=`;
+    } 
+    
+
+    if (PGT) {
+      url += `&price_greater_than=${PGT}`;
+    }
+    if (PLT) {
+      url += `&price_less_than=${PLT}`;
+    }
+    if (RGT) {
+      url += `&rating_greater_than=${RGT}`;
+    }
+    if (RLT) {
+      url += `&rating_less_than=${RLT}`;
     }
 
-    console.log(url);
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -57,9 +61,10 @@ function Products() {
         location.pathname.includes("brand")
           ? setProducts(data)
           : setProducts(data.slice(0, 8));
-      });
+      })
+      .catch("error: ", Error);
   }, [location.pathname, type, category, tag, brandName, PGT, PLT, RGT, RLT]);
-  console.log(PGT);
+
 
   const handleProductClick = (product) => {
     setProductData((prevData) => [...prevData, product]);
@@ -91,46 +96,53 @@ function Products() {
 
   return (
     <div className="mx-auto p-4 flex flex-col items-center mt-[50px]">
-      <div className="flex flex-row w-full justify-around items-center mb-[50px]">
-        <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
-          <p>price greater than</p>
-          <input
-            type="number"
-            className="w-[60px] ml-2"
-            placeholder="5"
-            onChange={(e) => setPGT(e.target.value)}
-          />
+      {location.pathname.includes("rating") ||
+      location.pathname.includes(brandName) ||
+      location.pathname.includes(category) ||
+      location.pathname.includes(type) ||
+      location.pathname.includes(tag) ||
+      location.pathname.includes("result") ? (
+        <div className="flex flex-row w-full justify-around items-center mb-[50px]">
+          <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
+            <p>price greater than</p>
+            <input
+              type="number"
+              className="w-[60px] ml-2"
+              placeholder="5"
+              onChange={(e) => setPGT(e.target.value)}
+            />
+          </div>
+          <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
+            <p>price less than</p>
+            <input
+              type="number"
+              className="w-[60px] ml-2"
+              placeholder="5"
+              onChange={(e) => setPLT(e.target.value)}
+            />
+          </div>
+          <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
+            <p>rating greater than</p>
+            <select name="" id="" onChange={(e) => setRGT(e.target.value)}>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
+            <p>rating less than</p>
+            <select name="" id="" onChange={(e) => setRLT(e.target.value)}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
         </div>
-        <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
-          <p>price less than</p>
-          <input
-            type="number"
-            className="w-[60px] ml-2"
-            placeholder="5"
-            onChange={(e) => setPLT(e.target.value)}
-          />
-        </div>
-        <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
-          <p>rating greater than</p>
-          <select name="" id="" onChange={(e) => setRGT(e.target.value)}>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-        </div>
-        <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
-          <p>rating less than</p>
-          <select name="" id="" onChange={(e) => setRLT(e.target.value)}>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </div>
-      </div>
+      ) : null}
       <ul className="flex flex-wrap flex-row justify-around items-start">
         {products.map((product) =>
           product.image_link ? (

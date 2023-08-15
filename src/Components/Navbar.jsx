@@ -5,6 +5,7 @@ import { SlBasket } from "react-icons/sl";
 
 function Navbar() {
   const { userData } = useUserData();
+  const { productData } = useUserData();
   const [searchResults, setSearchResults] = useState([]);
   const [show, setShow] = useState(false);
   let navigate = useNavigate();
@@ -138,6 +139,7 @@ function Navbar() {
               <Link to="/basket">
                 <SlBasket className="text-xl" />
               </Link>
+              {productData && "salam"}
             </div>
           ) : (
             <div className="flex flex-row items-center mr-6 text-white">
