@@ -20,6 +20,10 @@ function Products() {
   const { type } = useParams();
   const { tag } = useParams();
   const { brandName } = useParams();
+  const [PGT, setPGT] = useState();
+  const [PLT, setPLT] = useState();
+  const [RGT, setRGT] = useState();
+  const [RLT, setRLT] = useState();
 
   useEffect(() => {
     let url;
@@ -31,11 +35,20 @@ function Products() {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}`;
     } else if (location.pathname.includes(brandName)) {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brandName}`;
+    } else if (PGT) {
+      url += `price_greater_than=${PGT}`;
+    } else if (PLT) {
+      url += `price_less_than=${PLT}`;
+    } else if (RGT) {
+      url += `rating_greater_than=${RGT}`;
+    } else if (RLT) {
+      url += `rating_less_than=${RLT}`;
     } else {
       url =
         "http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5";
     }
 
+    console.log(url);
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -45,11 +58,8 @@ function Products() {
           ? setProducts(data)
           : setProducts(data.slice(0, 8));
       });
-  }, [location.pathname, type, category]);
-
-  const handleRating = (rating) => {
-    setRating(rating);
-  };
+  }, [location.pathname, type, category, tag, brandName, PGT, PLT, RGT, RLT]);
+  console.log(PGT);
 
   const handleProductClick = (product) => {
     setProductData((prevData) => [...prevData, product]);
@@ -75,81 +85,123 @@ function Products() {
     }, 2500);
   };
 
+  const handleRating = (rating) => {
+    setRating(rating);
+  };
+
   return (
-    <div className="mx-auto p-4 flex flex-col items-center mt-[100px]">
-      <div className="flex flex-row w-full justify-around">
-        <div className="px-4 py-2 bg-gega-soft"></div>
-        <div>lowest price</div>
-        <div></div>
-        <div>low rated</div>
+    <div className="mx-auto p-4 flex flex-col items-center mt-[50px]">
+      <div className="flex flex-row w-full justify-around items-center mb-[50px]">
+        <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
+          <p>price greater than</p>
+          <input
+            type="number"
+            className="w-[60px] ml-2"
+            placeholder="5"
+            onChange={(e) => setPGT(e.target.value)}
+          />
+        </div>
+        <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
+          <p>price less than</p>
+          <input
+            type="number"
+            className="w-[60px] ml-2"
+            placeholder="5"
+            onChange={(e) => setPLT(e.target.value)}
+          />
+        </div>
+        <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
+          <p>rating greater than</p>
+          <select name="" id="" onChange={(e) => setRGT(e.target.value)}>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
+          <p>rating less than</p>
+          <select name="" id="" onChange={(e) => setRLT(e.target.value)}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
       </div>
       <ul className="flex flex-wrap flex-row justify-around items-start">
         {products.map((product) =>
           product.image_link ? (
-            <Link to="/product">
-              <li
-                key={product.id}
-                className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[500px] cursor-pointer"
-                onClick={() => setProduct(product)}
-              >
-                <img
-                  src={product.image_link}
-                  alt={product.name}
-                  className="w-40 h-40 object-cover mx-auto mb-4"
-                />
-                <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
-                <p className="text-gray-600 mb-2">
-                  {product.description
-                    ? product.description.slice(0, 70) + "..."
-                    : product.description}
-                </p>
-                <div className="flex-end">
-                  <ul className="flex space-x-1">
-                    {handleRating(product.rating)}
-                    <Stars />
-                  </ul>
-                  <div className="text-lg font-semibold flex flex-row">
-                    <p className="mr-1">{product.price}</p>
-                    <p>
-                      {product.price_sign === null ? "$" : product.price_sign}
-                    </p>
-                  </div>
+            <li
+              key={product.id}
+              className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[500px]"
+              onClick={() => setProduct(product)}
+            >
+              <img
+                src={product.image_link}
+                alt={product.name}
+                className="w-40 h-40 object-cover mx-auto mb-4"
+              />
+              <Link to="/product">
+                {" "}
+                <h3 className="text-xl font-semibold mb-2 cursor-pointer hover:underline">
+                  {product.name}
+                </h3>
+              </Link>
 
-                  <div className="flex flex-row items-end justify-between">
-                    <ul className="flex flex-wrap space-x-2">
-                      {product.product_colors.map((color) => (
-                        <li
-                          className="w-6 h-6 rounded-full"
-                          style={{ backgroundColor: color.hex_value }}
-                          title={color.colour_name}
-                        />
-                      ))}
-                    </ul>
-                    {userData !== null ? (
-                      <div
-                        className="rounded-[100%] hover:bg-gega-light-grey duration-30"
-                        onClick={() => {
-                          handleProductClick(product);
-                          handleNotficition();
-                        }}
-                      >
-                        <SlBasket className="mr-[10px] text-5xl py-2" />
-                      </div>
-                    ) : (
-                      <div
-                        className="rounded-[100%] hover:bg-gega-light-grey duration-300"
-                        onClick={(event) => {
-                          setShow(true);
-                          event.stopPropagation();
-                        }}
-                      >
-                        <SlBasket className="mr-[10px] text-5xl py-2" />
-                      </div>
-                    )}
-                  </div>
+              <p className="text-gray-600 mb-2">
+                {product.description
+                  ? product.description.slice(0, 70) + "..."
+                  : product.description}
+              </p>
+              <div className="flex-end">
+                <ul className="flex space-x-1">
+                  {handleRating(product.rating)}
+                  <Stars />
+                </ul>
+                <div className="text-lg font-semibold flex flex-row">
+                  <p className="mr-1">{product.price}</p>
+                  <p>
+                    {product.price_sign === null ? "$" : product.price_sign}
+                  </p>
                 </div>
-              </li>
-            </Link>
+
+                <div className="flex flex-row items-end justify-between">
+                  <ul className="flex flex-wrap space-x-2">
+                    {product.product_colors.map((color) => (
+                      <li
+                        className="w-6 h-6 rounded-full"
+                        style={{ backgroundColor: color.hex_value }}
+                        title={color.colour_name}
+                      />
+                    ))}
+                  </ul>
+                  {userData !== null ? (
+                    <div
+                      className="rounded-[100%] hover:bg-gega-light-grey duration-30"
+                      onClick={() => {
+                        handleProductClick(product);
+                        handleNotficition();
+                      }}
+                    >
+                      <SlBasket className="mr-[10px] text-5xl py-2" />
+                    </div>
+                  ) : (
+                    <div
+                      className="rounded-[100%] hover:bg-gega-light-grey duration-300"
+                      onClick={(event) => {
+                        setShow(true);
+                        event.stopPropagation();
+                      }}
+                    >
+                      <SlBasket className="mr-[10px] text-5xl py-2" />
+                    </div>
+                  )}
+                </div>
+              </div>
+            </li>
           ) : null
         )}
       </ul>

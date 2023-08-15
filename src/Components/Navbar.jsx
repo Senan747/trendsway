@@ -115,8 +115,8 @@ function Navbar() {
               onChange={(e) => handleSearch(e.target.value)}
             />
             {/* {searchResults.length > 0 || show === true ? ( */}
-            { !show && (
-              <ul className="bg-gega-white absolute w-[300px] h-[300px] overflow-auto">
+            { (!show && searchResults.length > 0) && (
+              <ul className="bg-gega-white absolute w-[300px] max-h-[300px] overflow-auto">
                 {searchResults.map((result, index) => (
                   <li
                     key={index}
