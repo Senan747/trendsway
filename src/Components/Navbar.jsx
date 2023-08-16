@@ -78,7 +78,7 @@ function Navbar() {
     if (query === "") {
       setSearchResults([]);
     } else {
-      setShow(false)
+      setShow(false);
       const filteredBrands = brandList.filter((brand) =>
         brand.toLowerCase().includes(query.toLowerCase())
       );
@@ -100,12 +100,17 @@ function Navbar() {
     };
   }, []);
 
-
   return (
     <div>
       <div className="max-h-[200px] bg-gega-pink flex flex-row items-center justify-between ">
         <div className="max-h-[150px] max-w-[150px] ">
-          <img src="/logo.png" alt="" className="w-full h-full" />
+          <Link to="/">
+            <img
+              src="/logo.png"
+              alt=""
+              className="w-full h-full cursor-pointer"
+            />
+          </Link>
         </div>
         <div className="flex flex-row items-center justify-between">
           <div className="mr-10" ref={pleaseRef}>
@@ -115,8 +120,8 @@ function Navbar() {
               placeholder="search brand"
               onChange={(e) => handleSearch(e.target.value)}
             />
-            {/* {searchResults.length > 0 || show === true ? ( */}
-            { (!show && searchResults.length > 0) && (
+
+            {!show && searchResults.length > 0 && (
               <ul className="bg-gega-white absolute w-[300px] max-h-[300px] overflow-auto">
                 {searchResults.map((result, index) => (
                   <li
@@ -136,10 +141,12 @@ function Navbar() {
               <p className="text-gega-white text-xl">
                 Hello, {userData.username}!
               </p>
-              <Link to="/basket">
-                <SlBasket className="text-xl" />
+              <Link to="/basket" className="relative">
+                <SlBasket className="text-3xl text-gega-white" />
+                <div className="text-sm absolute bottom-3 left-5 text-gega-white bg-gega-red rounded-[100%] px-[5px]">
+                  {productData && productData.length}
+                </div>
               </Link>
-              {productData && "salam"}
             </div>
           ) : (
             <div className="flex flex-row items-center mr-6 text-white">

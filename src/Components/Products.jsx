@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import { SlBasket } from "react-icons/sl";
 import Please from "./Please";
 import { useUserData } from "../UserDataContext";
-import { useProductData } from "../ProductDataContext";
+
 import Stars from "./Stars";
 
 function Products() {
   const [products, setProducts] = useState([]);
   const { userData } = useUserData();
-  const { setProductData } = useProductData();
+  const { setProductData } = useUserData();
   const { setProduct } = useUserData();
   const { setRating } = useUserData();
   const [show, setShow] = useState(false);
@@ -37,8 +37,7 @@ function Products() {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brandName}`;
     } else if (location.pathname.includes("rating")) {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=`;
-    } 
-    
+    }
 
     if (PGT) {
       url += `&price_greater_than=${PGT}`;
@@ -64,7 +63,6 @@ function Products() {
       })
       .catch("error: ", Error);
   }, [location.pathname, type, category, tag, brandName, PGT, PLT, RGT, RLT]);
-
 
   const handleProductClick = (product) => {
     setProductData((prevData) => [...prevData, product]);

@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { useUserData } from "../UserDataContext";
-import { useProductData } from "../ProductDataContext";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { AiOutlineMinusCircle } from "react-icons/ai";
 
 function Basket() {
   const { userData } = useUserData();
-  const { productData } = useProductData();
+  const { productData } = useUserData();
   const [count, setCount] = useState({});
   const [showFirstPrice, setShowFirstPrice] = useState(false);
-
 
   const handlePlus = (productId, price) => {
     setCount((prevCount) => ({
@@ -26,7 +24,6 @@ function Basket() {
       }));
     }
   };
-
 
   const getProductTotal = (productId, price) => {
     return ((count[productId] || 0) * price).toFixed(2);
@@ -98,16 +95,15 @@ function Basket() {
                     className="text-3xl cursor-pointer"
                     onClick={() => {
                       handlePlus(product.id, product.price);
-                      setShowFirstPrice(true)
+                      setShowFirstPrice(true);
                     }}
                   >
                     <AiOutlinePlusCircle />
                   </div>
                   <div className="text-lg font-semibold flex flex-row my-4">
-                    {
-                      !showFirstPrice ? product.price : getProductTotal(product.id, product.price)
-                    }
-                    
+                    {!showFirstPrice
+                      ? product.price
+                      : getProductTotal(product.id, product.price)}
                   </div>
                   <div
                     className="text-3xl cursor-pointer"

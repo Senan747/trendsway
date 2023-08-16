@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { UserDataProvider } from "./UserDataContext";
-import { ProductDataProvider } from "./ProductDataContext";
+
 import App from "./App.jsx";
 
 import "./index.css";
@@ -11,9 +11,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <UserDataProvider>
-        <ProductDataProvider>
-          <App />
-        </ProductDataProvider>
+        <App />
       </UserDataProvider>
     </BrowserRouter>
   </React.StrictMode>
