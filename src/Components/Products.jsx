@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { SlBasket } from "react-icons/sl";
 import Please from "./Please";
 import { useUserData } from "../UserDataContext";
-
 import Stars from "./Stars";
 
 function Products() {
@@ -27,7 +26,9 @@ function Products() {
 
   useEffect(() => {
     let url;
-    if (location.pathname.includes(category)) {
+    if (location.pathname === "/rating") {
+      url = `http://makeup-api.herokuapp.com/api/v1/products.json?`;
+    } else  if (location.pathname.includes(category)) {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_category=${category}`;
     } else if (location.pathname.includes(tag)) {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_tags=${tag}`;
@@ -35,20 +36,17 @@ function Products() {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}`;
     } else if (location.pathname.includes(brandName)) {
       url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brandName}`;
-    } else if (location.pathname.includes("rating")) {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=`;
+    } else if (location.pathname === "/") {
+      url = `http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5`;
     }
 
     if (PGT) {
       url += `&price_greater_than=${PGT}`;
-    }
-    if (PLT) {
+    } else if (PLT) {
       url += `&price_less_than=${PLT}`;
-    }
-    if (RGT) {
+    } else if (RGT) {
       url += `&rating_greater_than=${RGT}`;
-    }
-    if (RLT) {
+    } else if (RLT) {
       url += `&rating_less_than=${RLT}`;
     }
 

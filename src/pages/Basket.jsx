@@ -1,41 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useUserData } from "../UserDataContext";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { AiOutlineMinusCircle } from "react-icons/ai";
+import Pay from "../Components/Pay";
 
 function Basket() {
   const { userData } = useUserData();
   const { productData } = useUserData();
-  const [count, setCount] = useState({});
+  const [counts, setCounts] = useState({}); 
   const [showFirstPrice, setShowFirstPrice] = useState(false);
+  const [showPay, setShowPay] = useState(false);
 
-  const handlePlus = (productId, price) => {
-    setCount((prevCount) => ({
-      ...prevCount,
-      [productId]: (prevCount[productId] || 1) + 1,
+  const handlePlus = (productId) => {
+    setCounts((prevCounts) => ({
+      ...prevCounts,
+      [productId]: (prevCounts[productId] || 0) + 1, 
     }));
   };
 
-  const handleMinus = (productId, price) => {
-    if (count[productId] > 1) {
-      setCount((prevCount) => ({
-        ...prevCount,
-        [productId]: prevCount[productId] - 1,
+  const handleMinus = (productId) => {
+    if (counts[productId] > 0) {
+      setCounts((prevCounts) => ({
+        ...prevCounts,
+        [productId]: prevCounts[productId] - 1,
       }));
     }
   };
 
   const getProductTotal = (productId, price) => {
-    return ((count[productId] || 0) * price).toFixed(2);
+    return (counts[productId] || 0) * price;
   };
 
   const getTotalCost = () => {
     let total = 0;
     productData.forEach((product) => {
-      total += parseFloat(getProductTotal(product.id, product.price));
+      total += getProductTotal(product.id, product.price);
     });
     return total.toFixed(2);
   };
+
+  const pleaseRef = useRef();
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (pleaseRef.current && !pleaseRef.current.contains(event.target)) {
+        setShow(false);
+      }
+    }
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="flex items-center justify-center flex-col">
@@ -102,7 +117,7 @@ function Basket() {
                   </div>
                   <div className="text-lg font-semibold flex flex-row my-4">
                     {!showFirstPrice
-                      ? product.price
+                      ? "0"
                       : getProductTotal(product.id, product.price)}
                   </div>
                   <div
@@ -118,10 +133,29 @@ function Basket() {
             <p>No products available</p>
           )}
         </div>
-        <div className="fixed top-[50%] right-[10%]">
+        <div className="flex items-center flex-col fixed top-[50%] right-[10%] border-2 px-2">
           <p className="my-10 text-2xl text-gega-rose">
             Total Cost: {getTotalCost()}
           </p>
+          <button
+            className="bg-gega-pink text-gega-white px-3 py-2 rounded-md mb-3"
+            onClick={() => setShowPay(true)}
+          >
+            Finish
+          </button>
+        </div>
+        <div ref={pleaseRef}>
+          {showPay && (
+            <>
+              <div
+                className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-10"
+                onClick={() => setShowPay(false)}
+              />
+              <div className="fixed top-[22%] left-[38%] z-20">
+                <Pay className="bg-gega-light" />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
