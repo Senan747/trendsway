@@ -3,6 +3,7 @@ import { useUserData } from "../UserDataContext";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { AiOutlineMinusCircle } from "react-icons/ai";
 import Pay from "../Components/Pay";
+import { Link } from "react-router-dom";
 
 function Basket() {
   const { userData } = useUserData();
@@ -12,12 +13,15 @@ function Basket() {
   const { showPay, setShowPay } = useUserData();
   const [showNotficition, setShowNotficiton] = useState(false);
   const [zeroCost, setZeroCost] = useState(false);
+  const { showFinishNot, setShowFinishNont } = useUserData();
 
   const handlePlus = (productId) => {
     setCounts((prevCounts) => ({
       ...prevCounts,
       [productId]: (prevCounts[productId] || 0) + 1,
     }));
+
+    setZeroCost(false);
   };
 
   const handleMinus = (productId) => {
@@ -41,15 +45,8 @@ function Basket() {
     return total.toFixed(2);
   };
 
-  const handleNotficition = () => {
-    setShowNotficiton(true);
-    setTimeout(() => {
-      setShowNotficiton(false);
-    }, 2500);
-  };
-
   const handleFinish = (event) => {
-    if (getTotalCost() == 0.00) {
+    if (getTotalCost() == 0.0) {
       event.stopPropagation();
       setZeroCost(true);
     } else {
@@ -83,7 +80,12 @@ function Basket() {
                     alt={product.name}
                     className="w-40 h-40 object-cover mx-auto mb-4"
                   />
-                  <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
+                  <Link to="/product">
+                    {" "}
+                    <h3 className="text-xl font-semibold mb-2 cursor-pointer hover:underline">
+                      {product.name}
+                    </h3>
+                  </Link>
                   <p className="text-gray-600 mb-2">
                     {product.description.length > 70
                       ? product.description.slice(0, 70) + "..."
@@ -151,7 +153,11 @@ function Basket() {
           >
             Finish
           </button>
-          {zeroCost ? (<p className="text-gega-red text-lg">Cost is zero</p>) : " "}
+          {zeroCost ? (
+            <p className="text-gega-red text-lg">Cost is zero</p>
+          ) : (
+            " "
+          )}
         </div>
         <div>
           {showPay && (
@@ -173,10 +179,10 @@ function Basket() {
           )}
         </div>
         <div>
-          {showNotficition && (
+          {showFinishNot && (
             <div className="w-screen h-screen fixed">
               <div className="fixed w-[300px] bg-gega-rose text-gega-white text-xl text-center top-[89%] left-[38%] z-20 py-3 rounded-lg animate-pulse">
-                The orders are finished
+                Products have been ordered
               </div>
             </div>
           )}

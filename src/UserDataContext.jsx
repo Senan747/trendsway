@@ -11,7 +11,7 @@ export function UserDataProvider({ children }) {
   const [showFinishNot, setShowFinishNot] = useState(false)
 
   return (
-    <UserDataContext.Provider value={{ userData, setUserData, product, setProduct, rating, setRating, productData, setProductData, showPay, setShowPay }}>
+    <UserDataContext.Provider value={{ userData, setUserData, product, setProduct, rating, setRating, productData, setProductData, showPay, setShowPay, showFinishNot, setShowFinishNot }}>
       {children}
     </UserDataContext.Provider>
   );

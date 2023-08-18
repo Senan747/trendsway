@@ -5,11 +5,18 @@ import { useUserData } from "../UserDataContext";
 function Pay() {
   const { setProductData } = useUserData();
   const { setShowPay } = useUserData();
+  const { showFinishNot, setShowFinishNot} = useUserData();
   const [selectedPayment, setSelectedPayment] = useState();
 
   const handleChange = (payment) => {
     setSelectedPayment(payment)
   }
+  const handleNotficition = () => {
+    setShowFinishNot(true);
+    setTimeout(() => {
+      setShowFinishNot(false);
+    }, 2500);
+  };
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-40">
@@ -41,6 +48,7 @@ function Pay() {
           onClick={() => {
             setProductData([]);
             setShowPay(false);
+            handleNotficition();
           }}
           disabled={!selectedPayment}
         >
