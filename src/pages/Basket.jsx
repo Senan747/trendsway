@@ -7,14 +7,16 @@ import Pay from "../Components/Pay";
 function Basket() {
   const { userData } = useUserData();
   const { productData } = useUserData();
-  const [counts, setCounts] = useState({}); 
+  const [counts, setCounts] = useState({});
   const [showFirstPrice, setShowFirstPrice] = useState(false);
-  const [showPay, setShowPay] = useState(false);
+  const { showPay, setShowPay } = useUserData();
+  const [showNotficition, setShowNotficiton] = useState(false);
+  const [zeroCost, setZeroCost] = useState(false);
 
   const handlePlus = (productId) => {
     setCounts((prevCounts) => ({
       ...prevCounts,
-      [productId]: (prevCounts[productId] || 0) + 1, 
+      [productId]: (prevCounts[productId] || 0) + 1,
     }));
   };
 
@@ -39,18 +41,22 @@ function Basket() {
     return total.toFixed(2);
   };
 
-  const pleaseRef = useRef();
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (pleaseRef.current && !pleaseRef.current.contains(event.target)) {
-        setShow(false);
-      }
+  const handleNotficition = () => {
+    setShowNotficiton(true);
+    setTimeout(() => {
+      setShowNotficiton(false);
+    }, 2500);
+  };
+
+  const handleFinish = (event) => {
+    if (getTotalCost() == 0.00) {
+      event.stopPropagation();
+      setZeroCost(true);
+    } else {
+      setShowPay(true);
+      event.stopPropagation();
     }
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
+  };
 
   return (
     <div className="flex items-center justify-center flex-col">
@@ -139,12 +145,15 @@ function Basket() {
           </p>
           <button
             className="bg-gega-pink text-gega-white px-3 py-2 rounded-md mb-3"
-            onClick={() => setShowPay(true)}
+            onClick={(event) => {
+              handleFinish(event);
+            }}
           >
             Finish
           </button>
+          {zeroCost ? (<p className="text-gega-red text-lg">Cost is zero</p>) : " "}
         </div>
-        <div ref={pleaseRef}>
+        <div>
           {showPay && (
             <>
               <div
@@ -152,9 +161,24 @@ function Basket() {
                 onClick={() => setShowPay(false)}
               />
               <div className="fixed top-[22%] left-[38%] z-20">
+                <div
+                  className="text-3xl rounded-[100%] relative top-20 z-50 left-[380px] bg-gega-grey pb-2 px-3 text-center cursor-pointer"
+                  onClick={() => setShowPay(false)}
+                >
+                  x
+                </div>
                 <Pay className="bg-gega-light" />
               </div>
             </>
+          )}
+        </div>
+        <div>
+          {showNotficition && (
+            <div className="w-screen h-screen fixed">
+              <div className="fixed w-[300px] bg-gega-rose text-gega-white text-xl text-center top-[89%] left-[38%] z-20 py-3 rounded-lg animate-pulse">
+                The orders are finished
+              </div>
+            </div>
           )}
         </div>
       </div>

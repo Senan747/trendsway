@@ -188,7 +188,7 @@ function Products() {
                   </ul>
                   {userData !== null ? (
                     <div
-                      className="rounded-[100%] hover:bg-gega-light-grey duration-30"
+                      className="rounded-[100%] hover:bg-gega-light-grey duration-30 cursor-pointer"
                       onClick={() => {
                         handleProductClick(product);
                         handleNotficition();
@@ -198,9 +198,9 @@ function Products() {
                     </div>
                   ) : (
                     <div
-                      className="rounded-[100%] hover:bg-gega-light-grey duration-300"
+                      className="rounded-[100%] hover:bg-gega-light-grey duration-300 cursor-pointer"
                       onClick={(event) => {
-                        setShow(true);
+                        setShow(true); 
                         event.stopPropagation();
                       }}
                     >
@@ -220,7 +220,7 @@ function Products() {
               className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-10"
               onClick={() => setShow(false)}
             />
-            <div className="fixed top-[22%] left-[38%] z-20">
+            <div className="fixed top-[22%] left-[38%] z-20" ref={pleaseRef}>
               <Please className="bg-gega-light" />
             </div>
           </>
