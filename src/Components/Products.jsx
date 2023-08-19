@@ -26,18 +26,30 @@ function Products() {
 
   useEffect(() => {
     let url;
-    if (location.pathname === "/rating") {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json?`;
-    } else  if (location.pathname.includes(category)) {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_category=${category}`;
-    } else if (location.pathname.includes(tag)) {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_tags=${tag}`;
-    } else if (location.pathname.includes(type)) {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}`;
-    } else if (location.pathname.includes(brandName)) {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brandName}`;
-    } else if (location.pathname === "/") {
-      url = `http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5`;
+
+    switch (true) {
+      case location.pathname === "/rating":
+        url = `http://makeup-api.herokuapp.com/api/v1/products.json?`;
+        break;
+      case location.pathname.includes(category):
+        url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_category=${category}`;
+        break;
+      case location.pathname.includes(tag):
+        url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_tags=${tag}`;
+        break;
+      case location.pathname.includes(type):
+        url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}`;
+        break;
+      case location.pathname.includes(brandName):
+        url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brandName}`;
+        break;
+      case location.pathname === "/":
+        url =
+          `http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5`;
+        break;
+      default:
+        url = "";
+        break;
     }
 
     if (PGT) {
@@ -200,7 +212,7 @@ function Products() {
                     <div
                       className="rounded-[100%] hover:bg-gega-light-grey duration-300 cursor-pointer"
                       onClick={(event) => {
-                        setShow(true); 
+                        setShow(true);
                         event.stopPropagation();
                       }}
                     >

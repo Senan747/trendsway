@@ -4,6 +4,7 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { AiOutlineMinusCircle } from "react-icons/ai";
 import Pay from "../Components/Pay";
 import { Link } from "react-router-dom";
+import Comment from "../Components/Comment";
 
 function Basket() {
   const { userData } = useUserData();
@@ -14,6 +15,8 @@ function Basket() {
   const [showNotficition, setShowNotficiton] = useState(false);
   const [zeroCost, setZeroCost] = useState(false);
   const { showFinishNot, setShowFinishNont } = useUserData();
+  const { showComment, setShowComment } = useUserData();
+  const { showThanks, setShowThanks } = useUserData();
 
   const handlePlus = (productId) => {
     setCounts((prevCounts) => ({
@@ -54,6 +57,12 @@ function Basket() {
       event.stopPropagation();
     }
   };
+
+  useEffect(() => {
+    if (showFinishNot) {
+      setShowComment(true);
+    }
+  }, [showFinishNot]);
 
   return (
     <div className="flex items-center justify-center flex-col">
@@ -183,6 +192,25 @@ function Basket() {
             <div className="w-screen h-screen fixed">
               <div className="fixed w-[300px] bg-gega-rose text-gega-white text-xl text-center top-[89%] left-[38%] z-20 py-3 rounded-lg animate-pulse">
                 Products have been ordered
+              </div>
+            </div>
+          )}
+        </div>
+        <div>
+          {showComment && (
+            <>
+              <div className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-10" />
+              <div className="fixed z-20 top-[22%] left-[38%]">
+                <Comment />
+              </div>
+            </>
+          )}{" "}
+        </div>
+        <div>
+          {showThanks && (
+            <div className="w-screen h-screen fixed">
+              <div className="fixed w-[300px] bg-gega-rose text-gega-white text-xl text-center top-[89%] left-[38%] z-20 py-3 rounded-lg animate-pulse">
+                Thanks
               </div>
             </div>
           )}
