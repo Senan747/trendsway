@@ -9,6 +9,34 @@
       "id": 2,
       "username": "senan",
       "password": "12345"
+    },
+    {
+      "password": "123",
+      "username": "denan",
+      "id": 3
+    },
+    {
+      "password": "123",
+      "username": "denan",
+      "id": 4
+    },
+    {
+      "email": "1senanmemmedov@gmail.com",
+      "password": "123",
+      "username": "den",
+      "id": 5
+    },
+    {
+      "email": "1senanmemmedov@gmail.com",
+      "password": "123",
+      "username": "den",
+      "id": 6
+    },
+    {
+      "email": "",
+      "username": "",
+      "password": "",
+      "id": 7
     }
   ]
 }

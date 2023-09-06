@@ -10,14 +10,26 @@ function Register() {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const [formData, setFormData] = useState({
+    email: "",
+    username: "",
+    password: "",
+  });
 
-    const userData = { username, password };
-    setUserData(userData);
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("http://localhost:3004/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
 
-    navigate("/");
-  };
+  function handleChange(e) {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
 
   return (
     <div className="flex flex-row h-screen">
@@ -34,45 +46,37 @@ function Register() {
           </h1>
         </div>
         <div>
-          <form
-            action=""
+          <div
             className="flex flex-col gap-3 items-start ml-[70px]"
-            onSubmit={handleSubmit}
           >
-            <label htmlFor="Username">Username</label>
+            <label htmlFor="email">Email</label>
             <input
-              type="Username"
-              name=""
-              id=""
+              type="email"
               className="border-b-2 outline-none"
-              placeholder="user"
+              placeholder="enter email"
               required
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => handleChange(e)}
+              value={formData.email}
             />
-            <label htmlFor="password">Password</label>
+            <label htmlFor="username">Username</label>
             <input
-              type="password"
-              name=""
-              id=""
+              type="text" 
               className="border-b-2 w-[230px] outline-none"
-              placeholder="Enter characters"
+              placeholder="Enter username"
               required
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => handleChange(e)}
+              value={formData.username}
             />
             <label htmlFor="password">Repeat password</label>
             <input
               type="password"
-              name=""
-              id=""
               className="border-b-2 w-[230px] outline-none"
               placeholder="Enter characters"
               required
-              onChange={(e) => setRepeatPassword(e.target.value)}
+              onChange={(e) => handleChange(e)}
+              value={formData.password}
             />
-            <button
-              className=" py-2 px-5 mt-4 rounded-md text-gega-white bg-gega-rose"
-              type="submit"
-            >
+            <button className=" py-2 px-5 mt-4 rounded-md text-gega-white bg-gega-rose" onClick={e => handleSubmit(e)}>
               Sign-up
             </button>
             <Link to="/login">
@@ -80,7 +84,7 @@ function Register() {
                 Do you have an account?
               </p>
             </Link>
-          </form>
+          </div>
         </div>
       </div>
     </div>
