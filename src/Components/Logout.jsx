@@ -3,13 +3,15 @@ import { useUserData } from "../UserDataContext";
 import { useNavigate } from "react-router-dom";
 
 function Logout() {
-  const { showLogout, setShowLogout, setUserData } = useUserData();
+  const { showLogout, setShowLogout, setUserData, detailShow, setDetailShow, setProductData } = useUserData();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    setUserData([null])
-    navigate("/")
-    
+    setUserData(null);
+    setProductData(null);
+    navigate("/");
+    setShowLogout(false);
+    setDetailShow(false)
   };
 
   return (
@@ -19,7 +21,7 @@ function Logout() {
       </h2>
       <div className="flex flex-row justify-around w-[300px]">
         <button
-          onClick={() => {handleLogout; setShowLogout(false)}}
+          onClick={handleLogout}
           className="px-4 py-2 bg-gega-rose text-gega-white rounded hover:bg-gega-rose-dark"
         >
           Yes

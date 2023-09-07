@@ -12,6 +12,7 @@ export function UserDataProvider({ children }) {
   const [showThanks, setShowThanks] = useState(false);
   const [showComment, setShowComment] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
+  const [detailShow, setDetailShow] = useState(true)
 
   return (
     <UserDataContext.Provider

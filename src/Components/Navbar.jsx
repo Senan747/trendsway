@@ -7,7 +7,7 @@ import { FiLogOut } from "react-icons/fi";
 import Logout from "./Logout";
 
 function Navbar() {
-  const { userData, showLogout, setShowLogout } = useUserData();
+  const { userData, showLogout, setShowLogout, detailShow } = useUserData();
   const { productData } = useUserData();
   const [searchResults, setSearchResults] = useState([]);
   const [show, setShow] = useState(false);
@@ -90,7 +90,7 @@ function Navbar() {
     }
   };
 
-  const pleaseRef = useRef(null); // Initialize the ref with null
+  const pleaseRef = useRef(null); 
   useEffect(() => {
     function handleClickOutside(event) {
       if (pleaseRef.current && !pleaseRef.current.contains(event.target)) {
@@ -140,7 +140,7 @@ function Navbar() {
             )}
           </div>
 
-          {userData ? (
+          {userData || detailShow ? (
             <div className="min-w-[300px] flex flex-row justify-around items-center">
               <p className="text-gega-white text-xl">
                 Hello, {userData.username}!
