@@ -11,6 +11,7 @@ export function UserDataProvider({ children }) {
   const [showFinishNot, setShowFinishNot] = useState(false);
   const [showThanks, setShowThanks] = useState(false);
   const [showComment, setShowComment] = useState(false);
+  const [showLogout, setShowLogout] = useState(false);
 
   return (
     <UserDataContext.Provider
@@ -31,6 +32,8 @@ export function UserDataProvider({ children }) {
         setShowThanks,
         showComment,
         setShowComment,
+        showLogout,
+        setShowLogout,
       }}
     >
       {children}

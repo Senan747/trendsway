@@ -2,12 +2,16 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserData } from "../UserDataContext";
 import { SlBasket } from "react-icons/sl";
+import { FiLogOut } from "react-icons/fi";
+
+import Logout from "./Logout";
 
 function Navbar() {
-  const { userData } = useUserData();
+  const { userData, showLogout, setShowLogout } = useUserData();
   const { productData } = useUserData();
   const [searchResults, setSearchResults] = useState([]);
   const [show, setShow] = useState(false);
+
   let navigate = useNavigate();
   const brandList = [
     "almay",
@@ -147,6 +151,13 @@ function Navbar() {
                   {productData && productData.length}
                 </div>
               </Link>
+              <div
+                className="flex flex-col items-center cursor-pointer"
+                onClick={() => setShowLogout(!showLogout)}
+              >
+                <FiLogOut />
+                <span>Logout</span>
+              </div>
             </div>
           ) : (
             <div className="flex flex-row items-center mr-6 text-white">
@@ -158,6 +169,14 @@ function Navbar() {
               <Link to={"/register"}>
                 <p className="text-gega-earth-red underline">Sing up</p>
               </Link>{" "}
+            </div>
+          )}
+          {showLogout && (
+            <div className="flex items-center justify-center">
+              <div className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-10" />
+              <div className="fixed z-20 top-[22%] left-[30%]">
+                <Logout />
+              </div>
             </div>
           )}
         </div>
