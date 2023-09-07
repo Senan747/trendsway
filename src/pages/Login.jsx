@@ -9,6 +9,8 @@ function Login() {
   const [loginStatus, setLoginStatus] = useState(null);
   const [user, setUser] = useState([]);
 
+  const {setUserData} = useUserData();
+
   const getData = () => {
     fetch("http://localhost:3004/users")
       .then((response) => response.json())
@@ -27,6 +29,7 @@ function Login() {
     if (evet) {
       navigate("/");
       setLoginStatus("success");
+      setUserData({username, password})
     } else {
       setLoginStatus("failure");
     }

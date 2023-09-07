@@ -4,11 +4,10 @@ import { useUserData } from "../UserDataContext";
 
 function Register() {
   const { setUserData } = useUserData();
-  let navigate = useNavigate();
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
+  const [data, setData] = useState([]);
+  let navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -24,7 +23,11 @@ function Register() {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        setUserData({ username, password });
+        navigate("/");
+        console.log(data);
+      });
   }
 
   function handleChange(e) {
@@ -46,37 +49,47 @@ function Register() {
           </h1>
         </div>
         <div>
-          <div
-            className="flex flex-col gap-3 items-start ml-[70px]"
+          <form
+            className="flex flex-col gap-7 items-start ml-[70px]"
+            onSubmit={(e) => handleSubmit(e)}
           >
-            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              placeholder="Username"
+              value={formData.username}
+              name="username"
+              required
+              onChange={(e) => {
+                handleChange(e);
+                setUsername(e.target.value);
+              }}
+              className="border-b-2 w-[230px] outline-none"
+            ></input>
             <input
               type="email"
-              className="border-b-2 outline-none"
-              placeholder="enter email"
-              required
-              onChange={(e) => handleChange(e)}
+              placeholder="Email"
               value={formData.email}
-            />
-            <label htmlFor="username">Username</label>
-            <input
-              type="text" 
-              className="border-b-2 w-[230px] outline-none"
-              placeholder="Enter username"
+              name="email"
               required
               onChange={(e) => handleChange(e)}
-              value={formData.username}
-            />
-            <label htmlFor="password">Repeat password</label>
+              className="border-b-2 w-[230px] outline-none"
+            ></input>
             <input
               type="password"
-              className="border-b-2 w-[230px] outline-none"
-              placeholder="Enter characters"
-              required
-              onChange={(e) => handleChange(e)}
+              placeholder="Password"
               value={formData.password}
-            />
-            <button className=" py-2 px-5 mt-4 rounded-md text-gega-white bg-gega-rose" onClick={e => handleSubmit(e)}>
+              name="password"
+              required
+              onChange={(e) => {
+                handleChange(e);
+                setPassword(e.target.value);
+              }}
+              className="border-b-2 w-[230px] outline-none"
+            ></input>
+            <button
+              className=" py-2 px-5 mt-4 rounded-md text-gega-white bg-gega-rose"
+              type="submit"
+            >
               Sign-up
             </button>
             <Link to="/login">
@@ -84,7 +97,7 @@ function Register() {
                 Do you have an account?
               </p>
             </Link>
-          </div>
+          </form>
         </div>
       </div>
     </div>
