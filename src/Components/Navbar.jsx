@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserData } from "../UserDataContext";
-import { SlBasket } from "react-icons/sl";
+import { TbBasketFilled } from "react-icons/tb";
 import { FiLogOut } from "react-icons/fi";
 
 import Logout from "./Logout";
@@ -90,7 +90,7 @@ function Navbar() {
     }
   };
 
-  const pleaseRef = useRef(null); 
+  const pleaseRef = useRef(null);
   useEffect(() => {
     function handleClickOutside(event) {
       if (pleaseRef.current && !pleaseRef.current.contains(event.target)) {
@@ -105,69 +105,73 @@ function Navbar() {
   }, []);
 
   return (
-    <div>
-      <div className="max-h-[200px] bg-gega-pink flex flex-row items-center justify-between ">
-        <div className="max-h-[150px] max-w-[150px] ">
-          <Link to="/">
+    <div className="max-w-screen bg-gega-pink flex flex-row items-center justify-around">
+      <div className="flex flex-row justify-between items-center">
+        <Link to="/" className="">
+          <div className=" md:max-w-full md:ml-5 bg-cover">
             <img
               src="/logo.png"
               alt=""
-              className="w-full h-full cursor-pointer"
+              className="max-h-[100px] max-w-[100px] cursor-pointer bg-contain"
             />
-          </Link>
+          </div>{" "}
+        </Link>
+        <div className="md:mr-10" ref={pleaseRef}>
+          <input
+            type="search"
+            className="border-1 w-full md:w-[300px] outline-none rounded-[10px] py-[6px] px-3"
+            placeholder="Search brand"
+            onChange={(e) => handleSearch(e.target.value)}
+          />{" "}
+          {!show && searchResults.length > 0 && (
+            <ul className="bg-gega-white absolute w-full md:w-[300px] max-md:w-[200px] max-h-[300px] overflow-auto">
+              {searchResults.map((result, index) => (
+                <li
+                  key={index}
+                  onClick={() => handleClick(result)}
+                  className="py-1 px-2 cursor-pointer"
+                >
+                  {result}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-        <div className="flex flex-row items-center justify-between">
-          <div className="mr-10" ref={pleaseRef}>
-            <input
-              type="search"
-              className="border-1 w-[300px] outline-none rounded-[10px] py-[6px] px-3"
-              placeholder="search brand"
-              onChange={(e) => handleSearch(e.target.value)}
-            />
-
-            {!show && searchResults.length > 0 && (
-              <ul className="bg-gega-white absolute w-[300px] max-h-[300px] overflow-auto">
-                {searchResults.map((result, index) => (
-                  <li
-                    key={index}
-                    onClick={() => handleClick(result)}
-                    className="py-1 px-2 cursor-pointer"
-                  >
-                    {result}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
+      </div>
+      <div className="flex flex-col items-center justify-between">
+        <div>
           {userData || detailShow ? (
-            <div className="min-w-[300px] flex flex-row justify-around items-center">
-              <p className="text-gega-white text-xl">
-                Hello, {userData.username}!
-              </p>
-              <Link to="/basket" className="relative">
-                <SlBasket className="text-3xl text-gega-white" />
-                <div className="text-sm absolute bottom-3 left-5 text-gega-white bg-gega-red rounded-[100%] px-[5px]">
-                  {productData && productData.length}
+            <>
+              <div className="min-w-full md:min-w-[300px] flex flex-col md:flex-row justify-between items-center">
+                <p className="text-gega-white text-xl mb-4 md:mb-0">
+                  Hello, {userData.username}!
+                </p>
+                <div
+                  className="flex flex-col items-center cursor-pointer"
+                  onClick={() => setShowLogout(!showLogout)}
+                >
+                  <FiLogOut />
+                  <span>Logout</span>
                 </div>
-              </Link>
-              <div
-                className="flex flex-col items-center cursor-pointer"
-                onClick={() => setShowLogout(!showLogout)}
-              >
-                <FiLogOut />
-                <span>Logout</span>
               </div>
-            </div>
+              <div className="fixed z-10 top-[80%] max-md:right-[10%] right-[10%]">
+                <Link to="/basket" className="relative ">
+                  <TbBasketFilled className="text-6xl text-gega-white bg-gega-red p-3 rounded-full" />
+                  <div className="text-xs absolute bottom-8 left-10 text-gega-red bg-gega-white rounded-full px-[5px]">
+                    {productData && productData.length}
+                  </div>
+                </Link>
+              </div>
+            </>
           ) : (
-            <div className="flex flex-row items-center mr-6 text-white">
+            <div className="flex flex-row items-center text-white">
               <Link to={"/login"}>
                 <button className="border-none px-3 py-1 mr-4 bg-gega-earth-red rounded-[10px]">
                   Log in
                 </button>
               </Link>
               <Link to={"/register"}>
-                <p className="text-gega-earth-red underline">Sing up</p>
+                <p className="text-gega-earth-red underline">Sign up</p>
               </Link>{" "}
             </div>
           )}
