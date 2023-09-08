@@ -17,10 +17,16 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/blush">
-              <div className="max-w-[30px] max-h-[30px]">
-                <img src="/blush.svg" alt="" className="w-full h-full" />
+              <div className="flex items-center justify-center flex-col">
+                <div className="max-w-[30px] max-h-[30px]">
+                  <img
+                    src="/blush.svg"
+                    alt=""
+                    className=" text-center w-full h-full"
+                  />
+                </div>
+                <p className="text-center">Blush</p>
               </div>
-              <p className="text-center">Blush</p>
             </Link>
           </li>
           <div>
@@ -92,18 +98,22 @@ function Menu() {
         </div>
 
         <div>
+          {" "}
           <li
-            className="flex flex-col items-center"
+            className="flex flex-col items-center justify-center"
             onMouseEnter={() => dropDown("nail-polish")}
             onMouseLeave={() => dropDown("")}
           >
+            {" "}
             <Link to="/result/nail+polish">
-              <div className="max-w-[30px] max-h-[30px]">
-                <img src="/nailpolish.png" alt="" className="w-full h-full" />
+              <div className="flex items-center justify-center flex-col">
+                <div className="max-w-[30px] max-h-[30px]  flex items-center justify-center">
+                  <img src="/nailpolish.png" alt="" />
+                </div>
+                <p className="text-center">Nail polish</p>{" "}
               </div>
-              <p className="text-center">Nail polish</p>
             </Link>
-          </li>
+          </li>{" "}
           {activeMenu === "nail-polish" && (
             <div
               className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse"
@@ -159,10 +169,17 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/mascara">
-              <div className="max-w-[30px] max-h-[30px]">
-                <img src="/mascara.png" alt="" className="w-full h-full" />
+              <div className="flex items-center justify-center flex-col">
+                <div className="max-w-[30px] max-h-[30px]">
+                  <img
+                    src="/mascara.png"
+                    alt=""
+                    className
+                    text-center="w-full h-full"
+                  />
+                </div>
+                <p className="text-center">Mascara</p>
               </div>
-              <p className="text-center">Mascara</p>
             </Link>
           </li>
           {activeMenu === "mascara" && (
@@ -230,10 +247,18 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/lipstick">
-              <div className="max-w-[30px] max-h-[30px]">
-                <img src="/lipstick.png" alt="" className="w-full h-full" />
+              <div className="flex items-center justify-center flex-col">
+                <div className="max-w-[30px] max-h-[30px]">
+                  <img
+                    src="/lipstick.png"
+                    alt=""
+                    classNam
+                    text-center
+                    e="w-full h-full"
+                  />
+                </div>
+                <p className="text-center">Lipstick</p>
               </div>
-              <p className="text-center">Lipstick</p>
             </Link>
           </li>
           {activeMenu === "lipstick" && (
@@ -325,10 +350,18 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/lip+liner">
-              <div className="max-w-[30px] max-h-[30px]">
-                <img src="/lipliner.png" alt="" className="w-full h-full" />
+              <div className="flex items-center justify-center flex-col">
+                <div className="max-w-[30px] max-h-[30px]">
+                  <img
+                    src="/lipliner.png"
+                    alt=""
+                    classNam
+                    text-center
+                    e="w-full h-full"
+                  />
+                </div>
+                <p className="text-center">Lip liner</p>
               </div>
-              <p className="text-center">Lip liner</p>
             </Link>
           </li>
           {activeMenu === "lip-liner" && (
@@ -340,7 +373,7 @@ function Menu() {
               <div className="flex flex-row">
                 <ul className="flex flex-col mr-10">
                   <li>
-                    <Link to="/result/lip+liner/pencil">Pencil</Link> 
+                    <Link to="/result/lip+liner/pencil">Pencil</Link>
                   </li>
                 </ul>
                 <ul>
@@ -392,10 +425,19 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/foundation">
-              <div className="max-w-[30px] max-h-[30px]">
-                <img src="/foundation.png" alt="" className="w-full h-full" />
+              <div className="flex items-center justify-center flex-col">
+                {" "}
+                <div className="max-w-[30px] max-h-[30px]">
+                  <img
+                    src="/foundation.png"
+                    alt=""
+                    classN
+                    text-center
+                    ame="w-full h-full"
+                  />
+                </div>
+                <p className="text-center">Foundation</p>
               </div>
-              <p className="text-center">Foundation</p>
             </Link>
           </li>
           {activeMenu === "foundation" && (
@@ -503,10 +545,19 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/eyeshadow">
-              <div className="max-w-[30px] max-h-[30px]">
-                <img src="/eyeshadow.png" alt="" className="w-full h-full" />
+              <div className="flex items-center justify-center flex-col">
+                {" "}
+                <div className="max-w-[30px] max-h-[30px]">
+                  <img
+                    src="/eyeshadow.png"
+                    alt=""
+                    classNa
+                    text-center
+                    me="w-full h-full"
+                  />
+                </div>
+                <p className="text-center">Eyeshadow</p>
               </div>
-              <p className="text-center">Eyeshadow</p>
             </Link>
           </li>
           {activeMenu === "eyeshadow" && (
@@ -591,10 +642,18 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/eyeliner">
-              <div className="max-w-[30px] max-h-[30px]">
-                <img src="/eyeliner.png" alt="" className="w-full h-full" />
+              <div className="flex items-center justify-center flex-col">
+                <div className="max-w-[30px] max-h-[30px]">
+                  <img
+                    src="/eyeliner.png"
+                    alt=""
+                    classNam
+                    text-center
+                    e="w-full h-full"
+                  />
+                </div>
+                <p className="text-center">Eyeliner</p>
               </div>
-              <p className="text-center">Eyeliner</p>
             </Link>
           </li>
           {activeMenu === "eyeliner" && (
@@ -671,10 +730,18 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/eyebrow">
-              <div className="max-w-[30px] max-h-[30px]">
-                <img src="/eyebrow.png" alt="" className="w-full h-full" />
+              <div className="flex items-center justify-center flex-col">
+                {" "}
+                <div className="max-w-[30px] max-h-[30px]">
+                  <img
+                    src="/eyebrow.png"
+                    alt=""
+                    className
+                    text-center="w-full h-full"
+                  />
+                </div>
+                <p className="text-center">Eyebrow</p>
               </div>
-              <p className="text-center">Eyebrow</p>
             </Link>
           </li>
           {activeMenu === "eyebrow" && (
@@ -711,10 +778,18 @@ function Menu() {
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/bronzer">
-              <div className="max-w-[30px] max-h-[30px]">
-                <img src="/bronzer.png" alt="" className="w-full h-full" />
+              <div className="flex items-center justify-center flex-col">
+                {" "}
+                <div className="max-w-[30px] max-h-[30px]">
+                  <img
+                    src="/bronzer.png"
+                    alt=""
+                    className
+                    text-center="w-full h-full"
+                  />
+                </div>
+                <p className="text-center">Bronzer</p>
               </div>
-              <p className="text-center">Bronzer</p>
             </Link>
           </li>
           {activeMenu === "bronzer" && (
