@@ -1,31 +1,110 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function HomburgerMenu() {
+  const [activeMenu, setActiveMenu] = useState("");
+  const [mainMenu, setMainMenu] = useState(true);
+  const [lastMenu, setLastMenu] = useState(false);
+
+  const handleClick = (menu) => {
+    setActiveMenu(menu);
+    setMainMenu(false);
+  };
+
   return (
-    <div>
-      <ul>
-        <li>Blush</li>
-        <li>Nail polish</li>
-        <li> Mascara</li>
-        <li>Lipstick</li>
-        <li>Lip liner</li>
-        <li>Foundation</li>
-        <li>Eyeshadow</li>
-        <li>Eyeliner</li>
-        <li>Eyebrow</li>
-        <li>Bronzer</li>
-      </ul>
+    <div className="min-w-[300px] h-screen bg-gega-soft absolute top-0">
+      <div className=" md:max-w-full md:ml-5 bg-cover flex flex-row items-center justify-between">
+        <img
+          src="/logo.png"
+          alt=""
+          className="max-h-[90px] max-w-[90px] cursor-pointer bg-contain"
+        />
+        <p className="text-3xl text-gega-earth-red font-semibold mr-10">x</p>
+      </div>
+      {mainMenu && (
+        <ul>
+          <li
+            onClick={() => handleClick("blush")}
+            className="flex flex-row justify-between items-center mx-5 my-4 cursor-pointer "
+          >
+            <p>Blush</p>
+            <p className="text-2xl font-bold text-gega-earth-red">&gt;</p>
+          </li>
+          <li
+            onClick={() => handleClick("nail-polish")}
+            className="flex flex-row justify-between items-center mx-5 my-4 cursor-pointer "
+          >
+            <p>Nail polish</p>
+            <p className="text-2xl font-bold text-gega-earth-red">&gt;</p>
+          </li>
+          <li
+            onClick={() => handleClick("mascara")}
+            className="flex flex-row justify-between items-center mx-5 my-4 cursor-pointer "
+          >
+            <p>Mascara</p>
+            <p className="text-2xl font-bold text-gega-earth-red">&gt;</p>
+          </li>
+          <li
+            onClick={() => handleClick("lipstick")}
+            className="flex flex-row justify-between items-center mx-5 my-4 cursor-pointer "
+          >
+            <p>Lipstick</p>
+            <p className="text-2xl font-bold text-gega-earth-red">&gt;</p>
+          </li>
+          <li
+            onClick={() => handleClick("lip-liner")}
+            className="flex flex-row justify-between items-center mx-5 my-4 cursor-pointer "
+          >
+            <p>Lip liner</p>
+            <p className="text-2xl font-bold text-gega-earth-red">&gt;</p>
+          </li>
+          <li
+            onClick={() => handleClick("foundation")}
+            className="flex flex-row justify-between items-center mx-5 my-4 cursor-pointer "
+          >
+            <p>Foundation</p>
+            <p className="text-2xl font-bold text-gega-earth-red">&gt;</p>
+          </li>
+          <li
+            onClick={() => handleClick("eyeshadow")}
+            className="flex flex-row justify-between items-center mx-5 my-4 cursor-pointer "
+          >
+            <p>Eyeshadow</p>
+            <p className="text-2xl font-bold text-gega-earth-red">&gt;</p>
+          </li>
+          <li
+            onClick={() => handleClick("eyeliner")}
+            className="flex flex-row justify-between items-center mx-5 my-4 cursor-pointer "
+          >
+            <p>Eyeliner</p>
+            <p className="text-2xl font-bold text-gega-earth-red">&gt;</p>
+          </li>
+          <li
+            onClick={() => handleClick("eye-brow")}
+            className="flex flex-row justify-between items-center mx-5 my-4 cursor-pointer "
+          >
+            <p>Eyebrow</p>
+            <p className="text-2xl font-bold text-gega-earth-red">&gt;</p>
+          </li>
+          <li
+            onClick={() => handleClick("bronzer")}
+            className="flex flex-row justify-between items-center mx-5 my-4 cursor-pointer "
+          >
+            <p>Bronzer</p>
+            <p className="text-2xl font-bold text-gega-earth-red">&gt;</p>
+          </li>
+        </ul>
+      )}
       <ul>
         <li>
           {activeMenu === "blush" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse"
+              className="flex items-start justify-start border-2 animate-pulse p-6"
               onMouseEnter={() => dropDown("blush")}
               onMouseLeave={() => dropDown("")}
             >
               <div className=" flex flex-row">
-                <ul className="flex flex-col mr-10">
+                <ul className="flex flex-col mr-10 gap-4 ">
                   <li>
                     <Link to="/result/blush/powder">Powder</Link>
                   </li>
@@ -33,7 +112,7 @@ function HomburgerMenu() {
                     <Link to="/result/blush/cream">Cream</Link>
                   </li>
                 </ul>
-                <ul className="flex flex-col">
+                <ul className="flex flex-col gap-4">
                   <li>
                     <Link to="/result/blush/vegan-bytag">Vegan</Link>
                   </li>
@@ -84,15 +163,14 @@ function HomburgerMenu() {
           )}
         </li>
         <li>
-          {" "}
           {activeMenu === "nail-polish" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse"
+              className="flex items-start justify-start border-2 p-6 animate-pulse"
               onMouseEnter={() => dropDown("nail-polish")}
               onMouseLeave={() => dropDown("")}
             >
               <div className="flex flex-row">
-                <ul className="flex flex-col mr-10">
+                <ul className="flex flex-col mr-10 gap-4">
                   <li>
                     <Link to="/result/nail+polish/vegan-bytag">Vegan</Link>
                   </li>
@@ -135,12 +213,12 @@ function HomburgerMenu() {
         <li>
           {activeMenu === "mascara" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse"
+              className="flex items-start justify-start border-2 animate-pulse p-6"
               onMouseEnter={() => dropDown("mascara")}
               onMouseLeave={() => dropDown("")}
             >
               <div className="flex flex-row">
-                <ul className="flex flex-col mr-10">
+                <ul className="flex flex-col mr-10 gap-4">
                   <li>
                     <Link to="/result/mascara/natural-bytag">Natural</Link>
                   </li>
@@ -193,12 +271,12 @@ function HomburgerMenu() {
         <li>
           {activeMenu === "lipstick" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse"
+              className="flex items-start justify-start border-2 animate-pulse p-6"
               onMouseEnter={() => dropDown("lipstick")}
               onMouseLeave={() => dropDown("")}
             >
               <div className="flex flex-row">
-                <ul className="flex flex-col mr-10">
+                <ul className="flex flex-col mr-10 gap-4">
                   <li>
                     <Link to="/result/lipstick/lipstick">Lipstick</Link>
                   </li>
@@ -275,12 +353,12 @@ function HomburgerMenu() {
         <li>
           {activeMenu === "lip-liner" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse"
+              className="flex items-start justify-start border-2 animate-pulse p-6"
               onMouseEnter={() => dropDown("lip-liner")}
               onMouseLeave={() => dropDown("")}
             >
               <div className="flex flex-row">
-                <ul className="flex flex-col mr-10">
+                <ul className="flex flex-col mr-10 gap-4">
                   <li>
                     <Link to="/result/lip+liner/pencil">Pencil</Link>
                   </li>
@@ -329,12 +407,12 @@ function HomburgerMenu() {
         <li>
           {activeMenu === "foundation" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse"
+              className="flex items-start justify-start border-2 animate-pulse p-6"
               onMouseEnter={() => dropDown("foundation")}
               onMouseLeave={() => dropDown("")}
             >
               <div className="flex flex-row">
-                <ul className="flex flex-col mr-10">
+                <ul className="flex flex-col mr-10 gap-4">
                   <li>
                     <Link to="/result/foundation/concealer">Concealer</Link>
                   </li>
@@ -360,7 +438,7 @@ function HomburgerMenu() {
                     <Link to="/result/foundation/highlighter">Highlighter</Link>
                   </li>
                 </ul>
-                <ul className="flex flex-col mr-10">
+                <ul className="flex flex-col mr-10 gap-4">
                   <li>
                     <Link to="/result/foundation/vegan-bytag">Vegan</Link>
                   </li>
@@ -427,12 +505,12 @@ function HomburgerMenu() {
         <li>
           {activeMenu === "eyeshadow" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse"
+              className="flex items-start justify-start border-2 animate-pulse p-6"
               onMouseEnter={() => dropDown("eyeshadow")}
               onMouseLeave={() => dropDown("")}
             >
               <div className="flex flex-row">
-                <ul className="flex flex-col mr-10">
+                <ul className="flex flex-col mr-10 gap-4">
                   <li>
                     <Link to="/result/eyeshadow/palette">Palette</Link>
                   </li>
@@ -444,7 +522,7 @@ function HomburgerMenu() {
                     <Link to="/result/eyeshadow/cream">Cream</Link>
                   </li>
                 </ul>
-                <ul className="flex flex-col mr-10">
+                <ul className="flex flex-col mr-10 gap-4">
                   <li>
                     <Link to="/result/eyeshadow/vegan-bytag">Vegan</Link>
                   </li>
@@ -502,12 +580,12 @@ function HomburgerMenu() {
         <li>
           {activeMenu === "eyeliner" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse]"
+              className="flex items-start justify-start border-2 animate-pulse p-6"
               onMouseEnter={() => dropDown("eyeliner")}
               onMouseLeave={() => dropDown("")}
             >
               <div className="flex flex-row">
-                <ul className="flex flex-col mr-10">
+                <ul className="flex flex-col mr-10 gap-4">
                   <li>
                     <Link to="/result/eyeliner/liquid">Liquid</Link>
                   </li>
@@ -521,7 +599,7 @@ function HomburgerMenu() {
                     <Link to="/result/eyeliner/cream">Cream</Link>
                   </li>
                 </ul>
-                <ul className="flex flex-col mr-10">
+                <ul className="flex flex-col mr-10 gap-4">
                   <li>
                     <Link to="/result/eyeliner/vegan-bytag">Vegan</Link>
                   </li>
@@ -569,7 +647,7 @@ function HomburgerMenu() {
         <li>
           {activeMenu === "eyebrow" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse]"
+              className="flex items-start justify-start border-2 animate-pulse p-6"
               onMouseEnter={() => dropDown("eyebrow")}
               onMouseLeave={() => dropDown("")}
             >
@@ -596,17 +674,17 @@ function HomburgerMenu() {
         <li>
           {activeMenu === "bronzer" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse ml-[-100px]"
+              className="flex items-start justify-start border-2 animate-pulse p-6"
               onMouseEnter={() => dropDown("bronzer")}
               onMouseLeave={() => dropDown("")}
             >
               <div className="flex flex-row">
-                <ul className="flex flex-col pr-3">
+                <ul className="flex flex-col pr-3 gap-4">
                   <li>
                     <Link to="/result/bronzer/powder">Powder</Link>
                   </li>
                 </ul>
-                <ul className="">
+                <ul className="flex flex-col gap-4">
                   <li>
                     <Link to="/result/bronzer/gluten+free-bytag">
                       Gluten free
