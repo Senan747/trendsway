@@ -12,7 +12,7 @@ export function UserDataProvider({ children }) {
   const [showThanks, setShowThanks] = useState(false);
   const [showComment, setShowComment] = useState(false);
   const [showLogout, setShowLogout] = useState(false);
-  const [detailShow, setDetailShow] = useState(true)
+  const [showHomburger, setShowHomburger] = useState(false);
 
   return (
     <UserDataContext.Provider
@@ -35,6 +35,8 @@ export function UserDataProvider({ children }) {
         setShowComment,
         showLogout,
         setShowLogout,
+        showHomburger,
+        setShowHomburger,
       }}
     >
       {children}

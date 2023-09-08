@@ -9,7 +9,7 @@ function Menu() {
 
   return (
     <div className="pt-5">
-      <ul className="flex flex-row justify-around border-b-2 border-gega-rose">
+      <ul className="min-w-screen flex flex-row justify-around border-b-2 border-gega-rose max-md:overflow-visible px-2">
         <div>
           <li
             className={`flex flex-col relative items-center cursor-pointer`}
@@ -32,7 +32,7 @@ function Menu() {
           <div>
             {activeMenu === "blush" && (
               <div
-                className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse"
+                className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse  max-md:hidden"
                 onMouseEnter={() => dropDown("blush")}
                 onMouseLeave={() => dropDown("")}
               >
@@ -116,7 +116,7 @@ function Menu() {
           </li>{" "}
           {activeMenu === "nail-polish" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse"
+              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse  max-md:hidden"
               onMouseEnter={() => dropDown("nail-polish")}
               onMouseLeave={() => dropDown("")}
             >
@@ -184,7 +184,7 @@ function Menu() {
           </li>
           {activeMenu === "mascara" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse"
+              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse  max-md:hidden"
               onMouseEnter={() => dropDown("mascara")}
               onMouseLeave={() => dropDown("")}
             >
@@ -263,7 +263,7 @@ function Menu() {
           </li>
           {activeMenu === "lipstick" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse"
+              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse  max-md:hidden"
               onMouseEnter={() => dropDown("lipstick")}
               onMouseLeave={() => dropDown("")}
             >
@@ -366,7 +366,7 @@ function Menu() {
           </li>
           {activeMenu === "lip-liner" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse"
+              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse max-md:hidden"
               onMouseEnter={() => dropDown("lip-liner")}
               onMouseLeave={() => dropDown("")}
             >
@@ -442,7 +442,7 @@ function Menu() {
           </li>
           {activeMenu === "foundation" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse"
+              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse max-md:hidden"
               onMouseEnter={() => dropDown("foundation")}
               onMouseLeave={() => dropDown("")}
             >
@@ -562,7 +562,7 @@ function Menu() {
           </li>
           {activeMenu === "eyeshadow" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse"
+              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse max-md:hidden"
               onMouseEnter={() => dropDown("eyeshadow")}
               onMouseLeave={() => dropDown("")}
             >
@@ -658,7 +658,7 @@ function Menu() {
           </li>
           {activeMenu === "eyeliner" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse]"
+              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse max-md:hidden"
               onMouseEnter={() => dropDown("eyeliner")}
               onMouseLeave={() => dropDown("")}
             >
@@ -746,7 +746,7 @@ function Menu() {
           </li>
           {activeMenu === "eyebrow" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse]"
+              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse max-md:hidden"
               onMouseEnter={() => dropDown("eyebrow")}
               onMouseLeave={() => dropDown("")}
             >
@@ -794,7 +794,7 @@ function Menu() {
           </li>
           {activeMenu === "bronzer" && (
             <div
-              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse ml-[-100px]"
+              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red animate-pulse  max-md:hidden ml-[-100px]"
               onMouseEnter={() => dropDown("bronzer")}
               onMouseLeave={() => dropDown("")}
             >

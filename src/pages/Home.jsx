@@ -12,7 +12,7 @@ function Home() {
     <div>
       <Navbar />
       <Menu />
-      {/* <HomburgerMenu /> */}
+      <HomburgerMenu />
       <HomeDesignPart />
       <Products />
       <ForMore />

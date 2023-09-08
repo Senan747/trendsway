@@ -46,6 +46,7 @@ export default {
       },
       backgroundImage: {
         "makeup-smearing": "url('../src/assets/makeup-smearing.png')",
+        "eye-makeup": "url('eye-makeup.jpg')",
       },
       borderRadius: {
         75: "75%",
