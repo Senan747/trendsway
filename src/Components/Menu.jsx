@@ -637,7 +637,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("eyeliner")}
             onMouseLeave={() => dropDown("")}
           >

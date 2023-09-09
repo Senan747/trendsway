@@ -3,7 +3,8 @@ import { useUserData } from "../UserDataContext";
 import { useNavigate } from "react-router-dom";
 
 function Logout() {
-  const { showLogout, setShowLogout, setUserData, detailShow, setDetailShow, setProductData } = useUserData();
+  const { showLogout, setShowLogout, setUserData, setProductData } =
+    useUserData();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -11,7 +12,6 @@ function Logout() {
     setProductData(null);
     navigate("/");
     setShowLogout(false);
-    setDetailShow(false)
   };
 
   return (

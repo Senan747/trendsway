@@ -110,28 +110,28 @@ function Products() {
       location.pathname.includes(type) ||
       location.pathname.includes(tag) ||
       location.pathname.includes("result") ? (
-        <div className="flex flex-row w-full justify-around items-center mb-[50px]">
-          <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
+        <div className="flex flex-row flex-wrap gap-5 w-full justify-around items-center mb-[50px]">
+          <div className="flex flex-row space-between items-center flex-wrap px-4 py-2 bg-gega-soft">
             <p>price greater than</p>
             <input
               type="number"
-              className="w-[60px] ml-2"
+              className="w-[60px] ml-2 p-1 rounded-[5px]"
               placeholder="5"
               onChange={(e) => setPGT(e.target.value)}
             />
           </div>
-          <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
+          <div className="flex flex-row space-between items-center flex-wrap px-4 py-2 bg-gega-soft">
             <p>price less than</p>
             <input
               type="number"
-              className="w-[60px] ml-2"
+              className="w-[60px] ml-2 p-1 rounded-[5px]"
               placeholder="5"
               onChange={(e) => setPLT(e.target.value)}
             />
           </div>
-          <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
+          <div className="flex flex-row space-between items-center flex-wrap px-4 py-2 bg-gega-soft rounded-[5px]">
             <p>rating greater than</p>
-            <select name="" id="" onChange={(e) => setRGT(e.target.value)}>
+            <select name="" id="" onChange={(e) => setRGT(e.target.value)} className="p-1 rounded-[5px] ml-2">
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -139,9 +139,9 @@ function Products() {
               <option value="4">4</option>
             </select>
           </div>
-          <div className="flex flex-row space-between items-center px-4 py-2 bg-gega-soft">
+          <div className="flex flex-row space-between items-center flex-wrap px-4 py-2 bg-gega-soft rounded-[5px]">
             <p>rating less than</p>
-            <select name="" id="" onChange={(e) => setRLT(e.target.value)}>
+            <select name="" id="" onChange={(e) => setRLT(e.target.value)} className="p-1 rounded-[5px] ml-2"> 
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

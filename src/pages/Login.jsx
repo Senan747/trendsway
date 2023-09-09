@@ -37,7 +37,7 @@ function Login() {
 
   return (
     <div className="flex flex-row h-screen">
-      <div className="w-[700px] bg-cover">
+      <div className="w-[700px] bg-cover max-[930px]:hidden">
         <img src="danla.jpg" alt="" className="h-full w-full" />
       </div>
       <div className="flex flex-col justify-start">

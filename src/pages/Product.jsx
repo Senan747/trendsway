@@ -2,6 +2,7 @@ import React from "react";
 import { useUserData } from "../UserDataContext";
 import Navbar from "../Components/Navbar";
 import Menu from "../Components/Menu";
+import HomburgerMenu from "../Components/HomburgerMenu";
 import Stars from "../Components/Stars";
 
 function Product() {
@@ -11,6 +12,7 @@ function Product() {
     <div>
       <Navbar />
       <Menu />
+      <HomburgerMenu />
       <div className="flex flex-col gap-10 mt-10">
         <div className="flex flex-row items-center justify-center">
           <div className="w-[300px] h-[300px]">
