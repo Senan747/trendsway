@@ -9,10 +9,10 @@ function Menu() {
 
   return (
     <div className="pt-5">
-      <ul className="min-w-screen flex flex-row justify-around border-b-2 border-gega-rose max-md:overflow-visible px-2">
+      <ul className="min-w-screen flex flex-row flex-wrap justify-around border-b-2 border-gega-rose gap-5 px-2">
         <div>
           <li
-            className={`flex flex-col relative items-center cursor-pointer`}
+            className="flex flex-col relative items-center cursor-pointer max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("blush")}
             onMouseLeave={() => dropDown("")}
           >
@@ -100,7 +100,7 @@ function Menu() {
         <div>
           {" "}
           <li
-            className="flex flex-col items-center justify-center"
+            className="flex flex-col items-center justify-center cursor-pointer max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("nail-polish")}
             onMouseLeave={() => dropDown("")}
           >
@@ -113,7 +113,7 @@ function Menu() {
                 <p className="text-center">Nail polish</p>{" "}
               </div>
             </Link>
-          </li>{" "}
+          </li>
           {activeMenu === "nail-polish" && (
             <div
               className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse  max-md:hidden"
@@ -164,7 +164,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("mascara")}
             onMouseLeave={() => dropDown("")}
           >
@@ -242,7 +242,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("lipstick")}
             onMouseLeave={() => dropDown("")}
           >
@@ -345,7 +345,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("lip-liner")}
             onMouseLeave={() => dropDown("")}
           >
@@ -420,7 +420,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("foundation")}
             onMouseLeave={() => dropDown("")}
           >
@@ -540,7 +540,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("eyeshadow")}
             onMouseLeave={() => dropDown("")}
           >
@@ -725,7 +725,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("eyebrow")}
             onMouseLeave={() => dropDown("")}
           >
@@ -773,13 +773,12 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("bronzer")}
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/bronzer">
               <div className="flex items-center justify-center flex-col">
-                {" "}
                 <div className="max-w-[30px] max-h-[30px]">
                   <img
                     src="/bronzer.png"

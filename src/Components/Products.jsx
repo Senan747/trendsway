@@ -156,7 +156,7 @@ function Products() {
           product.image_link ? (
             <li
               key={product.id}
-              className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[500px]"
+              className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[500px] max-md:max-w-[250px] max-md:min-h-[450px]"
               onClick={() => setProduct(product)}
             >
               <img
@@ -166,12 +166,12 @@ function Products() {
               />
               <Link to="/product">
                 {" "}
-                <h3 className="text-xl font-semibold mb-2 cursor-pointer hover:underline">
+                <h3 className="text-xl font-semibold mb-2 cursor-pointer hover:underline max-md:text-base">
                   {product.name}
                 </h3>
               </Link>
 
-              <p className="text-gray-600 mb-2">
+              <p className="text-gray-600 mb-2 max-md:text-xs">
                 {product.description
                   ? product.description.slice(0, 70) + "..."
                   : product.description}
