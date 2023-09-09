@@ -12,7 +12,6 @@ function Basket() {
   const [counts, setCounts] = useState({});
   const [showFirstPrice, setShowFirstPrice] = useState(false);
   const { showPay, setShowPay } = useUserData();
-  const [showNotficition, setShowNotficiton] = useState(false);
   const [zeroCost, setZeroCost] = useState(false);
   const { showFinishNot, setShowFinishNont } = useUserData();
   const { showComment, setShowComment } = useUserData();
@@ -64,10 +63,12 @@ function Basket() {
     }
   }, [showFinishNot]);
 
+  console.log(showThanks);
+
   return (
     <div className="flex items-center justify-center flex-col">
-      <div className="flex flex-row w-full justify-between items-center py-5 px-20 bg-gega-pink">
-        <p className="text-gega-white text-3xl font-bold">
+      <div className="flex flex-row w-full justify-between items-center py-5 px-20 bg-gega-pink max-md:px-10 max-md:py-2">
+        <p className="text-gega-white text-3xl font-bold max-md:text-xl">
           Hello <span className="text-gega-rose">{userData.username}</span>,
           Thanks for choosing us!
         </p>
@@ -75,14 +76,14 @@ function Basket() {
           <img src="../logo.png" alt="" className="w-full h-full" />
         </div>
       </div>
-      <div className="flex flex-row justify-between items-center">
-        <div className="flex flex-col max-w-[800px] mt-10">
+      <div className="flex flex-row justify-between items-center max-md:flex-col m-7 gap-5">
+        <div className="flex flex-row max-w-[900px] flex-wrap mt-10 gap-5">
           {productData && Array.isArray(productData) ? (
             productData.map((product) => (
-              <div className="flex flex-row items-center justify-between">
+              <div className="flex flex-row flex-wrap items-center justify-between max-w-[400px] min-h-[400px]">
                 <div
                   key={product.id}
-                  className="border p-4 mb-10 rounded-lg shadow-md w-[80%] cursor-pointer"
+                  className="border p-4 mb-10 rounded-lg shadow-md w-[80%] cursor-pointer max-w-[400px] min-h-[450px]"
                 >
                   <img
                     src={product.image_link}
@@ -150,7 +151,7 @@ function Basket() {
             <p>No products available</p>
           )}
         </div>
-        <div className="flex items-center flex-col fixed top-[50%] right-[10%] border-2 px-2">
+        <div className="min-w-[200px] flex items-center flex-col border-2 rounded-[10px] border-gega-earth-red px-2 max-md:relative">
           <p className="my-10 text-2xl text-gega-rose">
             Total Cost: {getTotalCost()}
           </p>
@@ -189,27 +190,27 @@ function Basket() {
         </div>
         <div>
           {showFinishNot && (
-            <div className="w-screen h-screen fixed">
-              <div className="fixed w-[300px] bg-gega-rose text-gega-white text-xl text-center top-[89%] left-[38%] z-20 py-3 rounded-lg animate-pulse">
-                Products have been ordered
+            <div className="fixed top-0 left-0 w-screen h-[90vh] flex items-end justify-center z-20">
+              <div className="w-[300px] bg-gega-rose text-gega-white text-xl text-center py-3 rounded-lg animate-pulse">
+                Product have been ordered
               </div>
             </div>
           )}
         </div>
         <div>
           {showComment && (
-            <>
+            <div className="">
               <div className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-10" />
-              <div className="fixed z-20 top-[22%] left-[38%]">
+              <div className="fixed top-0 left-0 w-screen h-screen z-20 flex items-center justify-center">
                 <Comment />
               </div>
-            </>
+            </div>
           )}{" "}
         </div>
         <div>
           {showThanks && (
-            <div className="w-screen h-screen fixed">
-              <div className="fixed w-[300px] bg-gega-rose text-gega-white text-xl text-center top-[89%] left-[38%] z-20 py-3 rounded-lg animate-pulse">
+            <div className="fixed top-0 left-0 w-screen h-[90vh] flex items-end justify-center z-20">
+              <div className="w-[300px] bg-gega-rose text-gega-white text-xl text-center py-3 rounded-lg animate-pulse">
                 Thanks
               </div>
             </div>

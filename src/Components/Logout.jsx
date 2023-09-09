@@ -15,7 +15,7 @@ function Logout() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-[600px] h-[400px] bg-gega-cameo rounded-[30px]">
+    <div className="flex flex-col items-center justify-center w-[400px] h-[400px] bg-gega-cameo rounded-[30px]">
       <h2 className="text-2xl text-gega-earth-red font-medium mb-20">
         Are you sure you want to logout?
       </h2>

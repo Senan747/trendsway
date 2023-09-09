@@ -13,7 +13,7 @@ function Products() {
   const { setProduct } = useUserData();
   const { setRating } = useUserData();
   const [show, setShow] = useState(false);
-  const [showNotficition, setShowNotficiton] = useState(false);
+  const [showNotification, setShowNotfication] = useState(false);
   let location = useLocation();
   const { category } = useParams();
   const { type } = useParams();
@@ -44,8 +44,7 @@ function Products() {
         url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brandName}`;
         break;
       case location.pathname === "/":
-        url =
-          `http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5`;
+        url = `http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5`;
         break;
       default:
         url = "";
@@ -54,11 +53,14 @@ function Products() {
 
     if (PGT) {
       url += `&price_greater_than=${PGT}`;
-    } else if (PLT) {
+    }
+    if (PLT) {
       url += `&price_less_than=${PLT}`;
-    } else if (RGT) {
+    }
+    if (RGT) {
       url += `&rating_greater_than=${RGT}`;
-    } else if (RLT) {
+    }
+    if (RLT) {
       url += `&rating_less_than=${RLT}`;
     }
 
@@ -91,10 +93,10 @@ function Products() {
     };
   }, []);
 
-  const handleNotficition = () => {
-    setShowNotficiton(true);
+  const handleNotfication = () => {
+    setShowNotfication(true);
     setTimeout(() => {
-      setShowNotficiton(false);
+      setShowNotfication(false);
     }, 2500);
   };
 
@@ -105,7 +107,6 @@ function Products() {
   return (
     <div className="mx-auto p-4 flex flex-col items-center mt-[50px]">
       {location.pathname.includes("rating") ||
-      location.pathname.includes(brandName) ||
       location.pathname.includes(category) ||
       location.pathname.includes(type) ||
       location.pathname.includes(tag) ||
@@ -131,7 +132,12 @@ function Products() {
           </div>
           <div className="flex flex-row space-between items-center flex-wrap px-4 py-2 bg-gega-soft rounded-[5px]">
             <p>rating greater than</p>
-            <select name="" id="" onChange={(e) => setRGT(e.target.value)} className="p-1 rounded-[5px] ml-2">
+            <select
+              name=""
+              id=""
+              onChange={(e) => setRGT(e.target.value)}
+              className="p-1 rounded-[5px]"
+            >
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -141,7 +147,12 @@ function Products() {
           </div>
           <div className="flex flex-row space-between items-center flex-wrap px-4 py-2 bg-gega-soft rounded-[5px]">
             <p>rating less than</p>
-            <select name="" id="" onChange={(e) => setRLT(e.target.value)} className="p-1 rounded-[5px] ml-2"> 
+            <select
+              name=""
+              id=""
+              onChange={(e) => setRLT(e.target.value)}
+              className="p-1 rounded-[5px] ml-2"
+            >
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -151,7 +162,7 @@ function Products() {
           </div>
         </div>
       ) : null}
-      <ul className="flex flex-wrap flex-row justify-around items-start">
+      <ul className="flex flex-wrap flex-row justify-around items-start gap-10">
         {products.map((product) =>
           product.image_link ? (
             <li
@@ -203,7 +214,7 @@ function Products() {
                       className="rounded-[100%] hover:bg-gega-light-grey duration-30 cursor-pointer"
                       onClick={() => {
                         handleProductClick(product);
-                        handleNotficition();
+                        handleNotfication();
                       }}
                     >
                       <SlBasket className="mr-[10px] text-5xl py-2" />
@@ -232,16 +243,19 @@ function Products() {
               className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-10"
               onClick={() => setShow(false)}
             />
-            <div className="fixed top-[22%] left-[38%] z-20" ref={pleaseRef}>
-              <Please className="bg-gega-light" />
+            <div className="fixed top-0 left-0 flex items-center justify-center w-screen h-screen z-20">
+              <div className="bg-gega-light">
+                <Please />
+              </div>
             </div>
           </>
         )}
       </div>
+
       <div>
-        {showNotficition && (
-          <div className="w-screen h-screen fixed">
-            <div className="fixed w-[300px] bg-gega-rose text-gega-white text-xl text-center top-[89%] left-[38%] z-20 py-3 rounded-lg animate-pulse">
+        {showNotification && (
+          <div className="fixed top-0 left-0 w-screen h-[90vh] flex items-end justify-center z-20">
+            <div className="w-[300px] bg-gega-rose text-gega-white text-xl text-center py-3 rounded-lg animate-pulse">
               Product was added to basket
             </div>
           </div>

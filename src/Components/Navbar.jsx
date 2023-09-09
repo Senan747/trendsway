@@ -178,9 +178,9 @@ function Navbar() {
             </div>
           )}
           {showLogout && (
-            <div className="flex items-center justify-center">
+            <div className="">
               <div className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-10" />
-              <div className="fixed z-20 top-[22%] left-[30%]">
+              <div className="fixed top-0 left-0 flex items-center justify-center w-screen h-screen z-20">
                 <Logout />
               </div>
             </div>
