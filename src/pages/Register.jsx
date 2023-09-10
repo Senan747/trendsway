@@ -17,7 +17,7 @@ function Register() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("https://trendsway.vercel.app/users", {
+    fetch("https://trendsway-data.onrender.com/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
