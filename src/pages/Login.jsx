@@ -12,7 +12,7 @@ function Login() {
   const {setUserData} = useUserData();
 
   const getData = () => {
-    fetch("http://localhost:3004/users")
+    fetch("https://trendsway.vercel.app/users")
       .then((response) => response.json())
       .then((result) => setUser(result))
       .catch((error) => console.log("error", error));
