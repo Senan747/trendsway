@@ -225,6 +225,12 @@
       "username": "hey",
       "password": "12313423",
       "id": 38
+    },
+    {
+      "email": "f@gmail.com",
+      "username": "fuadik",
+      "password": "1342",
+      "id": 39
     }
   ]
 }
