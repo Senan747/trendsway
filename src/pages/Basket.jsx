@@ -176,18 +176,13 @@ function Basket() {
                 className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-10"
                 onClick={() => setShowPay(false)}
               />
-              <div className="fixed top-[22%] left-[38%] z-20">
-                <div
-                  className="text-3xl rounded-[100%] relative top-20 z-50 left-[380px] bg-gega-grey pb-2 px-3 text-center cursor-pointer"
-                  onClick={() => setShowPay(false)}
-                >
-                  x
-                </div>
+              <div className="fixed flex items-start justify-start z-20">
                 <Pay className="bg-gega-light" />
               </div>
             </>
           )}
         </div>
+
         <div>
           {showFinishNot && (
             <div className="fixed top-0 left-0 w-screen h-[90vh] flex items-end justify-center z-20">

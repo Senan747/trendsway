@@ -52,7 +52,7 @@ function Login() {
         <div>
           {loginStatus === "failure" && (
             <div>
-              <p class="bg-red-600 p-2 rounded mt-2 mb-2 text-white">
+              <p className="bg-red-600 p-2 rounded mt-2 mb-2 text-white">
                 Invalid Username or Password{" "}
               </p>
             </div>

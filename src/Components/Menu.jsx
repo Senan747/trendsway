@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link, BrowserRouter } from "react-router-dom";
 
 function Menu() {
-  const [activeMenu, setActiveMenu] = useState("");
+  const [activeMenu, setActiveMenu] = useState();
   const dropDown = (menu) => {
     setActiveMenu(menu);
   };

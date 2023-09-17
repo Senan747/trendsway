@@ -3,12 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useUserData } from "../UserDataContext";
 import { TbBasketFilled } from "react-icons/tb";
 import { FiLogOut } from "react-icons/fi";
-import { HiOutlineMenuAlt1 } from "react-icons/hi"
+import { HiOutlineMenuAlt1 } from "react-icons/hi";
 
 import Logout from "./Logout";
 
 function Navbar() {
-  const { userData, showLogout, setShowLogout, setShowHomburger } = useUserData();
+  const { userData, showLogout, setShowLogout, setShowHomburger } =
+    useUserData();
   const { productData } = useUserData();
   const [searchResults, setSearchResults] = useState([]);
   const [show, setShow] = useState(false);
@@ -108,15 +109,18 @@ function Navbar() {
   return (
     <div className="max-w-screen bg-gega-pink flex flex-row items-center justify-around">
       <div className="flex flex-row justify-between items-center">
-        <HiOutlineMenuAlt1 className="text-2xl font-semibold hidden max-md:block cursor-pointer" onClick={() => setShowHomburger(true)} />
+        <HiOutlineMenuAlt1
+          className="text-2xl font-semibold hidden max-md:block cursor-pointer"
+          onClick={() => setShowHomburger(true)}
+        />
         <Link to="/" className="">
-            <div className=" md:max-w-full md:ml-5 bg-cover">
-              <img
-                src="/logo.png"
-                alt=""
-                className="max-h-[100px] max-w-[100px] cursor-pointer bg-contain"
-              />
-            </div>{" "}
+          <div className=" md:max-w-full md:ml-5 bg-cover">
+            <img
+              src="/logo.png"
+              alt=""
+              className="max-h-[100px] max-w-[100px] cursor-pointer bg-contain"
+            />
+          </div>{" "}
         </Link>
         <div className="md:mr-10" ref={pleaseRef}>
           <input
@@ -167,12 +171,12 @@ function Navbar() {
             </>
           ) : (
             <div className="flex flex-row items-center text-white">
-              <Link to={"/login"}>
+              <Link to="/login">
                 <button className="border-none px-3 py-1 mr-4 bg-gega-earth-red rounded-[10px]">
                   Log in
                 </button>
               </Link>
-              <Link to={"/register"}>
+              <Link to="/register">
                 <p className="text-gega-earth-red underline">Sign up</p>
               </Link>{" "}
             </div>
