@@ -76,8 +76,14 @@ function Products() {
       .catch("error: ", Error);
   }, [location.pathname, type, category, tag, brandName, PGT, PLT, RGT, RLT]);
 
-  const handleProductClick = (product) => {
-    setProductData((prevData) => [...prevData, product]);
+  const handleProductClick = ({ product, e }) => {
+    if (userData !== null) {
+      setProductData((prevData) => [...prevData, product]);
+      handleNotfication();
+    } else {
+      setShow(true);
+      e.stopPropagation();
+    }
   };
 
   const pleaseRef = useRef();
@@ -111,8 +117,8 @@ function Products() {
       location.pathname.includes(type) ||
       location.pathname.includes(tag) ||
       location.pathname.includes("result") ? (
-        <div className="flex flex-row flex-wrap gap-5 w-full justify-around items-center mb-[50px]">
-          <div className="flex flex-row space-between items-center flex-wrap px-4 py-2 bg-gega-soft">
+        <div className="flex flex-row flex-wrap gap-5 w-full justify-around items-center mb-[50px] max-md:w-[300px]">
+          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft w-full rounded-[5px]">
             <p>price greater than</p>
             <input
               type="number"
@@ -121,7 +127,7 @@ function Products() {
               onChange={(e) => setPGT(e.target.value)}
             />
           </div>
-          <div className="flex flex-row space-between items-center flex-wrap px-4 py-2 bg-gega-soft">
+          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft w-full rounded-[5px]">
             <p>price less than</p>
             <input
               type="number"
@@ -130,7 +136,7 @@ function Products() {
               onChange={(e) => setPLT(e.target.value)}
             />
           </div>
-          <div className="flex flex-row space-between items-center flex-wrap px-4 py-2 bg-gega-soft rounded-[5px]">
+          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft w-full rounded-[5px]">
             <p>rating greater than</p>
             <select
               name=""
@@ -145,7 +151,7 @@ function Products() {
               <option value="4">4</option>
             </select>
           </div>
-          <div className="flex flex-row space-between items-center flex-wrap px-4 py-2 bg-gega-soft rounded-[5px]">
+          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft w-full rounded-[5px]">
             <p>rating less than</p>
             <select
               name=""
@@ -167,7 +173,7 @@ function Products() {
           product.image_link ? (
             <li
               key={product.id}
-              className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[500px] max-md:max-w-[250px] max-md:min-h-[450px]"
+              className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[500px] max-md:max-w-[200px] max-md:min-h-[450px]"
               onClick={() => setProduct(product)}
             >
               <img
@@ -209,27 +215,14 @@ function Products() {
                       />
                     ))}
                   </ul>
-                  {userData !== null ? (
-                    <div
-                      className="rounded-[100%] hover:bg-gega-light-grey duration-30 cursor-pointer"
-                      onClick={() => {
-                        handleProductClick(product);
-                        handleNotfication();
-                      }}
-                    >
-                      <SlBasket className="mr-[10px] text-5xl py-2" />
-                    </div>
-                  ) : (
-                    <div
-                      className="rounded-[100%] hover:bg-gega-light-grey duration-300 cursor-pointer"
-                      onClick={(event) => {
-                        setShow(true);
-                        event.stopPropagation();
-                      }}
-                    >
-                      <SlBasket className="mr-[10px] text-5xl py-2" />
-                    </div>
-                  )}
+                  <div
+                    className="rounded-[100%] w-[50px] h-[50px] mr-[10px] flex items-center justify-center hover:bg-gega-light-grey duration-300 cursor-pointer"
+                    onClick={(e) => {
+                      handleProductClick({ product, e });
+                    }}
+                  >
+                    <SlBasket className="text-xl w-full" />
+                  </div>
                 </div>
               </div>
             </li>

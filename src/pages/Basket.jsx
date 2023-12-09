@@ -36,17 +36,17 @@ function Basket() {
   };
 
   const getProductTotal = (productId, price) => {
-    return (counts[productId] || 0) * price;
+    return ((counts[productId] || 0) * price).toFixed(2);
   };
-
+  
   const getTotalCost = () => {
     let total = 0;
     productData.forEach((product) => {
-      total += getProductTotal(product.id, product.price);
+      total += parseFloat(getProductTotal(product.id, product.price));
     });
     return total.toFixed(2);
   };
-
+  
   const handleFinish = (event) => {
     if (getTotalCost() == 0.0) {
       event.stopPropagation();
@@ -63,7 +63,6 @@ function Basket() {
     }
   }, [showFinishNot]);
 
-  console.log(showThanks);
 
   return (
     <div className="flex items-center justify-center flex-col">
@@ -97,7 +96,7 @@ function Basket() {
                     </h3>
                   </Link>
                   <p className="text-gray-600 mb-2">
-                    {product.description.length > 70
+                    {product.description?.length > 70
                       ? product.description.slice(0, 70) + "..."
                       : product.description}
                   </p>
@@ -111,7 +110,7 @@ function Basket() {
 
                     <div className="flex flex-row items-end justify-between">
                       <ul className="flex flex-wrap space-x-2">
-                        {product.product_colors.map((color) => (
+                        {product?.product_colors.map((color) => (
                           <li
                             key={color.colour_name}
                             className="w-6 h-6 rounded-full"

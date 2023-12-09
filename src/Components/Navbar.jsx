@@ -130,7 +130,7 @@ function Navbar() {
             onChange={(e) => handleSearch(e.target.value)}
           />{" "}
           {!show && searchResults.length > 0 && (
-            <ul className="bg-gega-white absolute w-full md:w-[300px] max-md:w-[200px] max-h-[300px] overflow-auto">
+            <ul className="bg-gega-white absolute w-full md:w-[300px] max-md:w-[170px] max-h-[300px] overflow-auto">
               {searchResults.map((result, index) => (
                 <li
                   key={index}
@@ -149,7 +149,7 @@ function Navbar() {
           {userData ? (
             <>
               <div className="min-w-full md:min-w-[300px] flex flex-col md:flex-row justify-between items-center">
-                <p className="text-gega-white text-xl mb-4 md:mb-0">
+                <p className="text-gega-white text-xl mb-4 md:mb-0 max-md:text-sm">
                   Hello, {userData.username}!
                 </p>
                 <div
@@ -172,12 +172,12 @@ function Navbar() {
           ) : (
             <div className="flex flex-row items-center text-white">
               <Link to="/login">
-                <button className="border-none px-3 py-1 mr-4 bg-gega-earth-red rounded-[10px]">
+                <button className="border-none px-3 py-1 bg-gega-earth-red rounded-[10px] max-md:text-xs mx-2">
                   Log in
                 </button>
               </Link>
               <Link to="/register">
-                <p className="text-gega-earth-red underline">Sign up</p>
+                <p className="text-gega-earth-red underline max-md:text-xs">Sign up</p>
               </Link>{" "}
             </div>
           )}

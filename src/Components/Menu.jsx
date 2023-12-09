@@ -9,23 +9,23 @@ function Menu() {
 
   return (
     <div className="pt-5">
-      <ul className="min-w-screen flex flex-row flex-wrap justify-around border-b-2 border-gega-rose gap-5 px-2">
+      <ul className="min-w-screen flex flex-row flex-wrap justify-around border-b-2 border-gega-rose max-md:border-none gap-5 max-sm:gap-2 px-2">
         <div>
           <li
-            className="flex flex-col relative items-center cursor-pointer max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col relative items-center cursor-pointer max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("blush")}
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/blush">
               <div className="flex items-center justify-center flex-col">
-                <div className="max-w-[30px] max-h-[30px]">
+                <div className="max-w-[30px] max-h-[30px] max-sm:w-[25px] max-sm:h-[25px]">
                   <img
                     src="/blush.svg"
                     alt=""
-                    className=" text-center w-full h-full"
+                    className="text-center w-full h-full"
                   />
                 </div>
-                <p className="text-center">Blush</p>
+                <p className="text-center max-sm:text-sm">Blush</p>
               </div>
             </Link>
           </li>
@@ -100,17 +100,17 @@ function Menu() {
         <div>
           {" "}
           <li
-            className="flex flex-col items-center justify-center cursor-pointer max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center justify-center cursor-pointer max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("nail-polish")}
             onMouseLeave={() => dropDown("")}
           >
             {" "}
             <Link to="/result/nail+polish">
               <div className="flex items-center justify-center flex-col">
-                <div className="max-w-[30px] max-h-[30px]  flex items-center justify-center">
+                <div className="max-w-[30px] max-h-[30px] max-sm:w-[25px] max-sm:h-[25px]  flex items-center justify-center">
                   <img src="/nailpolish.png" alt="" />
                 </div>
-                <p className="text-center">Nail polish</p>{" "}
+                <p className="text-center max-sm:text-sm">Nail polish</p>{" "}
               </div>
             </Link>
           </li>
@@ -164,13 +164,13 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("mascara")}
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/mascara">
               <div className="flex items-center justify-center flex-col">
-                <div className="max-w-[30px] max-h-[30px]">
+                <div className="max-w-[30px] max-h-[30px] max-sm:w-[25px] max-sm:h-[25px]">
                   <img
                     src="/mascara.png"
                     alt=""
@@ -178,7 +178,7 @@ function Menu() {
                     text-center="w-full h-full"
                   />
                 </div>
-                <p className="text-center">Mascara</p>
+                <p className="text-center max-sm:text-sm">Mascara</p>
               </div>
             </Link>
           </li>
@@ -242,13 +242,13 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("lipstick")}
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/lipstick">
               <div className="flex items-center justify-center flex-col">
-                <div className="max-w-[30px] max-h-[30px]">
+                <div className="max-w-[30px] max-h-[30px] max-sm:w-[25px] max-sm:h-[25px]">
                   <img
                     src="/lipstick.png"
                     alt=""
@@ -257,7 +257,7 @@ function Menu() {
                     e="w-full h-full"
                   />
                 </div>
-                <p className="text-center">Lipstick</p>
+                <p className="text-center max-sm:text-sm">Lipstick</p>
               </div>
             </Link>
           </li>
@@ -345,13 +345,13 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("lip-liner")}
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/lip+liner">
               <div className="flex items-center justify-center flex-col">
-                <div className="max-w-[30px] max-h-[30px]">
+                <div className="max-w-[30px] max-h-[30px] max-sm:w-[25px] max-sm:h-[25px]">
                   <img
                     src="/lipliner.png"
                     alt=""
@@ -360,7 +360,7 @@ function Menu() {
                     e="w-full h-full"
                   />
                 </div>
-                <p className="text-center">Lip liner</p>
+                <p className="text-center max-sm:text-sm">Lip liner</p>
               </div>
             </Link>
           </li>
@@ -420,14 +420,14 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("foundation")}
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/foundation">
               <div className="flex items-center justify-center flex-col">
                 {" "}
-                <div className="max-w-[30px] max-h-[30px]">
+                <div className="max-w-[30px] max-h-[30px] max-sm:w-[25px] max-sm:h-[25px]">
                   <img
                     src="/foundation.png"
                     alt=""
@@ -436,7 +436,7 @@ function Menu() {
                     ame="w-full h-full"
                   />
                 </div>
-                <p className="text-center">Foundation</p>
+                <p className="text-center max-sm:text-sm">Foundation</p>
               </div>
             </Link>
           </li>
@@ -540,14 +540,14 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("eyeshadow")}
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/eyeshadow">
               <div className="flex items-center justify-center flex-col">
                 {" "}
-                <div className="max-w-[30px] max-h-[30px]">
+                <div className="max-w-[30px] max-h-[30px] max-sm:w-[25px] max-sm:h-[25px]">
                   <img
                     src="/eyeshadow.png"
                     alt=""
@@ -556,7 +556,7 @@ function Menu() {
                     me="w-full h-full"
                   />
                 </div>
-                <p className="text-center">Eyeshadow</p>
+                <p className="text-center max-sm:text-sm">Eyeshadow</p>
               </div>
             </Link>
           </li>
@@ -637,13 +637,13 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("eyeliner")}
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/eyeliner">
               <div className="flex items-center justify-center flex-col">
-                <div className="max-w-[30px] max-h-[30px]">
+                <div className="max-w-[30px] max-h-[30px] max-sm:w-[25px] max-sm:h-[25px]">
                   <img
                     src="/eyeliner.png"
                     alt=""
@@ -652,7 +652,7 @@ function Menu() {
                     e="w-full h-full"
                   />
                 </div>
-                <p className="text-center">Eyeliner</p>
+                <p className="text-center max-sm:text-sm">Eyeliner</p>
               </div>
             </Link>
           </li>
@@ -725,14 +725,14 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("eyebrow")}
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/eyebrow">
               <div className="flex items-center justify-center flex-col">
                 {" "}
-                <div className="max-w-[30px] max-h-[30px]">
+                <div className="max-w-[30px] max-h-[30px] max-sm:w-[25px] max-sm:h-[25px]">
                   <img
                     src="/eyebrow.png"
                     alt=""
@@ -740,7 +740,7 @@ function Menu() {
                     text-center="w-full h-full"
                   />
                 </div>
-                <p className="text-center">Eyebrow</p>
+                <p className="text-center max-sm:text-sm">Eyebrow</p>
               </div>
             </Link>
           </li>
@@ -773,13 +773,13 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("bronzer")}
             onMouseLeave={() => dropDown("")}
           >
             <Link to="/result/bronzer">
               <div className="flex items-center justify-center flex-col">
-                <div className="max-w-[30px] max-h-[30px]">
+                <div className="max-w-[30px] max-h-[30px] max-sm:w-[25px] max-sm:h-[25px]">
                   <img
                     src="/bronzer.png"
                     alt=""
@@ -787,7 +787,7 @@ function Menu() {
                     text-center="w-full h-full"
                   />
                 </div>
-                <p className="text-center">Bronzer</p>
+                <p className="text-center max-sm:text-sm">Bronzer</p>
               </div>
             </Link>
           </li>
