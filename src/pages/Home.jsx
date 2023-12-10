@@ -9,7 +9,7 @@ import HomburgerMenu from "../Components/HomburgerMenu";
 
 function Home() {
   return (
-    <div>
+    <div className="">
       <Navbar />
       <Menu />
       <HomburgerMenu />

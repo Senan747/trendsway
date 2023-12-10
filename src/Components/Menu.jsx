@@ -8,8 +8,8 @@ function Menu() {
   };
 
   return (
-    <div className="w-screen pt-24 bg-white">
-      <ul className="min-w-screen flex flex-row flex-wrap justify-around border-b-2 border-gega-rose max-xl:border-none gap-5 max-sm:gap-2 px-2">
+    <div className="max-w-screen pt-24 bg-white">
+      <ul className="max-w-screen flex flex-row flex-wrap justify-around border-b-2 border-gega-rose max-xl:border-none gap-5 max-sm:gap-2">
         <div>
           <li
             className="flex flex-col items-center cursor-pointer max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"

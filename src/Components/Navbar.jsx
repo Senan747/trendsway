@@ -4,7 +4,7 @@ import { useUserData } from "../UserDataContext";
 import { TbBasketFilled } from "react-icons/tb";
 import { FiLogOut } from "react-icons/fi";
 import { HiOutlineMenuAlt1 } from "react-icons/hi";
-
+import { RingLoader } from "react-spinners";
 import Logout from "./Logout";
 
 function Navbar() {
@@ -107,7 +107,7 @@ function Navbar() {
   }, []);
 
   return (
-    <div className="w-screen bg-gega-pink flex flex-row items-center justify-around fixed">
+    <div className="w-full bg-gega-pink flex flex-row items-center justify-around fixed top-0 left-0">
       <div className="flex flex-row justify-between items-center">
         <HiOutlineMenuAlt1
           className="text-2xl font-semibold hidden max-xl:block cursor-pointer"
