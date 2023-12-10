@@ -107,10 +107,10 @@ function Navbar() {
   }, []);
 
   return (
-    <div className="max-w-screen bg-gega-pink flex flex-row items-center justify-around">
+    <div className="w-screen bg-gega-pink flex flex-row items-center justify-around fixed">
       <div className="flex flex-row justify-between items-center">
         <HiOutlineMenuAlt1
-          className="text-2xl font-semibold hidden max-md:block cursor-pointer"
+          className="text-2xl font-semibold hidden max-xl:block cursor-pointer"
           onClick={() => setShowHomburger(true)}
         />
         <Link to="/" className="">
@@ -130,7 +130,7 @@ function Navbar() {
             onChange={(e) => handleSearch(e.target.value)}
           />{" "}
           {!show && searchResults.length > 0 && (
-            <ul className="bg-gega-white absolute w-full md:w-[300px] max-md:w-[170px] max-h-[300px] overflow-auto">
+            <ul className="bg-gega-white fixed w-full md:w-[300px] max-md:w-[170px] max-h-[300px] overflow-auto z-20">
               {searchResults.map((result, index) => (
                 <li
                   key={index}
@@ -177,7 +177,9 @@ function Navbar() {
                 </button>
               </Link>
               <Link to="/register">
-                <p className="text-gega-earth-red underline max-md:text-xs">Sign up</p>
+                <p className="text-gega-earth-red underline max-md:text-xs">
+                  Sign up
+                </p>
               </Link>{" "}
             </div>
           )}

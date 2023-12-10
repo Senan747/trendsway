@@ -9,7 +9,7 @@ function Login() {
   const [loginStatus, setLoginStatus] = useState(null);
   const [user, setUser] = useState([]);
 
-  const {setUserData} = useUserData();
+  const { setUserData } = useUserData();
 
   const getData = () => {
     fetch("https://trendsway-data.onrender.com/users")
@@ -29,7 +29,7 @@ function Login() {
     if (evet) {
       navigate("/");
       setLoginStatus("success");
-      setUserData({username, password})
+      setUserData({ username, password });
     } else {
       setLoginStatus("failure");
     }
@@ -41,7 +41,7 @@ function Login() {
         <img src="danla.jpg" alt="" className="h-full w-full" />
       </div>
       <div className="flex flex-col justify-start">
-        <div className="w-[150px] h-[100px]">
+        <div className="w-[150px] h-[100px]" onClick={() => navigate("/")}>
           <img src="logo.png" alt="" className="w-full h-full" />
         </div>
         <div className="w-[400px] h-[200px] relative top-0">
@@ -57,10 +57,7 @@ function Login() {
               </p>
             </div>
           )}
-          <div
-            className="flex flex-col gap-3 items-start ml-[70px]"
-  
-          >
+          <div className="flex flex-col gap-3 items-start ml-[70px]">
             <label htmlFor="Username">Username</label>
             <input
               type="Username"

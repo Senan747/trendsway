@@ -5,6 +5,7 @@ import { AiOutlineMinusCircle } from "react-icons/ai";
 import Pay from "../Components/Pay";
 import { Link } from "react-router-dom";
 import Comment from "../Components/Comment";
+import { useNavigate } from "react-router-dom";
 
 function Basket() {
   const { userData } = useUserData();
@@ -16,6 +17,7 @@ function Basket() {
   const { showFinishNot, setShowFinishNont } = useUserData();
   const { showComment, setShowComment } = useUserData();
   const { showThanks, setShowThanks } = useUserData();
+  const navigate = useNavigate();
 
   const handlePlus = (productId) => {
     setCounts((prevCounts) => ({
@@ -38,7 +40,7 @@ function Basket() {
   const getProductTotal = (productId, price) => {
     return ((counts[productId] || 0) * price).toFixed(2);
   };
-  
+
   const getTotalCost = () => {
     let total = 0;
     productData.forEach((product) => {
@@ -46,7 +48,7 @@ function Basket() {
     });
     return total.toFixed(2);
   };
-  
+
   const handleFinish = (event) => {
     if (getTotalCost() == 0.0) {
       event.stopPropagation();
@@ -63,7 +65,6 @@ function Basket() {
     }
   }, [showFinishNot]);
 
-
   return (
     <div className="flex items-center justify-center flex-col">
       <div className="flex flex-row w-full justify-between items-center py-5 px-20 bg-gega-pink max-md:px-10 max-md:py-2">
@@ -71,7 +72,10 @@ function Basket() {
           Hello <span className="text-gega-rose">{userData.username}</span>,
           Thanks for choosing us!
         </p>
-        <div className="max-h-[150px] max-w-[150px] ">
+        <div
+          className="max-h-[150px] max-w-[150px]"
+          onClick={() => navigate("/")}
+        >
           <img src="../logo.png" alt="" className="w-full h-full" />
         </div>
       </div>

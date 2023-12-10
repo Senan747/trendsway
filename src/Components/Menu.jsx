@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { Link, BrowserRouter } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Menu() {
   const [activeMenu, setActiveMenu] = useState();
@@ -8,11 +8,11 @@ function Menu() {
   };
 
   return (
-    <div className="pt-5">
-      <ul className="min-w-screen flex flex-row flex-wrap justify-around border-b-2 border-gega-rose max-md:border-none gap-5 max-sm:gap-2 px-2">
+    <div className="w-screen pt-24 bg-white">
+      <ul className="min-w-screen flex flex-row flex-wrap justify-around border-b-2 border-gega-rose max-xl:border-none gap-5 max-sm:gap-2 px-2">
         <div>
           <li
-            className="flex flex-col relative items-center cursor-pointer max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center cursor-pointer max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("blush")}
             onMouseLeave={() => dropDown("")}
           >
@@ -29,78 +29,77 @@ function Menu() {
               </div>
             </Link>
           </li>
-          <div>
-            {activeMenu === "blush" && (
-              <div
-                className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse  max-md:hidden"
-                onMouseEnter={() => dropDown("blush")}
-                onMouseLeave={() => dropDown("")}
-              >
-                <div className=" flex flex-row">
-                  <ul className="flex flex-col mr-10">
-                    <li>
-                      <Link to="/result/blush/powder">Powder</Link>
-                    </li>
-                    <li>
-                      <Link to="/result/blush/cream">Cream</Link>
-                    </li>
-                  </ul>
-                  <ul className="flex flex-col">
-                    <li>
-                      <Link to="/result/blush/vegan-bytag">Vegan</Link>
-                    </li>
-                    <li>
-                      <Link to="/result/blush/gluten+free-bytag">
-                        Gluten free
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/result/blush/canadian-bytag">Canadian</Link>
-                    </li>
-                    <li>
-                      <Link to="/result/blush/natural-bytag">Natural</Link>
-                    </li>
-                    <li>
-                      <Link to="/result/blush/non+gmo-bytag">Non-GMO</Link>
-                    </li>
-                    <li>
-                      <Link to="/result/blush/purpicks-bytag">Purpicks</Link>
-                    </li>
-                    <li>
-                      <Link to="/result/blush/usda+organic-bytag">
-                        USDA organic
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/result/blush/organic-bytag">Organic</Link>
-                    </li>
-                    <li>
-                      <Link to="/result/blush/certclean-bytag">Certclean</Link>
-                    </li>
-                    <li>
-                      <Link to="/result/blush/ewg+verified-bytag">
-                        EWG verified
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/result/blush/hypoallergenic-bytag">
-                        Hypoallergenic
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/result/blush/no+talc-bytag">No talc</Link>
-                    </li>
-                  </ul>
-                </div>
+
+          {activeMenu === "blush" && (
+            <div
+              className="flex items-start justify-start border-2 border-t-0 border-gega-rose absolute bg-gega-soft p-6 cursor-pointer text-gega-earth-red  animate-pulse  max-md:hidden"
+              onMouseEnter={() => dropDown("blush")}
+              onMouseLeave={() => dropDown("")}
+            >
+              <div className=" flex flex-row">
+                <ul className="flex flex-col mr-10">
+                  <li>
+                    <Link to="/result/blush/powder">Powder</Link>
+                  </li>
+                  <li>
+                    <Link to="/result/blush/cream">Cream</Link>
+                  </li>
+                </ul>
+                <ul className="flex flex-col">
+                  <li>
+                    <Link to="/result/blush/vegan-bytag">Vegan</Link>
+                  </li>
+                  <li>
+                    <Link to="/result/blush/gluten+free-bytag">
+                      Gluten free
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/result/blush/canadian-bytag">Canadian</Link>
+                  </li>
+                  <li>
+                    <Link to="/result/blush/natural-bytag">Natural</Link>
+                  </li>
+                  <li>
+                    <Link to="/result/blush/non+gmo-bytag">Non-GMO</Link>
+                  </li>
+                  <li>
+                    <Link to="/result/blush/purpicks-bytag">Purpicks</Link>
+                  </li>
+                  <li>
+                    <Link to="/result/blush/usda+organic-bytag">
+                      USDA organic
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/result/blush/organic-bytag">Organic</Link>
+                  </li>
+                  <li>
+                    <Link to="/result/blush/certclean-bytag">Certclean</Link>
+                  </li>
+                  <li>
+                    <Link to="/result/blush/ewg+verified-bytag">
+                      EWG verified
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/result/blush/hypoallergenic-bytag">
+                      Hypoallergenic
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/result/blush/no+talc-bytag">No talc</Link>
+                  </li>
+                </ul>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
 
         <div>
           {" "}
           <li
-            className="flex flex-col items-center justify-center cursor-pointer max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center justify-center cursor-pointer max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("nail-polish")}
             onMouseLeave={() => dropDown("")}
           >
@@ -164,7 +163,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("mascara")}
             onMouseLeave={() => dropDown("")}
           >
@@ -242,7 +241,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("lipstick")}
             onMouseLeave={() => dropDown("")}
           >
@@ -345,7 +344,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("lip-liner")}
             onMouseLeave={() => dropDown("")}
           >
@@ -420,7 +419,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("foundation")}
             onMouseLeave={() => dropDown("")}
           >
@@ -540,7 +539,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("eyeshadow")}
             onMouseLeave={() => dropDown("")}
           >
@@ -637,7 +636,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("eyeliner")}
             onMouseLeave={() => dropDown("")}
           >
@@ -725,7 +724,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("eyebrow")}
             onMouseLeave={() => dropDown("")}
           >
@@ -773,7 +772,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-md:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
             onMouseEnter={() => dropDown("bronzer")}
             onMouseLeave={() => dropDown("")}
           >

@@ -111,14 +111,14 @@ function Products() {
   };
 
   return (
-    <div className="mx-auto p-4 flex flex-col items-center mt-[50px]">
+    <div className="mx-auto p-4 flex flex-col items-center pt-[30px]">
       {location.pathname.includes("rating") ||
       location.pathname.includes(category) ||
       location.pathname.includes(type) ||
       location.pathname.includes(tag) ||
       location.pathname.includes("result") ? (
-        <div className="flex flex-row flex-wrap gap-5 w-full justify-around items-center mb-[50px] max-md:w-[300px]">
-          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft w-full rounded-[5px]">
+        <div className="flex flex-row flex-wrap gap-5 w-full max-md:w-full justify-around items-center mb-[50px] ">
+          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft max-md:w-[300px] rounded-[5px]">
             <p>price greater than</p>
             <input
               type="number"
@@ -127,7 +127,7 @@ function Products() {
               onChange={(e) => setPGT(e.target.value)}
             />
           </div>
-          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft w-full rounded-[5px]">
+          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft max-md:w-[300px] rounded-[5px]">
             <p>price less than</p>
             <input
               type="number"
@@ -136,7 +136,7 @@ function Products() {
               onChange={(e) => setPLT(e.target.value)}
             />
           </div>
-          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft w-full rounded-[5px]">
+          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft max-md:w-[300px] rounded-[5px]">
             <p>rating greater than</p>
             <select
               name=""
@@ -151,7 +151,7 @@ function Products() {
               <option value="4">4</option>
             </select>
           </div>
-          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft w-full rounded-[5px]">
+          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft max-md:w-[300px] rounded-[5px]">
             <p>rating less than</p>
             <select
               name=""
@@ -168,23 +168,25 @@ function Products() {
           </div>
         </div>
       ) : null}
-      <ul className="flex flex-wrap flex-row justify-around items-start gap-10">
+      <ul className="flex flex-wrap flex-row justify-around items-start gap-10 max-md:gap-2">
         {products.map((product) =>
           product.image_link ? (
             <li
               key={product.id}
-              className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[500px] max-md:max-w-[200px] max-md:min-h-[450px]"
+              className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[500px] max-md:max-w-[170px] max-md:min-h-[350px] max-md:m-0"
               onClick={() => setProduct(product)}
             >
               <img
                 src={product.image_link}
                 alt={product.name}
-                className="w-40 h-40 object-cover mx-auto mb-4"
+                className="w-40 h-40 object-cover mx-auto mb-4 max-md:w-20 max-md:h-20"
               />
               <Link to="/product">
                 {" "}
                 <h3 className="text-xl font-semibold mb-2 cursor-pointer hover:underline max-md:text-base">
-                  {product.name}
+                  {product.name
+                    ? product.name.slice(0, 50) + "..."
+                    : product.name}
                 </h3>
               </Link>
 
@@ -229,6 +231,7 @@ function Products() {
           ) : null
         )}
       </ul>
+
       <div ref={pleaseRef}>
         {show && (
           <>
