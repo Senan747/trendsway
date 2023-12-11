@@ -78,6 +78,7 @@ function Products() {
   }, [location.pathname, type, category, tag, brandName, PGT, PLT, RGT, RLT]);
 
   const handleProductClick = ({ product, e }) => {
+    console.log("senan");
     if (userData !== null) {
       setProductData((prevData) => [...prevData, product]);
       handleNotfication();
@@ -171,72 +172,72 @@ function Products() {
       ) : null}
       <ul className="flex flex-wrap flex-row justify-around items-start gap-10 max-md:gap-2">
         {products.length > 0 ? (
-          products.map((product) =>
-            product.image_link ? (
-              <li
-                key={product.id}
-                className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[400px] max-md:max-w-[170px] max-md:min-h-[300px] max-md:m-0 relative -z-10"
-                onClick={() => setProduct(product)}
-              >
-                <img
-                  src={product.image_link}
-                  alt={product.name}
-                  className="w-40 h-40 object-cover mx-auto mb-4 max-md:w-20 max-md:h-20"
-                />
-                <Link to="/product">
-                  {" "}
-                  <h3 className="text-xl font-semibold mb-2 cursor-pointer hover:underline max-md:text-sm">
-                    {product.name
-                      ? product.name.slice(0, 40) + "..."
-                      : product.name}
-                  </h3>
-                </Link>
+          products.map(
+            (product) =>
+              product.image_link && (
+                <li
+                  key={product.id}
+                  className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[400px] max-md:max-w-[170px] max-md:min-h-[300px] max-md:m-0 relative z-0"
+                  onClick={() => setProduct(product)}
+                >
+                  <img
+                    src={product.image_link}
+                    alt={product.name}
+                    className="w-40 h-40 object-cover mx-auto mb-4 max-md:w-20 max-md:h-20"
+                  />
+                  <Link to="/product">
+                    {" "}
+                    <h3 className="text-xl font-semibold mb-2 cursor-pointer hover:underline max-md:text-sm">
+                      {product.name
+                        ? product.name.slice(0, 40) + "..."
+                        : product.name}
+                    </h3>
+                  </Link>
 
-                <p className="text-gray-600 mb-2 max-md:text-xs">
-                  {product.description
-                    ? product.description.slice(0, 30) + "..."
-                    : product.description}
-                </p>
-                <div className="flex-end">
-                  <ul className="flex space-x-1">
-                    {handleRating(product.rating)}
-                    <Stars />
-                  </ul>
-                  <div className="text-lg font-semibold flex flex-row">
-                    <p className="mr-1">{product.price}</p>
-                    <p>
-                      {product.price_sign === null ? "$" : product.price_sign}
-                    </p>
-                  </div>
-
-                  <div className="flex flex-row items-end justify-between">
-                    <ul className="flex flex-wrap space-x-2 max-h-6 overflow-auto">
-                      {product.product_colors.map((color) => (
-                        <li
-                          className="w-6 h-6 rounded-full"
-                          style={{ backgroundColor: color.hex_value }}
-                          title={color.colour_name}
-                        />
-                      ))}
+                  <p className="text-gray-600 mb-2 max-md:text-xs">
+                    {product.description
+                      ? product.description.slice(0, 30) + "..."
+                      : product.description}
+                  </p>
+                  <div className="flex-end">
+                    <ul className="flex space-x-1">
+                      {handleRating(product.rating)}
+                      <Stars />
                     </ul>
-                    <div
-                      className="rounded-[100%] min-w-[50px] h-[50px] absolute bottom-0 right-0 flex items-center justify-center hover:bg-gega-light-grey duration-300 cursor-pointer"
-                      onClick={(e) => {
-                        handleProductClick({ product, e });
-                      }}
-                    >
-                      <SlBasket className="text-xl w-full" />
+                    <div className="text-lg font-semibold flex flex-row">
+                      <p className="mr-1">{product.price}</p>
+                      <p>
+                        {product.price_sign === null ? "$" : product.price_sign}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-row items-end justify-between">
+                      <ul className="flex flex-wrap space-x-2 max-h-6 overflow-auto">
+                        {product.product_colors.map((color) => (
+                          <li
+                            className="w-6 h-6 rounded-full"
+                            style={{ backgroundColor: color.hex_value }}
+                            title={color.colour_name}
+                          />
+                        ))}
+                      </ul>
+                      <div
+                        className="rounded-[100%] min-w-[50px] h-[50px] cursor-pointer absolute bottom-0 right-0 flex items-center justify-center hover:bg-gega-light-grey duration-300"
+                        onClick={(e) => {
+                          handleProductClick({ product, e });
+                        }}
+                      >
+                        <SlBasket className="text-xl w-full cursor-pointer" />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-            ) : null
+                </li>
+              )
           )
         ) : (
           <div className="m-40">
-             <RingLoader />
+            <RingLoader />
           </div>
-         
         )}
       </ul>
 

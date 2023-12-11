@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useUserData } from "../UserDataContext";
 
@@ -14,11 +14,34 @@ function HomburgerMenu() {
     setLastMenu(true);
   };
 
+  const handleCloseMenu = () => {
+    setShowHomburger(false);
+    setActiveMenu("");
+    setMainMenu(true);
+    setLastMenu(false);
+  };
 
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+     
+      if (
+        showHomburger &&
+        !document.getElementById("homburgerMenu").contains(event.target)
+      ) {
+        handleCloseMenu();
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [showHomburger]); 
   return (
     <>
       {showHomburger && (
-        <div className="fixed min-w-[300px] h-screen bg-gega-soft top-0 animate-pulse">
+        <div className="fixed min-w-[300px] h-screen bg-gega-soft top-0 animate-pulse z-20">
           {mainMenu ? (
             <div className=" md:max-w-full md:ml-5 bg-cover flex flex-row items-center justify-between">
               <img
