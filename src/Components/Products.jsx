@@ -20,49 +20,36 @@ function Products() {
   const { type } = useParams();
   const { tag } = useParams();
   const { brandName } = useParams();
-  const [PGT, setPGT] = useState();
-  const [PLT, setPLT] = useState();
-  const [RGT, setRGT] = useState();
-  const [RLT, setRLT] = useState();
+  const [PGT, setPGT] = useState("");
+  const [PLT, setPLT] = useState("");
+  const [RGT, setRGT] = useState("");
+  const [RLT, setRLT] = useState("5");
 
   useEffect(() => {
     let url;
 
     switch (true) {
       case location.pathname === "/rating":
-        url = `http://makeup-api.herokuapp.com/api/v1/products.json?`;
+        url = `http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=${RLT}&price_greater_than=${PGT}&price_less_than=${PLT}&rating_greater_than=${RGT}`;
         break;
       case location.pathname.includes(category):
-        url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_category=${category}`;
+        url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_category=${category}&rating_less_than=${RLT}&price_greater_than=${PGT}&price_less_than=${PLT}&rating_greater_than=${RGT}`;
         break;
       case location.pathname.includes(tag):
-        url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_tags=${tag}`;
+        url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&product_tags=${tag}&rating_less_than=${RLT}&price_greater_than=${PGT}&price_less_than=${PLT}&rating_greater_than=${RGT}`;
         break;
       case location.pathname.includes(type):
-        url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}`;
+        url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=&product_type=${type}&rating_less_than=${RLT}&price_greater_than=${PGT}&price_less_than=${PLT}&rating_greater_than=${RGT}`;
         break;
       case location.pathname.includes(brandName):
-        url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brandName}`;
+        url = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brandName}&rating_less_than=${RLT}&price_greater_than=${PGT}&price_less_than=${PLT}&rating_greater_than=${RGT}`;
         break;
       case location.pathname === "/":
-        url = `http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=5`;
+        url = `http://makeup-api.herokuapp.com/api/v1/products.json?rating_less_than=${RLT}&price_greater_than=${PGT}&price_less_than=${PLT}&rating_greater_than=${RGT}`;
         break;
       default:
         url = "";
         break;
-    }
-
-    if (PGT) {
-      url += `&price_greater_than=${PGT}`;
-    }
-    if (PLT) {
-      url += `&price_less_than=${PLT}`;
-    }
-    if (RGT) {
-      url += `&rating_greater_than=${RGT}`;
-    }
-    if (RLT) {
-      url += `&rating_less_than=${RLT}`;
     }
 
     fetch(url)
@@ -75,10 +62,10 @@ function Products() {
           : setProducts(data.slice(0, 8));
       })
       .catch("error: ", Error);
+
   }, [location.pathname, type, category, tag, brandName, PGT, PLT, RGT, RLT]);
 
   const handleProductClick = ({ product, e }) => {
-    console.log("senan");
     if (userData !== null) {
       setProductData((prevData) => [...prevData, product]);
       handleNotfication();
@@ -113,7 +100,7 @@ function Products() {
   };
 
   return (
-    <div className="mx-auto flex flex-col items-center pt-[30px]">
+    <div className="mx-auto flex flex-col items-center pt-[30px] max-md:pt-[0px] ">
       {location.pathname.includes("rating") ||
       location.pathname.includes(category) ||
       location.pathname.includes(type) ||

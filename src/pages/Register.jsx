@@ -1,38 +1,53 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserData } from "../UserDataContext";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function Register() {
   const { setUserData } = useUserData();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [data, setData] = useState([]);
-  let navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     username: "",
     password: "",
   });
+  let navigate = useNavigate();
 
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch("https://trendsway-data.onrender.com/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setUserData({ username, password });
+    setLoading(true);
+
+    try {
+      const response = await fetch(
+        "https://trendsway-data.onrender.com/users",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        setUserData({
+          username: formData.username,
+          password: formData.password,
+        });
         navigate("/");
         console.log(data);
-      });
-  }
+      } else {
+        console.error("Failed to register");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  };
 
   return (
     <div className="flex flex-row h-screen">
@@ -61,7 +76,6 @@ function Register() {
               required
               onChange={(e) => {
                 handleChange(e);
-                setUsername(e.target.value);
               }}
               className="border-b-2 w-[230px] outline-none"
             ></input>
@@ -82,15 +96,19 @@ function Register() {
               required
               onChange={(e) => {
                 handleChange(e);
-                setPassword(e.target.value);
               }}
               className="border-b-2 w-[230px] outline-none"
             ></input>
             <button
-              className=" py-2 px-5 mt-4 rounded-md text-gega-white bg-gega-rose"
+              className="py-2 px-5 mt-4 rounded-md text-gega-white bg-gega-rose w-[30%]"
               type="submit"
+              disabled={loading}
             >
-              Sign-up
+              {loading ? (
+                <CircularProgress size={20} color="inherit" />
+              ) : (
+                "Sign-up"
+              )}
             </button>
             <Link to="/login">
               <p className="underline text-gega-rose">

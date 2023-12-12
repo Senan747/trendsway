@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useUserData } from "../UserDataContext";
 import { Link, useNavigate } from "react-router-dom";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function Login() {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState(null);
   const [user, setUser] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   const { setUserData } = useUserData();
 
   const getData = () => {
@@ -23,12 +24,14 @@ function Login() {
   }, []);
 
   const handleLogin = () => {
+    setLoading(true);
     const evet = user.find(
       (user) => user.username === username && user.password === password
     );
     if (evet) {
       navigate("/");
       setLoginStatus("success");
+      setLoading(false);
       setUserData({ username, password });
     } else {
       setLoginStatus("failure");
