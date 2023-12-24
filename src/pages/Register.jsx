@@ -104,7 +104,7 @@ function Register() {
               type="submit"
               disabled={loading}
             >
-              {loading ? <ClockLoader color="#36d7b7" /> : "Sign-up"}
+              {loading ? <ClockLoader color="#fff" size={24} /> : "Sign-up"}
             </button>
             <Link to="/login">
               <p className="underline text-gega-rose">

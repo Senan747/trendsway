@@ -99,7 +99,14 @@ function Login() {
               onClick={handleLogin}
               className=" py-2 px-5 mt-4 rounded-md text-gega-white bg-gega-rose"
             >
-              {loading ? <ClockLoader color="#36d7b7" /> : "Login"}
+              {loading ? (
+                <ClockLoader
+                  color="#fff"
+                  size={24}
+                />
+              ) : (
+                <p>Login</p>
+              )}
             </button>
             <Link to="/register">
               <p className="underline text-gega-rose">Don't have an account?</p>
