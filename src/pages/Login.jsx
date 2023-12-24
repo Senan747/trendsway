@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useUserData } from "../UserDataContext";
 import { Link, useNavigate } from "react-router-dom";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { ClockLoader } from "react-spinners";
 
 function Login() {
   const navigate = useNavigate();
@@ -99,7 +99,7 @@ function Login() {
               onClick={handleLogin}
               className=" py-2 px-5 mt-4 rounded-md text-gega-white bg-gega-rose"
             >
-              Login
+              {loading ? <ClockLoader color="#36d7b7" /> : "Login"}
             </button>
             <Link to="/register">
               <p className="underline text-gega-rose">Don't have an account?</p>

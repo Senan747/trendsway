@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUserData } from "../UserDataContext";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { ClockLoader } from "react-spinners";
 
 function Register() {
   const { setUserData } = useUserData();
@@ -104,11 +104,7 @@ function Register() {
               type="submit"
               disabled={loading}
             >
-              {loading ? (
-                <CircularProgress size={20} color="inherit" />
-              ) : (
-                "Sign-up"
-              )}
+              {loading ? <ClockLoader color="#36d7b7" /> : "Sign-up"}
             </button>
             <Link to="/login">
               <p className="underline text-gega-rose">
