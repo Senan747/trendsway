@@ -8,11 +8,11 @@ function Menu() {
   };
 
   return (
-    <div className="max-w-screen pt-24 bg-white">
+    <div className="max-w-screen pt-24 bg-white z-20">
       <ul className="max-w-screen flex flex-row flex-wrap justify-around border-b-2 border-gega-rose max-xl:border-none gap-5 max-sm:gap-2">
         <div>
           <li
-            className="flex flex-col items-center cursor-pointer max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center cursor-pointer max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px] z-20"
             onMouseEnter={() => dropDown("blush")}
             onMouseLeave={() => dropDown("")}
           >
@@ -99,7 +99,7 @@ function Menu() {
         <div>
           {" "}
           <li
-            className="flex flex-col items-center justify-center cursor-pointer max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center justify-center cursor-pointer max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px] z-20"
             onMouseEnter={() => dropDown("nail-polish")}
             onMouseLeave={() => dropDown("")}
           >
@@ -163,7 +163,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px] z-20"
             onMouseEnter={() => dropDown("mascara")}
             onMouseLeave={() => dropDown("")}
           >
@@ -241,7 +241,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px] z-20"
             onMouseEnter={() => dropDown("lipstick")}
             onMouseLeave={() => dropDown("")}
           >
@@ -344,7 +344,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px] z-20"
             onMouseEnter={() => dropDown("lip-liner")}
             onMouseLeave={() => dropDown("")}
           >
@@ -419,7 +419,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px] z-20"
             onMouseEnter={() => dropDown("foundation")}
             onMouseLeave={() => dropDown("")}
           >
@@ -539,7 +539,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px] z-20"
             onMouseEnter={() => dropDown("eyeshadow")}
             onMouseLeave={() => dropDown("")}
           >
@@ -636,7 +636,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px] z-20"
             onMouseEnter={() => dropDown("eyeliner")}
             onMouseLeave={() => dropDown("")}
           >
@@ -724,7 +724,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px] z-20"
             onMouseEnter={() => dropDown("eyebrow")}
             onMouseLeave={() => dropDown("")}
           >
@@ -772,7 +772,7 @@ function Menu() {
 
         <div>
           <li
-            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px]"
+            className="flex flex-col items-center max-md:hover:border-2 border-gega-earth-red max-xl:hidden p-1 animate-pulse rounded-[10px] z-20"
             onMouseEnter={() => dropDown("bronzer")}
             onMouseLeave={() => dropDown("")}
           >

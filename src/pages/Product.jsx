@@ -37,20 +37,22 @@ function Product() {
               ))}
             </div>
             <a href={product.product_link} className="">
-              <button className="mt-10 bg-gega-pink text-gega-white px-16 py-2 rounded-lg">
+              <button className="mt-10 bg-gega-pink text-gega-white px-16 py-2 max-md:px-8 max-md:py-1 rounded-lg">
                 Buy
               </button>
             </a>
           </div>
         </div>
-        <div className="p-10 text-justify">
+        <div className="p-10 text-justify max-md:p-2">
           <h1 className="text-center text-lg font-semibold underline">
             Description
           </h1>
           <p>{product.description}</p>
           <ul className="pl-8 pt-5">
-            {product.tag_list.map((tag) => (
-              <li className="list-disc">{tag}</li>
+            {product.tag_list.map((tag, index) => (
+              <li className="list-disc" key={index}>
+                {tag}
+              </li>
             ))}
           </ul>
           <div className="flex flex-row mt-5">

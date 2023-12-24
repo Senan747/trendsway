@@ -12,31 +12,45 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const { setUserData } = useUserData();
 
-  const getData = () => {
-    fetch("https://trendsway-data.onrender.com/users")
-      .then((response) => response.json())
-      .then((result) => setUser(result))
-      .catch((error) => console.log("error", error));
-  };
-
   useEffect(() => {
-    getData();
-  }, []);
+    const getData = async () => {
+      try {
+        const response = await fetch(
+          "https://trendsway-data.onrender.com/users"
+        );
+        const result = await response.json();
+        setUser(result);
+      } catch (error) {
+        console.log("error", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (loading) {
+      getData();
+    }
+  }, [loading]);
 
   const handleLogin = () => {
     setLoading(true);
-    const evet = user.find(
-      (user) => user.username === username && user.password === password
-    );
-    if (evet) {
-      navigate("/");
-      setLoginStatus("success");
-      setLoading(false);
-      setUserData({ username, password });
-    } else {
-      setLoginStatus("failure");
-    }
   };
+
+  useEffect(() => {
+    if (user && user.length > 0) {
+      const isValidUser = user.some(
+        (u) => u.username === username && u.password === password
+      );
+
+      if (isValidUser) {
+        navigate("/");
+        setLoginStatus("success");
+        setUserData({ username, password });
+      } else {
+        setLoginStatus("failure");
+      }
+    }
+  }, [user, username, password]);
 
   return (
     <div className="flex flex-row h-screen">

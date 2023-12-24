@@ -62,7 +62,6 @@ function Products() {
           : setProducts(data.slice(0, 8));
       })
       .catch("error: ", Error);
-
   }, [location.pathname, type, category, tag, brandName, PGT, PLT, RGT, RLT]);
 
   const handleProductClick = ({ product, e }) => {
@@ -100,15 +99,15 @@ function Products() {
   };
 
   return (
-    <div className="mx-auto flex flex-col items-center pt-[30px] max-md:pt-[0px] ">
+    <div className="mx-auto flex flex-col items-center pt-[30px] max-md:pt-[0px] z-0">
       {location.pathname.includes("rating") ||
       location.pathname.includes(category) ||
       location.pathname.includes(type) ||
       location.pathname.includes(tag) ||
       location.pathname.includes("result") ? (
-        <div className="flex flex-row flex-wrap gap-5 w-full max-md:w-full justify-around items-center mb-[50px] ">
-          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft max-md:w-[300px] rounded-[5px]">
-            <p>price greater than</p>
+        <div className="flex flex-row gap-5 w-[90%] overflow-auto items-center mb-[50px] ">
+          <div className="flex flex-row justify-around items-center px-4 py-2 bg-gega-soft w-[50%] rounded-[5px]">
+            <p className="max-md:text-xs">price greater than</p>
             <input
               type="number"
               className="w-[60px] ml-2 p-1 rounded-[5px]"
@@ -116,8 +115,8 @@ function Products() {
               onChange={(e) => setPGT(e.target.value)}
             />
           </div>
-          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft max-md:w-[300px] rounded-[5px]">
-            <p>price less than</p>
+          <div className="flex flex-row justify-around items-center px-4 py-2 bg-gega-soft w-[50%] rounded-[5px]">
+            <p className="max-md:text-xs">price less than</p>
             <input
               type="number"
               className="w-[60px] ml-2 p-1 rounded-[5px]"
@@ -125,8 +124,8 @@ function Products() {
               onChange={(e) => setPLT(e.target.value)}
             />
           </div>
-          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft max-md:w-[300px] rounded-[5px]">
-            <p>rating greater than</p>
+          <div className="flex flex-row justify-around items-center px-4 py-2 bg-gega-soft w-[50%] rounded-[5px]">
+            <p className="max-md:text-xs">rating greater than</p>
             <select
               name=""
               id=""
@@ -140,8 +139,8 @@ function Products() {
               <option value="4">4</option>
             </select>
           </div>
-          <div className="flex flex-row justify-around items-center flex-wrap px-4 py-2 bg-gega-soft max-md:w-[300px] rounded-[5px]">
-            <p>rating less than</p>
+          <div className="flex flex-row justify-around items-center px-4 py-2 bg-gega-soft w-[50%] rounded-[5px]">
+            <p className="max-md:text-xs">rating less than</p>
             <select
               name=""
               id=""
@@ -164,7 +163,7 @@ function Products() {
               product.image_link && (
                 <li
                   key={product.id}
-                  className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[400px] max-md:max-w-[170px] max-md:min-h-[300px] max-md:m-0 relative z-0"
+                  className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[400px] max-md:max-w-[170px] max-md:min-h-[300px] max-md:m-0"
                   onClick={() => setProduct(product)}
                 >
                   <img
@@ -199,9 +198,10 @@ function Products() {
                     </div>
 
                     <div className="flex flex-row items-end justify-between">
-                      <ul className="flex flex-wrap space-x-2 max-h-6 overflow-auto">
-                        {product.product_colors.map((color) => (
+                      <ul className="flex flex-wrap space-x-2 max-h-6 overflow-hidden">
+                        {product.product_colors.map((color, index) => (
                           <li
+                            key={index}
                             className="w-6 h-6 rounded-full"
                             style={{ backgroundColor: color.hex_value }}
                             title={color.colour_name}
@@ -209,7 +209,7 @@ function Products() {
                         ))}
                       </ul>
                       <div
-                        className="rounded-[100%] min-w-[50px] h-[50px] cursor-pointer absolute bottom-0 right-0 flex items-center justify-center hover:bg-gega-light-grey duration-300"
+                        className="rounded-[100%] min-w-[50px] h-[50px] cursor-pointer relative bottom-0 right-0 flex items-center justify-center hover:bg-gega-light-grey duration-300"
                         onClick={(e) => {
                           handleProductClick({ product, e });
                         }}
@@ -223,6 +223,7 @@ function Products() {
           )
         ) : (
           <div className="m-40">
+            no data
             <RingLoader />
           </div>
         )}
@@ -232,10 +233,10 @@ function Products() {
         {show && (
           <>
             <div
-              className="fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-10"
+              className="fixed top-0 left-50 h-screen bg-black opacity-50"
               onClick={() => setShow(false)}
             />
-            <div className="fixed top-0 left-0 flex items-center justify-center w-screen h-screen z-20">
+            <div className="fixed top-0 left-0 flex items-center justify-center w-screen h-screen ">
               <div className="bg-gega-light">
                 <Please />
               </div>
@@ -246,7 +247,7 @@ function Products() {
 
       <div>
         {showNotification && (
-          <div className="fixed top-0 left-0 w-screen h-[90vh] flex items-end justify-center z-20">
+          <div className="fixed top-0 left-50 h-[90vh] flex items-end justify-center ">
             <div className="w-[300px] bg-gega-rose text-gega-white text-xl text-center py-3 rounded-lg animate-pulse">
               Product was added to basket
             </div>
