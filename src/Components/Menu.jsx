@@ -173,8 +173,8 @@ function Menu() {
                   <img
                     src="/mascara.png"
                     alt=""
-                    className
-                    text-center="w-full h-full"
+                 
+                    className="w-full h-full"
                   />
                 </div>
                 <p className="text-center max-sm:text-sm">Mascara</p>
@@ -251,9 +251,7 @@ function Menu() {
                   <img
                     src="/lipstick.png"
                     alt=""
-                    classNam
-                    text-center
-                    e="w-full h-full"
+                    className="w-full h-full"
                   />
                 </div>
                 <p className="text-center max-sm:text-sm">Lipstick</p>
@@ -354,9 +352,7 @@ function Menu() {
                   <img
                     src="/lipliner.png"
                     alt=""
-                    classNam
-                    text-center
-                    e="w-full h-full"
+                    className="w-full h-full"
                   />
                 </div>
                 <p className="text-center max-sm:text-sm">Lip liner</p>
@@ -430,9 +426,7 @@ function Menu() {
                   <img
                     src="/foundation.png"
                     alt=""
-                    classN
-                    text-center
-                    ame="w-full h-full"
+                    className="w-full h-full"
                   />
                 </div>
                 <p className="text-center max-sm:text-sm">Foundation</p>
@@ -550,9 +544,7 @@ function Menu() {
                   <img
                     src="/eyeshadow.png"
                     alt=""
-                    classNa
-                    text-center
-                    me="w-full h-full"
+                    className="w-full h-full"
                   />
                 </div>
                 <p className="text-center max-sm:text-sm">Eyeshadow</p>
@@ -646,9 +638,7 @@ function Menu() {
                   <img
                     src="/eyeliner.png"
                     alt=""
-                    classNam
-                    text-center
-                    e="w-full h-full"
+                    className="w-full h-full"
                   />
                 </div>
                 <p className="text-center max-sm:text-sm">Eyeliner</p>
@@ -735,8 +725,8 @@ function Menu() {
                   <img
                     src="/eyebrow.png"
                     alt=""
-                    className
-                    text-center="w-full h-full"
+                    
+                    className="w-full h-full"
                   />
                 </div>
                 <p className="text-center max-sm:text-sm">Eyebrow</p>
@@ -755,7 +745,7 @@ function Menu() {
                     <Link to="/result/eyebrow/pencil">Pencil</Link>
                   </li>
                 </ul>
-                <ul className="">
+                <ul>
                   <li>
                     <Link to="/result/eyebrow/ewg+verified-bytag">
                       EWG verified
@@ -782,8 +772,7 @@ function Menu() {
                   <img
                     src="/bronzer.png"
                     alt=""
-                    className
-                    text-center="w-full h-full"
+                    className="w-full h-full"
                   />
                 </div>
                 <p className="text-center max-sm:text-sm">Bronzer</p>
@@ -802,7 +791,7 @@ function Menu() {
                     <Link to="/result/bronzer/powder">Powder</Link>
                   </li>
                 </ul>
-                <ul className="">
+                <ul>
                   <li>
                     <Link to="/result/bronzer/gluten+free-bytag">
                       Gluten free

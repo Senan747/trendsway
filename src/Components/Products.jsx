@@ -163,7 +163,7 @@ function Products() {
               product.image_link && (
                 <li
                   key={product.id}
-                  className="border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[400px] max-md:max-w-[170px] max-md:min-h-[300px] max-md:m-0"
+                  className=" flex flex-col justify-around border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[430px] max-md:max-w-[170px] max-md:min-h-[300px] max-md:m-0"
                   onClick={() => setProduct(product)}
                 >
                   <img
@@ -185,7 +185,7 @@ function Products() {
                       ? product.description.slice(0, 30) + "..."
                       : product.description}
                   </p>
-                  <div className="flex-end">
+                  <div className="">
                     <ul className="flex space-x-1">
                       {handleRating(product.rating)}
                       <Stars />
@@ -209,7 +209,7 @@ function Products() {
                         ))}
                       </ul>
                       <div
-                        className="rounded-[100%] min-w-[50px] h-[50px] cursor-pointer relative bottom-0 right-0 flex items-center justify-center hover:bg-gega-light-grey duration-300"
+                        className="rounded-[100%] w-[50px] h-[50px] cursor-pointer relative right-0 flex items-center justify-center hover:bg-gega-light-grey duration-300"
                         onClick={(e) => {
                           handleProductClick({ product, e });
                         }}
@@ -233,13 +233,11 @@ function Products() {
         {show && (
           <>
             <div
-              className="fixed top-0 left-50 h-screen bg-black opacity-50"
+              className="fixed top-0 left-0 h-screen w-screen bg-black opacity-50"
               onClick={() => setShow(false)}
             />
             <div className="fixed top-0 left-0 flex items-center justify-center w-screen h-screen ">
-              <div className="bg-gega-light">
-                <Please />
-              </div>
+              <Please />
             </div>
           </>
         )}

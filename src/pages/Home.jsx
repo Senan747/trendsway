@@ -11,7 +11,7 @@ function Home() {
   return (
     <div className="">
       <Navbar />
-      <Menu />
+      <Menu /> 
       <HomburgerMenu />
       <HomeDesignPart />
       <Products />
