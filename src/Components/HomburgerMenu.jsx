@@ -22,28 +22,35 @@ function HomburgerMenu() {
   };
 
   useEffect(() => {
-    const handleOutsideClick = (event) => {
-     
-      if (
-        showHomburger &&
-        !document.getElementById("homburgerMenu").contains(event.target)
-      ) {
-        handleCloseMenu();
-      }
-    };
+    if (showHomburger == true) {
+      const handleOutsideClick = (event) => {
+        if (
+          showHomburger &&
+          document.getElementById("homburgerMenu").contains(event.target)
+        ) {
+          handleCloseMenu();
+        }
+      };
 
-    document.addEventListener("click", handleOutsideClick);
+      document.addEventListener("click", handleOutsideClick);
 
-    return () => {
-      document.removeEventListener("click", handleOutsideClick);
-    };
-  }, [showHomburger]); 
+      return () => {
+        document.removeEventListener("click", handleOutsideClick);
+      };
+    }
+  }, [showHomburger]);
   return (
     <>
       {showHomburger && (
-        <div className="fixed min-w-[300px] h-screen bg-gega-soft top-0 animate-pulse z-20">
+        <div
+          id="homburgerMenu"
+          className="fixed min-w-[300px] h-screen bg-gega-soft top-0 animate-pulse z-20"
+        >
           {mainMenu ? (
-            <div className=" md:max-w-full md:ml-5 bg-cover flex flex-row items-center justify-between">
+            <div
+              className=" md:max-w-full md:ml-5 bg-cover flex flex-row items-center justify-between"
+              // id="homburgerMenu"
+            >
               <img
                 src="/logo.png"
                 alt=""
@@ -153,11 +160,7 @@ function HomburgerMenu() {
             <ul>
               <li>
                 {activeMenu === "blush" && (
-                  <div
-                    className="flex items-start justify-start border-2 animate-pulse p-6"
-                    onMouseEnter={() => activeMenu("blush")}
-                    onMouseLeave={() => activeMenu("")}
-                  >
+                  <div className="flex items-start justify-start border-2 animate-pulse p-6">
                     <div className=" flex flex-row">
                       <ul className="flex flex-col mr-10 gap-4 ">
                         <li>
@@ -225,11 +228,7 @@ function HomburgerMenu() {
               </li>
               <li>
                 {activeMenu === "nail-polish" && (
-                  <div
-                    className="flex items-start justify-start border-2 p-6 animate-pulse"
-                    onMouseEnter={() => activeMenu("nail-polish")}
-                    onMouseLeave={() => activeMenu("")}
-                  >
+                  <div className="flex items-start justify-start border-2 p-6 animate-pulse">
                     <div className="flex flex-row">
                       <ul className="flex flex-col mr-10 gap-4">
                         <li>
@@ -279,11 +278,7 @@ function HomburgerMenu() {
               </li>
               <li>
                 {activeMenu === "mascara" && (
-                  <div
-                    className="flex items-start justify-start border-2 animate-pulse p-6"
-                    onMouseEnter={() => activeMenu("mascara")}
-                    onMouseLeave={() => activeMenu("")}
-                  >
+                  <div className="flex items-start justify-start border-2 animate-pulse p-6">
                     <div className="flex flex-row">
                       <ul className="flex flex-col mr-10 gap-4">
                         <li>
@@ -351,11 +346,7 @@ function HomburgerMenu() {
               </li>
               <li>
                 {activeMenu === "lipstick" && (
-                  <div
-                    className="flex items-start justify-start border-2 animate-pulse p-6"
-                    onMouseEnter={() => activeMenu("lipstick")}
-                    onMouseLeave={() => activeMenu("")}
-                  >
+                  <div className="flex items-start justify-start border-2 animate-pulse p-6">
                     <div className="flex flex-row">
                       <ul className="flex flex-col mr-10 gap-4">
                         <li>
@@ -447,11 +438,7 @@ function HomburgerMenu() {
               </li>
               <li>
                 {activeMenu === "lip-liner" && (
-                  <div
-                    className="flex items-start justify-start border-2 animate-pulse p-6"
-                    onMouseEnter={() => activeMenu("lip-liner")}
-                    onMouseLeave={() => activeMenu("")}
-                  >
+                  <div className="flex items-start justify-start border-2 animate-pulse p-6">
                     <div className="flex flex-row">
                       <ul className="flex flex-col mr-10 gap-4">
                         <li>
@@ -509,11 +496,7 @@ function HomburgerMenu() {
               </li>
               <li>
                 {activeMenu === "foundation" && (
-                  <div
-                    className="flex items-start justify-start border-2 animate-pulse p-6"
-                    onMouseEnter={() => activeMenu("foundation")}
-                    onMouseLeave={() => activeMenu("")}
-                  >
+                  <div className="flex items-start justify-start border-2 animate-pulse p-6">
                     <div className="flex flex-row">
                       <ul className="flex flex-col mr-10 gap-4">
                         <li>
@@ -621,11 +604,7 @@ function HomburgerMenu() {
               </li>
               <li>
                 {activeMenu === "eyeshadow" && (
-                  <div
-                    className="flex items-start justify-start border-2 animate-pulse p-6"
-                    onMouseEnter={() => activeMenu("eyeshadow")}
-                    onMouseLeave={() => activeMenu("")}
-                  >
+                  <div className="flex items-start justify-start border-2 animate-pulse p-6">
                     <div className="flex flex-row">
                       <ul className="flex flex-col mr-10 gap-4">
                         <li>
@@ -710,11 +689,7 @@ function HomburgerMenu() {
               </li>
               <li>
                 {activeMenu === "eyeliner" && (
-                  <div
-                    className="flex items-start justify-start border-2 animate-pulse p-6"
-                    onMouseEnter={() => activeMenu("eyeliner")}
-                    onMouseLeave={() => activeMenu("")}
-                  >
+                  <div className="flex items-start justify-start border-2 animate-pulse p-6">
                     <div className="flex flex-row">
                       <ul className="flex flex-col mr-10 gap-4">
                         <li>
@@ -791,11 +766,7 @@ function HomburgerMenu() {
               </li>
               <li>
                 {activeMenu === "eyebrow" && (
-                  <div
-                    className="flex items-start justify-start border-2 animate-pulse p-6"
-                    onMouseEnter={() => activeMenu("eyebrow")}
-                    onMouseLeave={() => activeMenu("")}
-                  >
+                  <div className="flex items-start justify-start border-2 animate-pulse p-6">
                     <div className="flex flex-row">
                       <ul className="flex flex-col gap-4 pr-3">
                         <li>
@@ -820,11 +791,7 @@ function HomburgerMenu() {
               </li>
               <li>
                 {activeMenu === "bronzer" && (
-                  <div
-                    className="flex items-start justify-start border-2 animate-pulse p-6"
-                    onMouseEnter={() => activeMenu("bronzer")}
-                    onMouseLeave={() => activeMenu("")}
-                  >
+                  <div className="flex items-start justify-start border-2 animate-pulse p-6">
                     <div className="flex flex-row">
                       <ul className="flex flex-col pr-3 gap-4">
                         <li>

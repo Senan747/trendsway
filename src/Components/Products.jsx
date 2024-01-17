@@ -6,6 +6,7 @@ import Please from "./Please";
 import { useUserData } from "../UserDataContext";
 import Stars from "./Stars";
 import { RingLoader } from "react-spinners";
+import { motion } from "framer-motion";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -163,14 +164,21 @@ function Products() {
               product.image_link && (
                 <li
                   key={product.id}
-                  className=" flex flex-col justify-around border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[430px] max-md:max-w-[170px] max-md:min-h-[300px] max-md:m-0"
+                  className=" flex flex-col justify-around border p-4 mb-10 rounded-lg shadow-md max-w-[300px] min-h-[500px] max-md:max-w-[170px] max-md:min-h-[330px] max-md:m-0"
                   onClick={() => setProduct(product)}
                 >
-                  <img
-                    src={product.image_link}
-                    alt={product.name}
-                    className="w-40 h-40 object-cover mx-auto mb-4 max-md:w-20 max-md:h-20"
-                  />
+                  <motion.div
+                    whileHover={{ scale: [null, 1.3, 1.2] }}
+                    transition={{ duration: 0.4 }}
+                    className="px-8 h-auto flex items-center justify-center w-full"
+                  >
+                    <img
+                      src={product.image_link}
+                      alt={product.name}
+                      className="w-full h-full object-cover mx-auto mb-4  duration-500"
+                    />
+                  </motion.div>
+
                   <Link to="/product">
                     {" "}
                     <h3 className="text-xl font-semibold mb-2 cursor-pointer hover:underline max-md:text-sm">
